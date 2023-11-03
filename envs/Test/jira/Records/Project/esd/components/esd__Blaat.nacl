@@ -1,0 +1,9 @@
+jira.ProjectComponent esd__Blaat {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "Blaat"
+  _parent = [
+    jira.Project.instance.esd,
+  ]
+  _alias = "esd:Blaat"
+}

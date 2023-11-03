@@ -1,0 +1,9 @@
+jira.ProjectComponent Alpha__Hardware_issues@uus {
+  name = "Hardware issues"
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  _parent = [
+    jira.Project.instance.Alpha,
+  ]
+  _alias = "Alpha:Hardware issues"
+}

@@ -1,0 +1,123 @@
+jira.Automation Add__project_update__Alpha@ststu {
+  name = "Add 'project update'"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 2
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "ANY_CHANGE"
+      fields = [
+        {
+          value = jira.Field.instance.Project_update__textarea__c@suuuu.name
+          type = "fieldName"
+        },
+      ]
+      actions = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.comment"
+      value = {
+        comment = "{{now.format(\"dd/MM/yyyy HH:mm\")}} - {{issue.${ jira.Field.instance.Project_update__textarea__c@suuuu.name }}}"
+        publicComment = false
+        sendNotifications = true
+        addCommentOnce = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Project_update__latest___textarea__c@ssjkuuuu.name
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+            type = "SET"
+            rawValue = "{{now.format(\"dd/MM/yyyy HH:mm\")}} - {{issue.Project update}}"
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Project_update__textarea__c@suuuu.name
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+            type = "SET"
+            rawValue = ""
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Alpha
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10011"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Add 'project update'"
+}

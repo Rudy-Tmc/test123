@@ -1,0 +1,10 @@
+jira.Field Project_members__textfield__c@suuuu {
+  name = "Project members"
+  description = "Specify a comma separated list of email addresses of the project members."
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Project_members__textfield__c_suuuu_Default_Configuration_Scheme_for_Project_members@uuuuumusssss,
+  ]
+  _alias = "Project members"
+}

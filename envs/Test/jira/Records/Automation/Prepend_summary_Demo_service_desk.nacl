@@ -1,0 +1,109 @@
+jira.Automation Prepend_summary_Demo_service_desk@suss {
+  name = "Prepend summary"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 2
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "ANY_CHANGE"
+      fields = [
+        {
+          value = jira.Field.instance.Priority__priority
+          type = "field"
+        },
+      ]
+      actions = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 3
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Priority__priority
+        }
+        selectedFieldType = "priority"
+        comparison = "ONE_OF"
+        compareFieldValue = {
+          type = "ID"
+          multiValue = true
+          values = [
+            jira.Priority.instance.Blocker,
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "IMPORTANT: {{issue.summary}}"
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Demo_service_desk@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10001"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Prepend summary"
+}

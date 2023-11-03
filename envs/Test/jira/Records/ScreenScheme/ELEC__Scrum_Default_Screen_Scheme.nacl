@@ -1,0 +1,7 @@
+jira.ScreenScheme ELEC__Scrum_Default_Screen_Scheme@fssss {
+  name = "ELEC: Scrum Default Screen Scheme"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.ELEC__Scrum_Default_Issue_Screen@fssss
+  }
+}

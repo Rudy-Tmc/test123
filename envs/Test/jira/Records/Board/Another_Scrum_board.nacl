@@ -1,0 +1,41 @@
+jira.Board Another_Scrum_board@s {
+  name = "Another Scrum board"
+  type = "kanban"
+  admins = {
+    users = [
+      {
+        id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+        displayName = "Rudy Holtkamp"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Template_Kanban@s
+  }
+  filterId = jira.Filter.instance.Filter_for_Another_Scrum_board@s
+  columnConfig = {
+    columns = [
+      {
+        name = "To Do"
+        statuses = [
+          jira.Status.instance.backlog,
+          jira.Status.instance.selected_for_development@s,
+        ]
+      },
+      {
+        name = "In Progress"
+        statuses = [
+          jira.Status.instance.in_progress@s,
+        ]
+      },
+      {
+        name = "Done"
+        statuses = [
+          jira.Status.instance.done,
+        ]
+      },
+    ]
+    constraintType = "issueCount"
+  }
+  subQuery = "fixVersion in unreleasedVersions() OR fixVersion is EMPTY"
+}

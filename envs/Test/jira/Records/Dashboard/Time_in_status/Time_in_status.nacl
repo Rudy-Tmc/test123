@@ -1,0 +1,14 @@
+jira.Dashboard Time_in_status@s {
+  description = ""
+  name = "Time in status"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  gadgets = [
+    jira.DashboardGadget.instance.Time_in_status_s__unnamed_2@uumuuu,
+    jira.DashboardGadget.instance.Time_in_status_s__unnamed_1@uumuuu,
+    jira.DashboardGadget.instance.Time_in_status_s__unnamed_0@uumuuu,
+  ]
+  layout = "A"
+}

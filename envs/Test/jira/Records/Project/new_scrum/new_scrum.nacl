@@ -1,0 +1,20 @@
+jira.Project new_scrum@s {
+  key = "NS"
+  description = ""
+  name = "new scrum"
+  projectTypeKey = "software"
+  components = [
+    jira.ProjectComponent.instance.new_scrum_s__Practical_Concrete_Shoes@umuuss,
+    jira.ProjectComponent.instance.new_scrum_s__Practical_Granite_Fish@umuuss,
+    jira.ProjectComponent.instance.new_scrum_s__Sleek_Cotton_Ball@umuuss,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.NS__Software_Simplified_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.NS_software_permission_scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.NS__Scrum_Issue_Type_Screen_Scheme@fsssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.NS__Scrum_Issue_Type_Scheme@fssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

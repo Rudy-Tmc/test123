@@ -1,0 +1,9 @@
+jira.ProjectComponent test__GUI {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "GUI"
+  _parent = [
+    jira.Project.instance.test,
+  ]
+  _alias = "test:GUI"
+}

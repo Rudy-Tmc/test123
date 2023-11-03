@@ -1,0 +1,9 @@
+jira.ProjectComponent Automation_rule_test_environment_s__Email_and_Collaboration_Services@uuumuusss {
+  description = "Created by Jira Service Management"
+  assigneeType = "PROJECT_DEFAULT"
+  name = "Email and Collaboration Services"
+  _parent = [
+    jira.Project.instance.Automation_rule_test_environment@s,
+  ]
+  _alias = "Automation rule test environment:Email and Collaboration Services"
+}

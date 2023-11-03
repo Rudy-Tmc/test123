@@ -1,0 +1,8 @@
+jira.Filter test_onegini_one_board_for_service_desk_and_other_issues@s {
+  name = "test onegini one board for service desk and other issues"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  jql = "${ jira.Field.instance.Project__project } = ${ jira.Project.instance.Automation_rule_test_environment@s.key } OR ${ jira.Field.instance.Project__project } = \"Demo service desk\" AND ${ jira.Field.instance.Issue_Type__issuetype@suu } = \"${ jira.IssueType.instance.IT_Help@s.name }\" AND ${ jira.Field.instance.Resolution__resolution } = Unresolved ORDER BY ${ jira.Field.instance.Rank__gh_lexo_rank__c@uubbuu.name } ASC"
+}

@@ -1,0 +1,52 @@
+jira.DashboardGadget JSD_Demo_s__Custom_Charts_Simple_Search_1_0@umuusssuu {
+  moduleKey = "com.atlassian.plugins.atlassian-connect-plugin:com.oldstreetsolutions.atlassian.jira.custom-charts__simple-search-dashboard-item"
+  color = "blue"
+  position = {
+    row = 0
+    column = 1
+  }
+  title = "Custom Charts Simple Search"
+  properties = [
+    {
+      key = "params"
+      values = [
+        {
+          key = "id"
+          value = "BwEQrAzA7AQkA"
+        },
+        {
+          key = "isTabsEnabled"
+          value = false
+        },
+        {
+          key = "displayOptions"
+          value = "N4IgzgFg9g7gggEwQMQJYFMA2CBCBXAFwKgDsQAuAgJz3QBoQF0wBjK1ABwNVIAUowqbqQogcUIlAC2IBpFgB5Kkyo4AngBEqUDglhlKNeuGgwAyqikdM6M+gCGVFhA3M2nYQeq0GCRwGsAWSgmCgAze0wwdABfIA"
+        },
+        {
+          key = "tabs"
+          value = "NobwRAZglgpgNgEwM5gFyjFBawGMCuSALgPYC208CA+gIwAMjATGADRgB2AhmTDgPIAnAOZcOUAF5ciUEhxTsSABxlyU6ALrsCxcgDkefVGDaYkAZS4A3GNlRFB+GOygX4MXEVtoHTgL6s4Fg4rkhORACeSnzs3Lw4AJJIYTAABJHRpq6WNna+zniEpGQG8cZZbnAeXnmOMAFBdmDE0oSmcUZg5kStCmY53vZ12kX6hjgV5u6eg-kNmE1cyVDCHDAxnOPGAILLq+uT1rPDhbolWyYuldXH-oELOF4AHkTtFwDCcj1Q8ukwL4AyAlMOmKpU6h1yPhO2WmNShTnYz1e5T8WjAACsAI5wCbsWxQIgAKWxaAgXDgSAKMiIVRwABUuAAjVK0UwkQQIGCCABCETQ4AynQAIgBRczvMB+VFAA"
+        },
+        {
+          key = "title"
+          value = "Q"
+        },
+        {
+          key = "titleAlignment"
+          value = "DIUQYgKkA"
+        },
+        {
+          key = "version"
+          value = "2"
+        },
+        {
+          key = "limitResults"
+          value = "N4IgVgjgNiBcIAcBOB7MBTAxgFwAQEkA5XACgB0QARAUQFkB5CgShABoRsBPBdOEABQBK9AFLUAwgBUAym0SoMOAM5wA2qADW6TnxoM5AOwCGAW17xK6EylxL0SAG4BLTOlwATdEo25Se+iwAvgC6gUA"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.JSD_Demo@s,
+  ]
+  _alias = "Custom Charts Simple Search"
+}

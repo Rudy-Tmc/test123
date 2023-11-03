@@ -1,0 +1,7 @@
+jira.ScreenScheme DLV__Kanban_Bug_Screen_Scheme@fssss {
+  name = "DLV: Kanban Bug Screen Scheme"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.DLV__Kanban_Bug_Screen@fsss
+  }
+}

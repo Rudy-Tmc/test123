@@ -1,0 +1,10 @@
+jira.Field Preference_date__datepicker__c@suuuu {
+  name = "Preference date"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:daterange"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Preference_date__datepicker__c_suuuu_Default_Configuration_Scheme_for_Preference_date@uuuuumusssss,
+  ]
+  _alias = "Preference date"
+}

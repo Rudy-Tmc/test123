@@ -1,0 +1,5 @@
+jira.IssueLinkType Start____End__Gantt_@sbysshi {
+  name = "Start -> End [Gantt]"
+  inward = "start is earliest end of"
+  outward = "earliest end is start of"
+}

@@ -1,0 +1,117 @@
+jira.Automation user_changed_Alpha_Automation_rule_test_environment_Demo_service_desk_IT_service_management___template@suusssussusssbs {
+  name = "user changed"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 2
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "VALUE_ADDED"
+      fields = [
+        {
+          value = jira.Field.instance.User__userpicker__c.name
+          type = "fieldName"
+        },
+      ]
+      actions = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{fieldChange}} -  {{fieldChange.toString}} > {{fieldChange.to}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.lookup.issues"
+      value = {
+        id = "_customsmartvalue_id_1657627602336"
+        name = {
+          type = "FREE"
+          value = "lookupIssues"
+        }
+        type = "JQL"
+        query = {
+          type = "SMART"
+          value = "${ jira.Field.instance.Assignee__user } = \"{{fieldChange.toString}}\""
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{#lookupIssues}}{{key}}{{/}}"
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Alpha
+    },
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+    {
+      projectId = jira.Project.instance.Demo_service_desk@s
+    },
+    {
+      projectId = jira.Project.instance.IT_service_management___template@sssbs
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "user changed"
+}

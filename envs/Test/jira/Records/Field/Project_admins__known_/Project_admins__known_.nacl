@@ -1,0 +1,10 @@
+jira.Field Project_admins__known___multiuserpicker__c@ssjkuuuu {
+  name = "Project admins (known)"
+  description = "Select users which already have a Jira account"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:userpickergroupsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Project_admins__known___multiuserpicker__c_ssjkuuuu_Default_Configuration_Scheme_for_Project_admins__known_@uuuuuuuumussssssjk,
+  ]
+  _alias = "Project admins (known)"
+}

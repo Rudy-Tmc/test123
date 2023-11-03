@@ -1,0 +1,12 @@
+jira.Project Product_Discovery@s {
+  key = "PD"
+  description = ""
+  name = "Product Discovery"
+  projectTypeKey = "product_discovery"
+  entityId = "f7068dc6-4eff-41c8-b5ef-dcc21cff9fe2"
+  uuid = "f7068dc6-4eff-41c8-b5ef-dcc21cff9fe2"
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

@@ -1,0 +1,13 @@
+jira.DashboardGadget Risks__Release_Burndown_Chart_0_0@uussuu {
+  moduleKey = "com.atlassian.plugins.atlassian-connect-plugin:swanly-jexo-release-management__release-burndown"
+  color = "blue"
+  position = {
+    row = 0
+    column = 0
+  }
+  title = "Release Burndown Chart"
+  _parent = [
+    jira.Dashboard.instance.Risks,
+  ]
+  _alias = "Release Burndown Chart"
+}

@@ -1,0 +1,126 @@
+jira.Automation Set_board_admin@s {
+  name = "Set board admin"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groups = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1636730813353"
+        name = {
+          type = "FREE"
+          value = "auth"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "cnVkeS5ob2x0a2FtcEB0bWMubmw6N0Nud0QxSDVkUHdNT1NndDFNNFNFN0RD"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{baseurl}}/rest/greenhopper/1.0/rapidviewconfig/boardadmins"
+        headers = [
+          {
+            id = "_header_1636730520266"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1636730531527"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "custom"
+        customBody = '''
+{ 
+   "id":41,
+   "boardAdmins":
+   {
+      "userKeys":["5e300b4ce504e30cabd38652"],
+      "groupKeys":[]
+   }
+}
+'''
+        method = "PUT"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{webhookResponse.body}}"
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Set board admin"
+}

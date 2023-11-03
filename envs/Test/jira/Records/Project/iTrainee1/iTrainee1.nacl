@@ -1,0 +1,18 @@
+jira.Project iTrainee1 {
+  key = "ITRA1"
+  description = ""
+  name = "iTrainee1"
+  projectTypeKey = "business"
+  workflowScheme = jira.WorkflowScheme.instance.ITRA1__Project_Management_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.Default_Permission_Scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.ITRA1__Project_Management_Issue_Type_Screen_Scheme@fssssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.ITRA1__Project_Management_Issue_Type_Scheme@fsssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  fieldContexts = [
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__iTrainee1@uuuuumusssssfs,
+  ]
+}

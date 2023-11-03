@@ -1,0 +1,9 @@
+jira.ProjectComponent Automation_rule_test_environment_s__Intranet@uuumuu {
+  description = "Created by Jira Service Management"
+  assigneeType = "PROJECT_DEFAULT"
+  name = "Intranet"
+  _parent = [
+    jira.Project.instance.Automation_rule_test_environment@s,
+  ]
+  _alias = "Automation rule test environment:Intranet"
+}

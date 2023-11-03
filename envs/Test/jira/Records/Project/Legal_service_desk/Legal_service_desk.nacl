@@ -1,0 +1,21 @@
+jira.Project Legal_service_desk@s {
+  key = "LSD"
+  description = ""
+  name = "Legal service desk"
+  projectTypeKey = "service_desk"
+  components = [
+    jira.ProjectComponent.instance.Legal_service_desk_s__Intranet@uumuu,
+    jira.ProjectComponent.instance.Legal_service_desk_s__Jira@uumuu,
+    jira.ProjectComponent.instance.Legal_service_desk_s__Public_website@uumuus,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.Jira_Service_Desk_IT_Support_Workflow_Scheme_generated_for_Project_LSD@s
+  permissionScheme = jira.PermissionScheme.instance.Jira_Service_Desk_Permission_Scheme_for_Project_LSD@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.LSD__Jira_Service_Desk_Issue_Type_Screen_Scheme@fsssssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.LSD__Jira_Service_Desk_Issue_Type_Scheme@fssssss
+  fieldConfigurationScheme = jira.FieldConfigurationScheme.instance.Jira_Service_Desk_Field_Configuration_Scheme_for_Project_LSD@s
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

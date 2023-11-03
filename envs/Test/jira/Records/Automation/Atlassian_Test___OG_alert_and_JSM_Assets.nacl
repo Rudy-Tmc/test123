@@ -1,0 +1,258 @@
+jira.Automation Atlassian_Test___OG_alert_and_JSM_Assets@ssbsssss {
+  name = "Atlassian Test - OG alert and JSM Assets"
+  state = "ENABLED"
+  description = ""
+  authorAccountId = {
+    id = "6023a9e3c6e3d000700d40a7"
+    displayName = "Diptajeet Datta"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.incoming.webhook"
+    value = {
+      webhookToken = "b320050a1ddbc9881447f62037cdf92764cad91c"
+      searchOrProvide = "none"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{webhookdata}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{webhookdata.alert}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{webhookdata.alert.description}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1686741418589"
+        name = {
+          type = "FREE"
+          value = "AssetName"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{webhookdata.alert.description.match(\".*?Asset:\\s*(.*?)\\s*Code\")}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "AssetName: '{{AssetName}}'"
+    },
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "cmdb.object.related"
+      value = {
+        workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+        schemaId = "102"
+        schemaLabel = "Kuijpers"
+        cmdbQuery = "objecttype = Sensor and Label = \"{{AssetName}}\""
+      }
+      children = [
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "codebarrel.action.log"
+          children = [
+          ]
+          conditions = [
+          ]
+          rawValue = "{{object}} - {{object.Name}} - {{object.SLA}}"
+        },
+        {
+          component = "CONDITION"
+          schemaVersion = 1
+          type = "cmdb.condition.query"
+          value = {
+            cmdbQuery = "SLA IN (Gold, Platinum)"
+            type = "OBJECT"
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 10
+          type = "jira.issue.create"
+          value = {
+            operations = [
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Summary__string
+                }
+                fieldType = "summary"
+                type = "SET"
+                rawValue = "{{webhookdata.alert.message}}"
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Description__string
+                }
+                fieldType = "description"
+                type = "SET"
+                rawValue = "{{webhookdata.alert.description}}"
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Project__project
+                }
+                fieldType = "project"
+                type = "SET"
+                value = {
+                  type = "ID"
+                  value = jira.Project.instance.IT_service_management___template@sssbs
+                }
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Issue_Type__issuetype@suu
+                }
+                fieldType = "issuetype"
+                type = "SET"
+                value = {
+                  type = "ID"
+                  value = jira.IssueType.instance._System__Incident@his
+                }
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Priority__priority
+                }
+                fieldType = "priority"
+                type = "SET"
+                value = {
+                  type = "ID"
+                  value = jira.Priority.instance.Blocker
+                }
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Reporter__user
+                }
+                fieldType = "reporter"
+                type = "SET"
+                value = {
+                  type = "ID"
+                  value = {
+                    id = "5dd64082af96bc0efbe55103"
+                    displayName = "Alert Integration"
+                  }
+                }
+              },
+              {
+                field = {
+                  type = "NAME"
+                  value = jira.Field.instance.Asset__cmdb_object_cftype__c@uubbuu.name
+                }
+                fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                type = "SET"
+                rawValue = "key = {{object}}"
+              },
+            ]
+            advancedFields = '''
+{
+    "fields": {
+        "customfield_10010": "ismt/7d57b5fa-f046-4baf-953d-7d53c348a461"
+    }
+}
+'''
+            sendNotifications = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+    {
+      tagType = "WEBHOOK_TOKEN"
+      tagValue = "b320050a1ddbc9881447f62037cdf92764cad91c"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Atlassian Test - OG alert and JSM Assets"
+}

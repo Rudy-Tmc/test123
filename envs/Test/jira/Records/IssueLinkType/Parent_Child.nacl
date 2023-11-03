@@ -1,0 +1,5 @@
+jira.IssueLinkType Parent_Child@b {
+  name = "Parent-Child"
+  inward = "is child of"
+  outward = "is parent of"
+}

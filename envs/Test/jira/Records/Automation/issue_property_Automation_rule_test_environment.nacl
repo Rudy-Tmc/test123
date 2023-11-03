@@ -1,0 +1,143 @@
+jira.Automation issue_property_Automation_rule_test_environment@susss {
+  name = "issue property"
+  state = "DISABLED"
+  description = ""
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.jql.scheduled"
+    value = {
+      schedule = {
+        cronExpression = ""
+        method = "BASIC"
+        rate = 0
+        rateInterval = 86400
+        rRule = '''
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Amsterdam:20230110T163104
+RRULE:FREQ=WEEKLY;BYHOUR=9;BYMINUTE=0;BYSECOND=0;BYDAY=TU;INTERVAL=1
+END:VEVENT
+
+'''
+      }
+      jql = "${ jira.Field.instance.Key.name } = ARTE-70"
+      executionMode = "jql"
+      onlyUpdatedIssues = false
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 3
+              type = "jira.set.entity.property"
+              value = {
+                entityType = "ISSUE"
+                key = "startTime"
+                value = "{{now}}"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "1"
+                second = "2"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{issue.properties.startTime.toDate}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{issue.properties.startTime.toDate.diff(now).minutes}}"
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "issue property"
+}

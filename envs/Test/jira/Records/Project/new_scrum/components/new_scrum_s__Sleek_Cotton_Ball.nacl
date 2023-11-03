@@ -1,0 +1,9 @@
+jira.ProjectComponent new_scrum_s__Sleek_Cotton_Ball@umuuss {
+  name = "Sleek Cotton Ball"
+  description = "Component: Mandatory disintermediate contingency"
+  assigneeType = "PROJECT_DEFAULT"
+  _parent = [
+    jira.Project.instance.new_scrum@s,
+  ]
+  _alias = "new scrum:Sleek Cotton Ball"
+}

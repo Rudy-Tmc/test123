@@ -1,0 +1,9 @@
+jira.ProjectComponent new_scrum_s__Practical_Granite_Fish@umuuss {
+  name = "Practical Granite Fish"
+  description = "Component: Exclusive transitional focus group"
+  assigneeType = "PROJECT_LEAD"
+  _parent = [
+    jira.Project.instance.new_scrum@s,
+  ]
+  _alias = "new scrum:Practical Granite Fish"
+}

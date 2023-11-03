@@ -1,0 +1,5 @@
+jira.WorkflowScheme ITRA1__Project_Management_Workflow_Scheme@fssss {
+  name = "ITRA1: Project Management Workflow Scheme"
+  description = ""
+  defaultWorkflow = jira.Workflow.instance.ITRA1__Project_Management_Workflow@fsss
+}

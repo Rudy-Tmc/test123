@@ -1,0 +1,9 @@
+jira.CustomFieldContext Tijd_tot_eerste_reactie__sd_sla_field__c_sssuubbuu_Standaardconfiguratieschema_voor_Tijd_tot_eerste_reactie@uuuuuuuuumusssss {
+  name = "Standaardconfiguratieschema voor Tijd tot eerste reactie"
+  description = "Standaardconfiguratieschema gegenereerd door Jira"
+  isGlobalContext = true
+  _parent = [
+    jira.Field.instance.Tijd_tot_eerste_reactie__sd_sla_field__c@sssuubbuu,
+  ]
+  _alias = "Tijd tot eerste reactie context in Standaardconfiguratieschema voor Tijd tot eerste reactie"
+}

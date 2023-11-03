@@ -1,0 +1,133 @@
+jira.Automation Email_Luc__Diff_Epic_name_and_Epic_summary_Automation_rule_test_environment@sfssssssusss {
+  name = "Email Luc: Diff Epic name and Epic summary"
+  state = "DISABLED"
+  description = "Change the email address in the last action (Send email)"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "jira.issue.related"
+      value = {
+        relatedType = "jql"
+        jql = "${ jira.Field.instance.Project__project } = ${ jira.Project.instance.Automation_rule_test_environment@s.key } and ${ jira.Field.instance.Issue_Type__issuetype@suu } = ${ jira.IssueType.instance.Epic.name }"
+        linkTypes = [
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "CONDITION"
+          schemaVersion = 1
+          type = "jira.comparator.condition"
+          value = {
+            first = "{{issue.summary}}"
+            second = "{{issue.Epic Name}}"
+            operator = "NOT_EQUALS"
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "codebarrel.action.log"
+          children = [
+          ]
+          conditions = [
+          ]
+          rawValue = "{{issue.key}} - {{issue.summary}} - {{issue.Epic Name}}"
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 3
+          type = "jira.issue.outgoing.email"
+          value = {
+            fromName = ""
+            replyTo = ""
+            to = [
+              {
+                type = "FREE"
+                value = "Luc@somewhere.io"
+              },
+            ]
+            cc = [
+            ]
+            bcc = [
+            ]
+            subject = "Epic name is not equal to Epic summary"
+            body = '''
+Hi Luc,
+
+The epic name and summary of this Epic are not identical:
+
+<a href="{{issue.url}}">{{issue.key}} - {{issue.summary}} - {{issue.Epic Name}}</a>
+
+Your Robot
+'''
+            mimeType = "text/html"
+            convertLineBreaks = true
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Email Luc: Diff Epic name and Epic summary"
+}

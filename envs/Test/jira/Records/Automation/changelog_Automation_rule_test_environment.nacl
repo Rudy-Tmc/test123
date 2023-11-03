@@ -1,0 +1,69 @@
+jira.Automation changelog_Automation_rule_test_environment@usss {
+  name = "changelog"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:updated"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_updated"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{#changelog.Epic Link}}{{toString}}{{/}} {{#changelog.Parent Link}}{{toString}}{{/}}"
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "changelog"
+}

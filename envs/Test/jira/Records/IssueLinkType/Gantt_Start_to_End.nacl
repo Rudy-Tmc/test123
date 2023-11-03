@@ -1,0 +1,5 @@
+jira.IssueLinkType Gantt_Start_to_End@s {
+  name = "Gantt Start to End"
+  inward = "earliest end is start of"
+  outward = "start is earliest end of"
+}

@@ -1,0 +1,15 @@
+jira.Dashboard JSD_Demo@s {
+  description = ""
+  name = "JSD Demo"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  gadgets = [
+    jira.DashboardGadget.instance.JSD_Demo_s__Custom_Charts_0_0@umuusuu,
+    jira.DashboardGadget.instance.JSD_Demo_s__Custom_Charts_0_1@umuusuu,
+    jira.DashboardGadget.instance.JSD_Demo_s__Custom_Charts_0_2@umuusuu,
+    jira.DashboardGadget.instance.JSD_Demo_s__Custom_Charts_Simple_Search_1_0@umuusssuu,
+  ]
+  layout = "AB"
+}

@@ -1,0 +1,13 @@
+jira.DashboardGadget Custom_charts_s__Custom_Charts_1_0@umuusuu {
+  moduleKey = "com.atlassian.plugins.atlassian-connect-plugin:com.oldstreetsolutions.atlassian.jira.custom-charts__custom-chart-dashboard-item"
+  color = "blue"
+  position = {
+    row = 0
+    column = 1
+  }
+  title = "Custom Charts"
+  _parent = [
+    jira.Dashboard.instance.Custom_charts@s,
+  ]
+  _alias = "Custom Charts"
+}

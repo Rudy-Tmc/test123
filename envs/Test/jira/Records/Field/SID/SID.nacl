@@ -1,0 +1,11 @@
+jira.Field SID__cmdb_object_cftype__c@uubbuu {
+  name = "SID"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.SID__cmdb_object_cftype__c_uubbuu_Default_Configuration_Scheme_for_SID@uuuuuumussss,
+    jira.CustomFieldContext.instance.SID__cmdb_object_cftype__c_uubbuu_Incidents@uuuuuumu,
+  ]
+  _alias = "SID"
+}

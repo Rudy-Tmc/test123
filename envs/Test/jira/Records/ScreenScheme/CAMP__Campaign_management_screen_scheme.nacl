@@ -1,0 +1,8 @@
+jira.ScreenScheme CAMP__Campaign_management_screen_scheme@fssss {
+  name = "CAMP: Campaign management screen scheme"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.CAMP__Campaign_management_edit_view_issue_screen@fsssdss
+    create = jira.Screen.instance.CAMP__Campaign_management_create_issue_screen@fsssss
+  }
+}

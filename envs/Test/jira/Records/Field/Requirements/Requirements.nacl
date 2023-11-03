@@ -1,0 +1,9 @@
+jira.Field Requirements__textarea__c {
+  name = "Requirements"
+  description = ""
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+  contexts = [
+    jira.CustomFieldContext.instance.Requirements__textarea__c_Default_Configuration_Scheme_for_Requirements@uuuuussss,
+  ]
+  _alias = "Requirements"
+}

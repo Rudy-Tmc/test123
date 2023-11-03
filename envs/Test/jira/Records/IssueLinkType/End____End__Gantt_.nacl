@@ -1,0 +1,5 @@
+jira.IssueLinkType End____End__Gantt_@sbysshi {
+  name = "End -> End [Gantt]"
+  inward = "has to be finished together with"
+  outward = "has to be finished together with"
+}

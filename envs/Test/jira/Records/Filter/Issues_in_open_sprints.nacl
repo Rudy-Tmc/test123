@@ -1,0 +1,14 @@
+jira.Filter Issues_in_open_sprints@s {
+  name = "Issues in open sprints"
+  description = "Filter managed by ScriptRunner: (sprint = \"Sample Sprint\" and sprint in openSprints() and issuetype in standardIssueTypes() ) "
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  jql = "${ jira.Field.instance.Sprint__gh_sprint__c@uubuu.name } in openSprints() and ${ jira.Field.instance.Issue_Type__issuetype@suu } in standardIssueTypes() order by ${ jira.Field.instance.Rank__gh_lexo_rank__c@uubbuu.name }"
+  sharePermissions = [
+    {
+      type = "authenticated"
+    },
+  ]
+}

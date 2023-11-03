@@ -1,0 +1,9 @@
+jira.ProjectComponent test__Confluence {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "Confluence"
+  _parent = [
+    jira.Project.instance.test,
+  ]
+  _alias = "test:Confluence"
+}

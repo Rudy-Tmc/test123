@@ -1,0 +1,9 @@
+jira.ProjectComponent test__NewComp {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "NewComp"
+  _parent = [
+    jira.Project.instance.test,
+  ]
+  _alias = "test:NewComp"
+}

@@ -1,0 +1,127 @@
+jira.Automation Org___org_IT_service_management___template@sysusssbs {
+  name = "Org > org"
+  state = "ENABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.jql.scheduled"
+    value = {
+      schedule = {
+        cronExpression = ""
+        method = "BASIC"
+        rate = 0
+        rateInterval = 86400
+        rRule = '''
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Amsterdam:20220728T170548
+RRULE:FREQ=WEEKLY;BYHOUR=9;BYMINUTE=0;BYSECOND=0;BYDAY=TH;INTERVAL=1
+END:VEVENT
+
+'''
+      }
+      jql = ""
+      executionMode = "nosearch"
+      onlyUpdatedIssues = false
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.lookup.issues"
+      value = {
+        id = "_customsmartvalue_id_1659075832552"
+        name = {
+          type = "FREE"
+          value = "lookupIssues"
+        }
+        type = "JQL"
+        query = {
+          type = "SMART"
+          value = "${ jira.Field.instance.Organizations__sd_customer_organizations__c@uubbuu.name } = empty and organization is not empty"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "jira.smart.values.branch"
+      value = {
+        id = "_customsmartvalue_id_1659075845778"
+        name = {
+          type = "FREE"
+          value = "lookupIssue"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{lookupIssues}}"
+        }
+        lazy = false
+      }
+      children = [
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "codebarrel.action.log"
+          children = [
+          ]
+          conditions = [
+          ]
+          rawValue = "{{lookupIssue}} - {{lookupIssue.summary}} - {{lookupIssue.fields.customfield_10062.key}}"
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_service_management___template@sssbs
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10047"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Org > org"
+}

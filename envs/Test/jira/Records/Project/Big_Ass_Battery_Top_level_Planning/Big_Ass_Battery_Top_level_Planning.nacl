@@ -1,0 +1,15 @@
+jira.Project Big_Ass_Battery_Top_level_Planning@sssbs {
+  key = "BABTLP"
+  description = ""
+  name = "Big Ass Battery Top-level Planning"
+  projectTypeKey = "software"
+  workflowScheme = jira.WorkflowScheme.instance.BABTLP__Software_Simplified_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.Default_software_scheme___1@sssbs
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.BABTLP__Kanban_Issue_Type_Screen_Scheme@fsssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.BABTLP__Kanban_Issue_Type_Scheme@fssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

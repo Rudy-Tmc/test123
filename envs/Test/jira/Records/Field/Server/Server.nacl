@@ -1,0 +1,10 @@
+jira.Field Server__cmdb_object_cftype__c@uubbuu {
+  name = "Server"
+  description = "ismt"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Server__cmdb_object_cftype__c_uubbuu_Default_Configuration_Scheme_for_Server@uuuuuumussss,
+  ]
+  _alias = "Server"
+}

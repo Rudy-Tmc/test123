@@ -1,0 +1,81 @@
+jira.Automation Copy_cascasde_to_text_field_which_is_not_shown_on_screens_Automation_rule_test_environment@ssssssssssusss {
+  name = "Copy cascasde to text field which is not shown on screens"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groups = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Country_Customer_MachineNr__textfield__c@bbuuuu
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+            type = "SET"
+            rawValue = "{{issue.cascade1.value}}"
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Copy cascasde to text field which is not shown on screens"
+}

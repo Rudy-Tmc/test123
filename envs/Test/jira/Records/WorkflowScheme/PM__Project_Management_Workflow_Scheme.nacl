@@ -1,0 +1,5 @@
+jira.WorkflowScheme PM__Project_Management_Workflow_Scheme@fssss {
+  name = "PM: Project Management Workflow Scheme"
+  description = ""
+  defaultWorkflow = jira.Workflow.instance.PM__Project_Management_Workflow@fsss
+}

@@ -1,0 +1,9 @@
+jira.ProjectComponent Business_Project_Management_s__NewComp@uumuu {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "NewComp"
+  _parent = [
+    jira.Project.instance.Business_Project_Management@s,
+  ]
+  _alias = "Business Project Management:NewComp"
+}

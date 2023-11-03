@@ -1,0 +1,10 @@
+jira.Field Country_Customer_MachineNr__textfield__c@bbuuuu {
+  name = "Country-Customer-MachineNr"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Country_Customer_MachineNr__textfield__c_bbuuuu_Default_Configuration_Scheme_for_Country_Customer_MachineNr@uuuuuumussssbb,
+  ]
+  _alias = "Country-Customer-MachineNr"
+}

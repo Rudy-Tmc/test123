@@ -1,0 +1,4 @@
+jira.AutomationLabel worklog {
+  name = "worklog"
+  color = "T300"
+}

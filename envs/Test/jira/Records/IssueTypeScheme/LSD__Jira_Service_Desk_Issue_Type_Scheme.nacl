@@ -1,0 +1,11 @@
+jira.IssueTypeScheme LSD__Jira_Service_Desk_Issue_Type_Scheme@fssssss {
+  name = "LSD: Jira Service Desk Issue Type Scheme"
+  description = "This Jira Service Desk Issue Type Scheme was generated automatically"
+  issueTypeIds = [
+    jira.IssueType.instance.Task,
+    jira.IssueType.instance.Sub_task@b,
+    jira.IssueType.instance.Questions_for_legal@s,
+    jira.IssueType.instance.Emailed_request@s,
+    jira.IssueType.instance.Request_a_contract_review@s,
+  ]
+}

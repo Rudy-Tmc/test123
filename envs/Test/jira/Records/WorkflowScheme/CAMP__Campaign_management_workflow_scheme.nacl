@@ -1,0 +1,15 @@
+jira.WorkflowScheme CAMP__Campaign_management_workflow_scheme@fssss {
+  name = "CAMP: Campaign management workflow scheme"
+  description = ""
+  defaultWorkflow = jira.Workflow.instance.CAMP__Campaign_management_workflow@fsss
+  items = [
+    {
+      workflow = jira.Workflow.instance.CAMP__Campaign_management_workflow@fsss
+      issueType = jira.IssueType.instance.Task
+    },
+    {
+      workflow = jira.Workflow.instance.CAMP__Campaign_management_workflow@fsss
+      issueType = jira.IssueType.instance.Sub_task@b
+    },
+  ]
+}

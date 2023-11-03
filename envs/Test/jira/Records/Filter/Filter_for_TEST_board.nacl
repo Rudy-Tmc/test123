@@ -1,0 +1,16 @@
+jira.Filter Filter_for_TEST_board@s {
+  name = "Filter for TEST board"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  jql = "${ jira.Field.instance.Project__project } = TEST ORDER BY ${ jira.Field.instance.Rank__gh_lexo_rank__c@uubbuu.name } ASC"
+  sharePermissions = [
+    {
+      type = "project"
+      project = {
+        id = jira.Project.instance.test
+      }
+    },
+  ]
+}

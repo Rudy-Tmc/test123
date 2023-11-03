@@ -1,0 +1,9 @@
+jira.ProjectComponent test__Software_issues@uus {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "Software issues"
+  _parent = [
+    jira.Project.instance.test,
+  ]
+  _alias = "test:Software issues"
+}

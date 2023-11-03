@@ -1,0 +1,4 @@
+jira.AutomationLabel Create_project@s {
+  name = "Create project"
+  color = "R300"
+}

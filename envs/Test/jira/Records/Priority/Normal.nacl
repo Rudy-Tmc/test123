@@ -1,0 +1,6 @@
+jira.Priority Normal {
+  statusColor = "#009900"
+  description = "Normal"
+  iconUrl = "/images/icons/priority_major.gif"
+  name = "Normal"
+}

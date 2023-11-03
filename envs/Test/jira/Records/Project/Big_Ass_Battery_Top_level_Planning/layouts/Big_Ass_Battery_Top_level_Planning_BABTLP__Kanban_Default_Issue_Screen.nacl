@@ -1,0 +1,68 @@
+jira.IssueLayout Big_Ass_Battery_Top_level_Planning_BABTLP__Kanban_Default_Issue_Screen@sssbsufssss {
+  projectId = jira.Project.instance.Big_Ass_Battery_Top_level_Planning@sssbs
+  extraDefinerId = jira.Screen.instance.BABTLP__Kanban_Default_Issue_Screen@fssss
+  issueLayoutConfig = {
+    items = [
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Assignee__user
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Reporter__user
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Labels__array
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Story_Points__float__c@suuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Original_estimate__number@suu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Time_tracking__timetracking@suu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Target_start__jpo_custom_field_baseline_start__c@suubbbbuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Target_end__jpo_custom_field_baseline_end__c@suubbbbuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Epic_Link__gh_epic_link__c@suubbuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Fix_versions__array@suu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Priority__priority
+      },
+      {
+        type = "FIELD"
+        sectionType = "CONTENT"
+        key = jira.Field.instance.Description__string
+      },
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+jira.ProjectComponent Alpha_2_s__Alpha@umuu {
+  assigneeType = "PROJECT_DEFAULT"
+  name = "Alpha"
+  _parent = [
+    jira.Project.instance.Alpha_2@s,
+  ]
+  _alias = "Alpha 2:Alpha"
+}

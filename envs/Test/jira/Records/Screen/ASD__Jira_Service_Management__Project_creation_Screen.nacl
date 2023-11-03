@@ -1,0 +1,18 @@
+jira.Screen ASD__Jira_Service_Management__Project_creation_Screen@fsssfsss {
+  name = "ASD: Jira Service Management: Project creation Screen"
+  description = ""
+  tabs = {
+    Field_Tab@s = {
+      name = "Field Tab"
+      fields = [
+        jira.Field.instance.Template__select__c,
+        jira.Field.instance.Project_name__textfield__c@suuuu,
+        jira.Field.instance.Project_lead__userpicker__c@suuuu,
+        jira.Field.instance.Project_admins__known___multiuserpicker__c@ssjkuuuu,
+        jira.Field.instance.Project_admins__unknown___textfield__c@ssjkuuuu,
+        jira.Field.instance.Project_members__textfield__c@suuuu,
+      ]
+      position = 0
+    }
+  }
+}

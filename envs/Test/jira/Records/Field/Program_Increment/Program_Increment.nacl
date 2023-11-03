@@ -1,0 +1,10 @@
+jira.Field Program_Increment__textfield__c@suuuu {
+  name = "Program Increment"
+  description = "Program Increment field created by BigPicture (Migrated on 3 Apr 2020 12:39 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Program_Increment__textfield__c_suuuu_Default_Configuration_Scheme_for_Program_Increment@uuuuumusssss,
+  ]
+  _alias = "Program Increment"
+}

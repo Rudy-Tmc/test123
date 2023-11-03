@@ -1,0 +1,213 @@
+jira.IssueLayout Test_project_2_AL__Scrum_Default_Issue_Screen@ssufssss {
+  projectId = jira.Project.instance.Test_project_2@s
+  extraDefinerId = jira.Screen.instance.AL__Scrum_Default_Issue_Screen@fssss
+  issueLayoutConfig = {
+    items = [
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Assignee__user
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Reporter__user
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Labels__array
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.End_date__datepicker__c@suuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Select_list__select__c@suuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.WBSO_category__migrated___select__c@ssjkuuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Group__grouppicker__c
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.User__userpicker__c
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Machine_number__cascadingselect__c@suuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.serial_number__nf___float__c@ssjkuuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.serial_number__tf___textfield__c@ssjkuuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Msg__message__c
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Big_room_planning__multiselect__c@ssuuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Jira_project__project__c@suuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Rank__gh_lexo_rank__c@uubbuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Participants_of_an_issue__multiuserpicker__c@sssuuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Sum_participants__float__c
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Participants_of_an_issue___field__participants__c@ssssbsuuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Approvers_List__multiuserpicker__c@suuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Parent_Link__jpo_custom_field_parent__c@suubbbuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Project__multiselect__c
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.T_shirt_size__extension_78593511_a93d_4fa0_a19e_481372ce821e_1368fae7_d1db_4e81_9d40_c4d02f5ff78f_static_tshirt_field_type__c@bsuudbbbbdbbbbddbbuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.JQL_filter_field__extension_78593511_a93d_4fa0_a19e_481372ce821e_1368fae7_d1db_4e81_9d40_c4d02f5ff78f_static_jql_filter_field__c@ssuudbbbbdbbbbddbbuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Building__cmdb_object_cftype__c@uubbuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Team__rm_teams_custom_field_team__c@uubbbbuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Planned_start__datetime__c@suuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Planned_end__datetime__c@suuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.Change_completion_date__datetime__c@ssuuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.End_Date__Gantt___datetime__c@sshiuuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.From_time__select__c@suuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "PRIMARY"
+        key = jira.Field.instance.To_time__select__c@suuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Story_Points__float__c@suuuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Original_estimate__number@suu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Time_tracking__timetracking@suu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Epic_Link__gh_epic_link__c@suubbuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Components__array
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Sprint__gh_sprint__c@uubuu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Fix_versions__array@suu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Due_date__date@suu
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Priority__priority
+      },
+      {
+        type = "FIELD"
+        sectionType = "SECONDARY"
+        key = jira.Field.instance.Epic_Name__gh_epic_label__c@suubbuu
+      },
+    ]
+  }
+}

@@ -1,0 +1,115 @@
+jira.Automation Set_organization_using_reporter_s_email_domain_Demo_service_desk@ssstssuss {
+  name = "Set organization using reporter's email domain"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Email Reporter: {{issue.${ jira.Field.instance.Reporter__user }.emailAddress}}"
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{issue.${ jira.Field.instance.Reporter__user }.emailAddress}}"
+        second = "^.*\\@(hotmail\\.nl|kpnplanet\\.nl|quicknet\\.nl|xs4all\\.nl|ziggo\\.nl|telfort\\.nl)$"
+        operator = "CONTAINS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Organizations__sd_customer_organizations__c@uubbuu
+            }
+            fieldType = "com.atlassian.servicedesk:sd-customer-organizations"
+            type = "SET"
+            value = [
+              {
+                type = "REFERENCE"
+                additional = "USE_REPORTER_EMAIL"
+              },
+              {
+                type = "COPY"
+                value = "current"
+              },
+            ]
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Demo_service_desk@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "SAMPLE_RULE"
+      tagValue = "service_desk"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10001"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Set organization using reporter's email domain"
+}

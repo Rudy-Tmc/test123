@@ -1,0 +1,6 @@
+jira.IssueType zelfstudie {
+  description = ""
+  name = "zelfstudie"
+  untranslatedName = "zelfstudie"
+  hierarchyLevel = -1
+}

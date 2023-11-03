@@ -1,0 +1,48 @@
+jira.DashboardGadget Renate__Sprint_Health_Gadget_1_1@uussuu {
+  uri = "rest/gadgets/1.0/g/com.pyxis.greenhopper.jira:greenhopper-gadget-sprint-health/gadgets/greenhopper-sprint-health.xml"
+  color = "blue"
+  position = {
+    row = 1
+    column = 1
+  }
+  title = "Sprint Health Gadget"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "showSprintName"
+          value = "true"
+        },
+        {
+          key = "sprintId"
+          value = "auto"
+        },
+        {
+          key = "rapidViewId"
+          value = "10"
+        },
+        {
+          key = "showRapidViewName"
+          value = "true"
+        },
+        {
+          key = "showAssignees"
+          value = "false"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Renate,
+  ]
+  _alias = "Sprint Health Gadget"
+}

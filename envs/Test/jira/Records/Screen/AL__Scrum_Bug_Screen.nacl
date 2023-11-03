@@ -1,0 +1,49 @@
+jira.Screen AL__Scrum_Bug_Screen@fsss {
+  name = "AL: Scrum Bug Screen"
+  description = " (Migrated on 3 Apr 2020 12:40 UTC)"
+  tabs = {
+    Field_Tab@s = {
+      name = "Field Tab"
+      fields = [
+        jira.Field.instance.Summary__string,
+        jira.Field.instance.Issue_Type__issuetype@suu,
+        jira.Field.instance.Reporter__user,
+        jira.Field.instance.Components__array,
+        jira.Field.instance.Description__string,
+        jira.Field.instance.Fix_versions__array@suu,
+        jira.Field.instance.Priority__priority,
+        jira.Field.instance.Labels__array,
+        jira.Field.instance.Security_Level__securitylevel@suu,
+        jira.Field.instance.Environment__string,
+        jira.Field.instance.Attachment__array,
+        jira.Field.instance.Affects_versions__array@suu,
+        jira.Field.instance.Linked_Issues__array@suu,
+        jira.Field.instance.Assignee__user,
+        jira.Field.instance.Epic_Link__gh_epic_link__c@suubbuu,
+        jira.Field.instance.Sprint__gh_sprint__c@uubuu,
+        jira.Field.instance.WBSO_category__migrated___select__c@ssjkuuuu,
+        jira.Field.instance.Group__grouppicker__c,
+        jira.Field.instance.User__userpicker__c,
+        jira.Field.instance.Machine_number__cascadingselect__c@suuuu,
+        jira.Field.instance.Project_status__select__c@suuuu,
+        jira.Field.instance.Project_update__latest___textarea__c@ssjkuuuu,
+        jira.Field.instance.Project_update__textarea__c@suuuu,
+        jira.Field.instance.Project_status__vorig___select__c@ssjkuuuu,
+        jira.Field.instance.serial_number__nf___float__c@ssjkuuuu,
+        jira.Field.instance.serial_number__tf___textfield__c@ssjkuuuu,
+        jira.Field.instance.Msg__message__c,
+        jira.Field.instance.Big_room_planning__multiselect__c@ssuuuu,
+        jira.Field.instance.Jira_project__project__c@suuuu,
+        jira.Field.instance.Participants_of_an_issue__multiuserpicker__c@sssuuuu,
+        jira.Field.instance.Sum_participants__float__c,
+        jira.Field.instance.Participants_of_an_issue___field__participants__c@ssssbsuuuu,
+        jira.Field.instance.Approvers_List__multiuserpicker__c@suuuu,
+        jira.Field.instance.Risk__select__c,
+        jira.Field.instance.Risk_impact__select__c@suuuu,
+        jira.Field.instance.Risk_Likelihood__select__c@suuuu,
+        jira.Field.instance.Release_notes__textarea__c,
+      ]
+      position = 0
+    }
+  }
+}

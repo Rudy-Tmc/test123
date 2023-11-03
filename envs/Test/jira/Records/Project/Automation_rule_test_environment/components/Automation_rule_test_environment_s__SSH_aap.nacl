@@ -1,0 +1,8 @@
+jira.ProjectComponent Automation_rule_test_environment_s__SSH_aap@uuumuuf {
+  assigneeType = "PROJECT_DEFAULT"
+  name = "SSH:aap"
+  _parent = [
+    jira.Project.instance.Automation_rule_test_environment@s,
+  ]
+  _alias = "Automation rule test environment:SSH:aap"
+}

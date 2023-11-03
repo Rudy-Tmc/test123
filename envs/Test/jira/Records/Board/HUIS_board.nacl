@@ -1,0 +1,39 @@
+jira.Board HUIS_board@s {
+  name = "HUIS board"
+  type = "simple"
+  admins = {
+    users = [
+      {
+        id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+        displayName = "Rudy Holtkamp"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Huisdingen
+  }
+  filterId = jira.Filter.instance.missing_10059
+  columnConfig = {
+    columns = [
+      {
+        name = "one"
+        statuses = [
+          jira.Status.instance.missing_10069,
+        ]
+      },
+      {
+        name = "three"
+        statuses = [
+          jira.Status.instance.missing_10071,
+        ]
+      },
+      {
+        name = "two"
+        statuses = [
+          jira.Status.instance.missing_10070,
+        ]
+      },
+    ]
+    constraintType = "none"
+  }
+}

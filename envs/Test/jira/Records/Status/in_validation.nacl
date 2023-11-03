@@ -1,0 +1,5 @@
+jira.Status in_validation@s {
+  name = "In Validation"
+  statusCategory = jira.StatusCategory.instance.In_Progress@s
+  description = ""
+}

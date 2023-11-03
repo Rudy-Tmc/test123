@@ -1,0 +1,10 @@
+jira.Field CAB__migrated___multiuserpicker__c@sjkuuuu {
+  name = "CAB (migrated)"
+  description = "Change Advisory Board members (Migrated on 3 Apr 2020 12:39 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:userpickergroupsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker"
+  contexts = [
+    jira.CustomFieldContext.instance.CAB__migrated___multiuserpicker__c_sjkuuuu_Default_Configuration_Scheme_for_CAB@uuuuuuumussss,
+  ]
+  _alias = "CAB (migrated)"
+}

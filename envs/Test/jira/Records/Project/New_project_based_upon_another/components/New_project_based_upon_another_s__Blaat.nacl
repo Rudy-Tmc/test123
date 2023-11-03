@@ -1,0 +1,9 @@
+jira.ProjectComponent New_project_based_upon_another_s__Blaat@uuuumuu {
+  name = "Blaat"
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  _parent = [
+    jira.Project.instance.New_project_based_upon_another@s,
+  ]
+  _alias = "New project based upon another:Blaat"
+}

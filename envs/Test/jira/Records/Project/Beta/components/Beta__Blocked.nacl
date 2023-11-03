@@ -1,0 +1,8 @@
+jira.ProjectComponent Beta__Blocked {
+  name = "Blocked"
+  assigneeType = "UNASSIGNED"
+  _parent = [
+    jira.Project.instance.Beta,
+  ]
+  _alias = "Beta:Blocked"
+}

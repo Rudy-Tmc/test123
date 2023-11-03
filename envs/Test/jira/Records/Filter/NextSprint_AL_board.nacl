@@ -1,0 +1,14 @@
+jira.Filter NextSprint_AL_board@s {
+  name = "NextSprint AL board"
+  description = "Filter managed by ScriptRunner: issueFunction in nextSprint(\"AL board\")"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  jql = "issue in (AL-59,AL-48,AL-39,AL-33,AL-24)"
+  sharePermissions = [
+    {
+      type = "authenticated"
+    },
+  ]
+}

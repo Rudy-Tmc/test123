@@ -1,0 +1,15 @@
+jira.SecurityLevel Kaz__Agents_B@uus {
+  description = ""
+  name = "Agents B"
+  members = [
+    {
+      holder = {
+        type = "projectRole"
+        parameter = jira.ProjectRole.instance.atlassian_addons_project_access@b
+      }
+    },
+  ]
+  _parent = [
+    jira.SecurityScheme.instance.Kaz,
+  ]
+}

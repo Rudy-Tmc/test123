@@ -1,0 +1,614 @@
+jira.Automation new_coverage_rule_Demo_service_desk@ssuss {
+  name = "new coverage rule"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 2
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "ANY_CHANGE"
+      fields = [
+        {
+          value = jira.Field.instance.From_Day__textfield__c@suuuu
+          type = "field"
+        },
+        {
+          value = jira.Field.instance.To_Day__textfield__c@suuuu
+          type = "field"
+        },
+      ]
+      actions = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "codebarrel.action.log"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "Inside coverage - Normal days, normal hours"
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 10
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Coverage__select__c
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Inside"
+                    }
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.issue.comment"
+              value = {
+                comment = "This issue request is inside coverage hours, *no extra costs* will be charged"
+                publicComment = true
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}}{{issue.customfield_10041.left(1)}} <= {{issue.customfield_10040.left(1)}}{{/}}"
+                second = "1"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}} ({{issue.created.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} >= {{issue.customfield_10041.left(1)}}) && ({{issue.created.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} <= {{issue.customfield_10040.left(1)}} ) {{/}}"
+                second = "1"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}} {{issue.customfield_10049.left(2)}} <= {{issue.customfield_10050.left(2)}} {{/}}"
+                second = "1"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}} (({{issue.created.convertToTimeZone(\"Europe/Amsterdam\").hour}} >= {{issue.customfield_10049.left(2)}}) && ( {{issue.created.convertToTimeZone(\"Europe/Amsterdam\").hour}} < {{issue.customfield_10050.left(2)}} )) {{/}}"
+                second = "1"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "codebarrel.action.log"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "Inside coverage - normal days, flipped hours"
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 10
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Coverage__select__c
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Inside"
+                    }
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.issue.comment"
+              value = {
+                comment = "This issue request is inside coverage hours, *no extra costs* will be charged"
+                publicComment = true
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}}{{issue.customfield_10041.left(1)}} <= {{issue.customfield_10040.left(1)}}{{/}}"
+                second = "1"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}} ({{issue.created.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} >= {{issue.customfield_10041.left(1)}}) && ({{issue.created.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} <= {{issue.customfield_10040.left(1)}} ) {{/}}"
+                second = "1"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}} {{issue.customfield_10049.left(2)}} <= {{issue.customfield_10050.left(2)}} {{/}}"
+                second = "0"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}} (({{issue.created.convertToTimeZone(\"Europe/Amsterdam\").hour}} >= {{issue.customfield_10049.left(2)}}) || ( {{issue.created.convertToTimeZone(\"Europe/Amsterdam\").hour}} < {{issue.customfield_10050.left(2)}} )) {{/}}"
+                second = "1"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "codebarrel.action.log"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "Inside coverate - Flipped days, normal hours"
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 10
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Coverage__select__c
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Inside"
+                    }
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.issue.comment"
+              value = {
+                comment = "This issue request is inside coverage hours, *no extra costs* will be charged"
+                publicComment = true
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}}{{issue.customfield_10041.left(1)}} <= {{issue.customfield_10040.left(1)}}{{/}}"
+                second = "0"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}} ({{issue.created.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} >= {{issue.customfield_10041.left(1)}}) || ({{issue.created.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} <= {{issue.customfield_10040.left(1)}} ) {{/}}"
+                second = "1"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}} {{issue.customfield_10049.left(2)}} <= {{issue.customfield_10050.left(2)}} {{/}} "
+                second = "1"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}} (({{issue.created.convertToTimeZone(\"Europe/Amsterdam\").hour}} >= {{issue.customfield_10049.left(2)}}) && ( {{issue.created.convertToTimeZone(\"Europe/Amsterdam\").hour}} < {{issue.customfield_10050.left(2)}} )) {{/}}"
+                second = "1"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "codebarrel.action.log"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "Inside coverage - Flipped days, flipped hours"
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 10
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Coverage__select__c
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Inside"
+                    }
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.issue.comment"
+              value = {
+                comment = "This issue request is inside coverage hours, *no extra costs* will be charged"
+                publicComment = true
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}}{{issue.customfield_10041.left(1)}} <= {{issue.customfield_10040.left(1)}}{{/}}"
+                second = "0"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}} ({{issue.created.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} >= {{issue.customfield_10041.left(1)}}) || ({{issue.created.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} <= {{issue.customfield_10040.left(1)}} ) {{/}}"
+                second = "1"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}}{{issue.customfield_10041.left(1)}} <= {{issue.customfield_10040.left(1)}}{{/}}"
+                second = "0"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}} (({{issue.created.convertToTimeZone(\"Europe/Amsterdam\").hour}} >= {{issue.customfield_10049.left(2)}}) || ( {{issue.created.convertToTimeZone(\"Europe/Amsterdam\").hour}} < {{issue.customfield_10050.left(2)}} )) {{/}}"
+                second = "1"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "codebarrel.action.log"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "Outside coverage"
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 10
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Coverage__select__c
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Outside"
+                    }
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.issue.comment"
+              value = {
+                comment = "This issue request is outside coverage hours, *extra costs* will be charged"
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Demo_service_desk@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10001"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "new coverage rule"
+}

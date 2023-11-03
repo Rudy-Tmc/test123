@@ -1,0 +1,9 @@
+jira.Field Change_start_date__migrated___datetime__c@sssjkuuuu {
+  name = "Change start date (migrated)"
+  description = "Specify the time and date for the start of the change (Migrated on 3 Apr 2020 12:39 UTC)"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datetime"
+  contexts = [
+    jira.CustomFieldContext.instance.Change_start_date__migrated___datetime__c_sssjkuuuu_Default_Configuration_Scheme_for_Change_start_date@uuuuuuuuumussssss,
+  ]
+  _alias = "Change start date (migrated)"
+}

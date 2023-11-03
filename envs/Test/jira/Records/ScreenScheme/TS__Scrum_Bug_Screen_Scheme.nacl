@@ -1,0 +1,7 @@
+jira.ScreenScheme TS__Scrum_Bug_Screen_Scheme@fssss {
+  name = "TS: Scrum Bug Screen Scheme"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.TS__Scrum_Bug_Screen@fsss
+  }
+}

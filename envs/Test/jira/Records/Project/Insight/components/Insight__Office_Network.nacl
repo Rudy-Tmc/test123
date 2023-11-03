@@ -1,0 +1,13 @@
+jira.ProjectComponent Insight__Office_Network@uus {
+  name = "Office Network"
+  description = "Created by Jira Service Management"
+  assigneeType = "PROJECT_DEFAULT"
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  _parent = [
+    jira.Project.instance.Insight,
+  ]
+  _alias = "Insight:Office Network"
+}

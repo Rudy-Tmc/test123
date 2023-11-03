@@ -1,0 +1,62 @@
+jira.Filter ismt {
+  name = "ismt"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  jql = "${ jira.Field.instance.Project__project } in (\"IT service management - template\")"
+  columns = [
+    {
+      label = "Issue Type"
+      value = "issuetype"
+    },
+    {
+      label = "Key"
+      value = "issuekey"
+    },
+    {
+      label = "Summary"
+      value = "summary"
+    },
+    {
+      label = "Assignee"
+      value = "assignee"
+    },
+    {
+      label = "Reporter"
+      value = "reporter"
+    },
+    {
+      label = "Priority"
+      value = "priority"
+    },
+    {
+      label = "Status"
+      value = "status"
+    },
+    {
+      label = "Resolution"
+      value = "resolution"
+    },
+    {
+      label = "Time to first response"
+      value = "customfield_10032"
+    },
+    {
+      label = "Time to resolution"
+      value = "customfield_10031"
+    },
+    {
+      label = "Due date"
+      value = "duedate"
+    },
+    {
+      label = "Locatie"
+      value = "customfield_10189"
+    },
+    {
+      label = "Organizations"
+      value = "customfield_10002"
+    },
+  ]
+}

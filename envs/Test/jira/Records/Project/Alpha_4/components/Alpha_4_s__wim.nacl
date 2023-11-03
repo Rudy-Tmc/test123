@@ -1,0 +1,8 @@
+jira.ProjectComponent Alpha_4_s__wim@umuu {
+  assigneeType = "PROJECT_DEFAULT"
+  name = "wim"
+  _parent = [
+    jira.Project.instance.Alpha_4@s,
+  ]
+  _alias = "Alpha 4:wim"
+}

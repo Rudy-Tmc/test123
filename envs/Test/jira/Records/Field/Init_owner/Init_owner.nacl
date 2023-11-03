@@ -1,0 +1,10 @@
+jira.Field Init_owner__userpicker__c@suuuu {
+  name = "Init owner"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:userpickergroupsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:userpicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Init_owner__userpicker__c_suuuu_Default_Configuration_Scheme_for_Init_owner@uuuuumusssss,
+  ]
+  _alias = "Init owner"
+}

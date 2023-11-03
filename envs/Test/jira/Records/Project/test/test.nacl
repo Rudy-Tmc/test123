@@ -1,0 +1,29 @@
+jira.Project test {
+  key = "NEWTEST"
+  description = ""
+  name = "test"
+  projectTypeKey = "software"
+  components = [
+    jira.ProjectComponent.instance.test__Bitbucket,
+    jira.ProjectComponent.instance.test__Blaat,
+    jira.ProjectComponent.instance.test__Confluence,
+    jira.ProjectComponent.instance.test__GUI,
+    jira.ProjectComponent.instance.test__Hardware_issues@uus,
+    jira.ProjectComponent.instance.test__Jira,
+    jira.ProjectComponent.instance.test__M1,
+    jira.ProjectComponent.instance.test__M2,
+    jira.ProjectComponent.instance.test__M3,
+    jira.ProjectComponent.instance.test__Network,
+    jira.ProjectComponent.instance.test__NewComp,
+    jira.ProjectComponent.instance.test__Software_issues@uus,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.TEST__Software_Simplified_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.TEST_software_permission_scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.TEST__Scrum_Issue_Type_Screen_Scheme@fsssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.TEST__Scrum_Issue_Type_Scheme@fssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

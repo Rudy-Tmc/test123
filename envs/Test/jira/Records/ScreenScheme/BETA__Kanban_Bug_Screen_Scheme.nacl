@@ -1,0 +1,7 @@
+jira.ScreenScheme BETA__Kanban_Bug_Screen_Scheme@fssss {
+  name = "BETA: Kanban Bug Screen Scheme"
+  description = " (Migrated on 3 Apr 2020 12:39 UTC)"
+  screens = {
+    default = jira.Screen.instance.BETA__Kanban_Bug_Screen@fsss
+  }
+}

@@ -1,0 +1,20 @@
+jira.Dashboard Demo_service_desk_dashboard@s {
+  description = ""
+  name = "Demo service desk dashboard"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  gadgets = [
+    jira.DashboardGadget.instance.Demo_service_desk_dashboard_s__Custom_Charts_Simple_Search_0_0@uuumuusssuu,
+    jira.DashboardGadget.instance.Demo_service_desk_dashboard_s__Custom_Charts_0_1@uuumuusuu,
+    jira.DashboardGadget.instance.Demo_service_desk_dashboard_s__unnamed_5@uuumuuu,
+    jira.DashboardGadget.instance.Demo_service_desk_dashboard_s__unnamed_4@uuumuuu,
+    jira.DashboardGadget.instance.Demo_service_desk_dashboard_s__Two_Dimensional_Filter_Statistics_0_4@uuumuusssuu,
+    jira.DashboardGadget.instance.Demo_service_desk_dashboard_s__Filter_counts_0_5@uuumuusuu,
+    jira.DashboardGadget.instance.Demo_service_desk_dashboard_s__Service_project_report_0_6@uuumuussuu,
+    jira.DashboardGadget.instance.Demo_service_desk_dashboard_s__Service_project_report_1_0@uuumuussuu,
+    jira.DashboardGadget.instance.Demo_service_desk_dashboard_s__Service_project_report_1_1@uuumuussuu,
+  ]
+  layout = "AA"
+}

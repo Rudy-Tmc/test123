@@ -1,0 +1,8 @@
+jira.ProjectComponent Automation_rule_test_environment_s__EA@uuumuu {
+  assigneeType = "COMPONENT_LEAD"
+  name = "EA"
+  _parent = [
+    jira.Project.instance.Automation_rule_test_environment@s,
+  ]
+  _alias = "Automation rule test environment:EA"
+}

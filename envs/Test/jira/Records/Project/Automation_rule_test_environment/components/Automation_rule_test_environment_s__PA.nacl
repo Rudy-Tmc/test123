@@ -1,0 +1,8 @@
+jira.ProjectComponent Automation_rule_test_environment_s__PA@uuumuu {
+  assigneeType = "UNASSIGNED"
+  name = "PA"
+  _parent = [
+    jira.Project.instance.Automation_rule_test_environment@s,
+  ]
+  _alias = "Automation rule test environment:PA"
+}

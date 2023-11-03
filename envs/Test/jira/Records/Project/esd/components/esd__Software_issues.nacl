@@ -1,0 +1,9 @@
+jira.ProjectComponent esd__Software_issues@uus {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "Software issues"
+  _parent = [
+    jira.Project.instance.esd,
+  ]
+  _alias = "esd:Software issues"
+}

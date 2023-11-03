@@ -1,0 +1,9 @@
+jira.ProjectComponent test__Bitbucket {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "Bitbucket"
+  _parent = [
+    jira.Project.instance.test,
+  ]
+  _alias = "test:Bitbucket"
+}

@@ -1,0 +1,13 @@
+jira.DashboardGadget Demo_service_desk_dashboard_s__unnamed_5@uuumuuu {
+  moduleKey = "com.atlassian.plugins.atlassian-connect-plugin:io.bloompeak.status-time__st-dashboard-item"
+  color = "blue"
+  position = {
+    row = 2
+    column = 0
+  }
+  title = ""
+  _parent = [
+    jira.Dashboard.instance.Demo_service_desk_dashboard@s,
+  ]
+  _alias = ""
+}

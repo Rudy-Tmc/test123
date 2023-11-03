@@ -1,0 +1,10 @@
+jira.Field Priority_matrix__extension_07d43b33_e1c4_4dae_9931_b8632d7908f5_3fa7d631_b53a_44ed_a413_0b1771aab367_static_priority_matrix_type__c@suudbbbbdbbbbddbbuu {
+  name = "Priority matrix"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:forgeCustomFieldSearcher"
+  type = "ari:cloud:ecosystem::extension/07d43b33-e1c4-4dae-9931-b8632d7908f5/3fa7d631-b53a-44ed-a413-0b1771aab367/static/priority-matrix-type"
+  contexts = [
+    jira.CustomFieldContext.instance.Priority_matrix__extension_07d43b33_e1c4_4dae_9931_b8632d7908f5_3fa7d631_b53a_44ed_a413_0b1771aab367_static_priority_matrix_type__c_suudbbbbdbbbbddbbuu_Default_Configuration_Scheme_for_Priority_matrix@uuuuuuuuuuuuuuuuuuumusssss,
+  ]
+  _alias = "Priority matrix"
+}

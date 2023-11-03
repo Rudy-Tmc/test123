@@ -1,0 +1,12 @@
+jira.ProjectComponent Template_Scrum_s__b@umuu {
+  assigneeType = "COMPONENT_LEAD"
+  name = "b"
+  leadAccountId = {
+    id = "712020:cea6c50b-eae1-4c1a-b3cc-9061f4ce11a3"
+    displayName = "Agent 1"
+  }
+  _parent = [
+    jira.Project.instance.Template_Scrum@s,
+  ]
+  _alias = "Template Scrum:b"
+}

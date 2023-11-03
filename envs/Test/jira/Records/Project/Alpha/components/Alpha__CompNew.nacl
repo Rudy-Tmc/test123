@@ -1,0 +1,8 @@
+jira.ProjectComponent Alpha__CompNew {
+  name = "CompNew"
+  assigneeType = "UNASSIGNED"
+  _parent = [
+    jira.Project.instance.Alpha,
+  ]
+  _alias = "Alpha:CompNew"
+}

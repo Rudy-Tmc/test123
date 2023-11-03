@@ -1,0 +1,119 @@
+jira.Automation signature_IT_service_desk@uss {
+  name = "signature"
+  state = "ENABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:commented"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_commented"
+      eventTypes = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 4
+      type = "jira.user.condition"
+      value = {
+        conditions = [
+          {
+            field = "initiator"
+            check = "IN_ROLE"
+            criteria = [
+              {
+                type = "NAME"
+                value = "Service Desk Team"
+              },
+            ]
+          },
+        ]
+        operator = "OR"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{${ jira.Field.instance.Comment__comments_page@uub }.internal}}"
+        second = "false"
+        operator = "EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.comment.update"
+      value = {
+        commentId = {
+          type = "COPY"
+          value = "CURRENT_COMMENT"
+        }
+        comment = '''
+{{${ jira.Field.instance.Comment__comments_page@uub }}}
+
+---
+{{triggerissue.customfield_11565}} - {{triggerissue.customfield_11566}}
+{{triggerissue.customfield_10168}}
+'''
+        sendNotifications = true
+        editVisibility = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_service_desk@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10017"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "signature"
+}

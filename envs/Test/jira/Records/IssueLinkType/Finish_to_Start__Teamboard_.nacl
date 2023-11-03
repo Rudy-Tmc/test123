@@ -1,0 +1,5 @@
+jira.IssueLinkType Finish_to_Start__Teamboard_@bbsjk {
+  name = "Finish-to-Start (Teamboard)"
+  inward = "Cannot start until linked issue finishes."
+  outward = "Linked issue cannot start until this issue finishes."
+}

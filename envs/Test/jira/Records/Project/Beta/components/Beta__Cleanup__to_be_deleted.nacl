@@ -1,0 +1,8 @@
+jira.ProjectComponent Beta__Cleanup__to_be_deleted@uubsss {
+  name = "Cleanup- to be deleted"
+  assigneeType = "UNASSIGNED"
+  _parent = [
+    jira.Project.instance.Beta,
+  ]
+  _alias = "Beta:Cleanup- to be deleted"
+}

@@ -1,0 +1,27 @@
+jira.Screen ITRA1__Project_Management_Edit_View_Issue_Screen@fsssdss {
+  name = "ITRA1: Project Management Edit/View Issue Screen"
+  description = ""
+  tabs = {
+    Field_Tab@s = {
+      name = "Field Tab"
+      fields = [
+        jira.Field.instance.Issue_Type__issuetype@suu,
+        jira.Field.instance.Summary__string,
+        jira.Field.instance.Description__string,
+        jira.Field.instance.Priority__priority,
+        jira.Field.instance.Reporter__user,
+        jira.Field.instance.Assignee__user,
+        jira.Field.instance.Components__array,
+        jira.Field.instance.Labels__array,
+        jira.Field.instance.Start_Date__Gantt___datetime__c@sshiuuuu,
+        jira.Field.instance.End_Date__Gantt___datetime__c@sshiuuuu,
+        jira.Field.instance.Due_date__date@suu,
+        jira.Field.instance.Time_tracking__timetracking@suu,
+        jira.Field.instance.Start_date__datepicker__c@suuuu,
+        jira.Field.instance.Category__jwm_category__c@uubuu,
+        jira.Field.instance.Attachment__array,
+      ]
+      position = 0
+    }
+  }
+}

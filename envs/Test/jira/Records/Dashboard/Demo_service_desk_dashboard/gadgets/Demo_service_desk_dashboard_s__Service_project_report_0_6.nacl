@@ -1,0 +1,39 @@
+jira.DashboardGadget Demo_service_desk_dashboard_s__Service_project_report_0_6@uuumuussuu {
+  moduleKey = "com.atlassian.servicedesk.servicedesk-reports-plugin:custom-report-dashboard-item"
+  color = "blue"
+  position = {
+    row = 6
+    column = 0
+  }
+  title = "Service project report"
+  properties = [
+    {
+      key = "intervalValue"
+      value = "7"
+    },
+    {
+      key = "isConfigured"
+      value = true
+    },
+    {
+      key = "isCustom"
+      value = true
+    },
+    {
+      key = "projectValue"
+      value = "DEMO"
+    },
+    {
+      key = "refresh"
+      value = "15"
+    },
+    {
+      key = "reportValue"
+      value = "6"
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Demo_service_desk_dashboard@s,
+  ]
+  _alias = "Service project report"
+}

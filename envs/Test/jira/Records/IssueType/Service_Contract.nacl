@@ -1,0 +1,6 @@
+jira.IssueType Service_Contract@s {
+  description = ""
+  name = "Service Contract"
+  untranslatedName = "Service Contract"
+  hierarchyLevel = 0
+}

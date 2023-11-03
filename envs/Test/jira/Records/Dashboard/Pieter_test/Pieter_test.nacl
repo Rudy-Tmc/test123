@@ -1,0 +1,12 @@
+jira.Dashboard Pieter_test@s {
+  name = "Pieter test"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  gadgets = [
+    jira.DashboardGadget.instance.Pieter_test_s__Created_vs__Resolved_Chart_0_0@umuusvssuu,
+    jira.DashboardGadget.instance.Pieter_test_s__Recently_Created_Chart_1_0@umuussuu,
+  ]
+  layout = "AA"
+}

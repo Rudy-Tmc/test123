@@ -1,0 +1,137 @@
+jira.Automation ISMT__Create_issue____approver_Rudy_IT_service_management___template@fsssbyssusssbs {
+  name = "ISMT: Create issue -> approver Rudy"
+  state = "ENABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groups = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+        schemaId = "2"
+        customSmartValue = {
+          id = "_customsmartvalue_id_1642502424494"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "\"Name\" IN (\"Rudy\")"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{lookupObjects.Jira user}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1642502972960"
+        name = {
+          type = "FREE"
+          value = "user"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{lookupObjects.Jira user}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+        ]
+        advancedFields = '''
+{
+    "fields": {
+        "Approvers": [{"accountId":"{{user}}"}]
+    }
+}
+'''
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_service_management___template@sssbs
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10047"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ISMT: Create issue -> approver Rudy"
+}

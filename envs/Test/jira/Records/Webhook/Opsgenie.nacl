@@ -1,0 +1,10 @@
+jira.Webhook Opsgenie {
+  name = "Opsgenie"
+  url = "https://api.opsgenie.com/v1/json/jira?apiKey=87afd634-c244-4dcf-85af-b085a6a95a27"
+  excludeBody = false
+  events = [
+    "jira:issue_updated",
+    "jira:issue_created",
+  ]
+  enabled = true
+}

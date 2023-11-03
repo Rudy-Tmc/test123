@@ -1,0 +1,21 @@
+jira.Project Alpha_3@s {
+  key = "A3"
+  description = ""
+  name = "Alpha 3"
+  projectTypeKey = "business"
+  components = [
+    jira.ProjectComponent.instance.Alpha_3_s__Alpha@umuu,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.AL__Software_Simplified_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.Default_Permission_Scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.A3__Blank_project_screen_scheme@fssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.AL__Scrum_Issue_Type_Scheme@fssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  fieldContexts = [
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Alpha_3@uuuuumusssssfss,
+  ]
+}

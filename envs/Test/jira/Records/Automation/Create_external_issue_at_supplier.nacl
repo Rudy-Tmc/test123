@@ -1,0 +1,260 @@
+jira.Automation Create_external_issue_at_supplier@s {
+  name = "Create external issue at supplier"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.pending.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 3
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Supplier__select__c.name
+        }
+        selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Iqibt"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1648198785555"
+        name = {
+          type = "FREE"
+          value = "auth"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "cnVkeWhvbHRrYW1wK3N1cHBsaWVyQGdtYWlsLmNvbTptc0x4RTJnMWhCT2I4cmx5bHZuSThDRDQ="
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1648215473353"
+        name = {
+          type = "FREE"
+          value = "url"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "https://sabaas-test.atlassian.net"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{url}}/rest/servicedeskapi/request"
+        headers = [
+          {
+            id = "_header_1648196103753"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1648196131528"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "custom"
+        customBody = '''
+{
+  "serviceDeskId": "3",
+  "requestTypeId": "31",
+  "requestFieldValues": {
+      "summary": "{{#jsonEncode}}{{issue.${ jira.Field.instance.Summary__string }}}{{/}}",
+      "description": "{{#jsonEncode}}{{issue.${ jira.Field.instance.Description__string }}}{{/}}",
+      "customfield_10058": "{{#jsonEncode}}{{issue.key}}{{/}}",
+      "customfield_10063": { "value": "Sabaas" }
+  }
+}
+
+'''
+        method = "POST"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.External_reference__textfield__c@suuuu.name
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+            type = "SET"
+            rawValue = "{{webResponse.body.issueKey}}"
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{webResponse.body.issueKey}}"
+        second = ""
+        operator = "NOT_EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.comment"
+      value = {
+        comment = "An issue has been created at the service desk of {{issue.fields.${ jira.Field.instance.Supplier__select__c.name }}}: [{{webResponse.body.issueKey}}|{{url}}/servicedesk/customer/portal/3/{{webResponse.body.issueKey}}]"
+        publicComment = false
+        sendNotifications = true
+        addCommentOnce = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{baseurl}}/rest/api/latest/issue/{{issue.key}}/remotelink"
+        headers = [
+          {
+            id = "_header_1648215386663"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1648215406919"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "custom"
+        customBody = '''
+{
+   "object":
+   {
+      "url": "{{url}}/servicedesk/customer/portal/3/{{webResponse.body.issueKey}}",
+     "title": "{{issue.fields.supplier}} - {{webResponse.body.issueKey}}"
+   }
+}
+'''
+        method = "POST"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Create external issue at supplier"
+}

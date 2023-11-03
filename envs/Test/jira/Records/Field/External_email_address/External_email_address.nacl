@@ -1,0 +1,10 @@
+jira.Field External_email_address__textfield__c@ssuuuu {
+  name = "External email address"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.External_email_address__textfield__c_ssuuuu_Default_Configuration_Scheme_for_External_email_address@uuuuuumussssss,
+  ]
+  _alias = "External email address"
+}

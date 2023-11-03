@@ -1,0 +1,139 @@
+jira.Automation Comment_Automation_rule_test_environment@usss {
+  name = "Comment"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:commented"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_commented"
+      eventTypes = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{issue.comments.last.body}}"
+        second = "^T|to S|service:.*"
+        operator = "REGEX_CONTAINS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "jira.issue.related"
+      value = {
+        relatedType = "linked"
+        jql = ""
+        linkTypes = [
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "CONDITION"
+          schemaVersion = 3
+          type = "jira.issue.condition"
+          value = {
+            selectedField = {
+              type = "ID"
+              value = jira.Field.instance.Project__project
+            }
+            selectedFieldType = "project"
+            comparison = "EQUALS"
+            compareFieldValue = {
+              type = "ID"
+              value = jira.Project.instance.Automation_rule_test_environment@s
+              multiValue = false
+            }
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{${ jira.Field.instance.Comment__comments_page@uub }.last.body.substringAfter(\":\")}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+*Comment from {{triggerissue.key}} - {{${ jira.Field.instance.Comment__comments_page@uub }.last.author.displayName}}*:
+{{${ jira.Field.instance.Comment__comments_page@uub }.last.body.substringAfter(":")}}
+'''
+        publicComment = false
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Comment"
+}

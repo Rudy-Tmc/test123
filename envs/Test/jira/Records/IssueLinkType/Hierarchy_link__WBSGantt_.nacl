@@ -1,0 +1,5 @@
+jira.IssueLinkType Hierarchy_link__WBSGantt_@ssjk {
+  name = "Hierarchy link (WBSGantt)"
+  inward = "is contained in"
+  outward = "contains"
+}

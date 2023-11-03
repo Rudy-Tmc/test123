@@ -1,0 +1,8 @@
+jira.ProjectComponent Beta__Hour_registration@uus {
+  name = "Hour registration"
+  assigneeType = "UNASSIGNED"
+  _parent = [
+    jira.Project.instance.Beta,
+  ]
+  _alias = "Beta:Hour registration"
+}

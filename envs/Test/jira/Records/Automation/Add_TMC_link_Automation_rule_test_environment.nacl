@@ -1,0 +1,130 @@
+jira.Automation Add_TMC_link_Automation_rule_test_environment@ssusss {
+  name = "Add TMC link"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groups = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1644483703382"
+        name = {
+          type = "FREE"
+          value = "auth"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "cnVkeS5ob2x0a2FtcEB0bWMubmw6N0Nud0QxSDVkUHdNT1NndDFNNFNFN0RD"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{baseurl}}/rest/api/latest/issue/{{issue.key}}/remotelink"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{baseurl}}/rest/api/latest/issue/{{issue.key}}/remotelink"
+        headers = [
+          {
+            id = "_header_1644483619142"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1644483621138"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "custom"
+        customBody = '''
+{
+   "object":
+   {
+      "url": "https://tmc.nl",
+     "title": "TMC"
+   }
+}
+'''
+        method = "POST"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Add TMC link"
+}

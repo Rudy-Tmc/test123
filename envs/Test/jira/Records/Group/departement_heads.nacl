@@ -1,0 +1,3 @@
+jira.Group departement_heads@s {
+  name = "departement heads"
+}

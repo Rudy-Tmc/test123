@@ -1,0 +1,150 @@
+jira.Automation test {
+  name = "test"
+  state = "ENABLED"
+  description = ""
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.jql.scheduled"
+    value = {
+      schedule = {
+        cronExpression = ""
+        method = "BASIC"
+        rate = 0
+        rateInterval = 86400
+        rRule = '''
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Amsterdam:20230824T210850
+RRULE:FREQ=WEEKLY;BYHOUR=9;BYMINUTE=0;BYSECOND=0;BYDAY=TH;INTERVAL=1
+END:VEVENT
+
+'''
+      }
+      jql = "${ jira.Field.instance.Key.name }=GT2-20"
+      executionMode = "jql"
+      onlyUpdatedIssues = false
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{issue.${ jira.Field.instance.Linked_Issues__array@suu }.inwardIssue.key}}"
+    },
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "jira.smart.values.branch"
+      value = {
+        id = "_customsmartvalue_id_1692904211614"
+        name = {
+          type = "FREE"
+          value = "key"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{issue.issuelinks.inwardIssue.key}}"
+        }
+        lazy = false
+      }
+      children = [
+        {
+          component = "CONDITION"
+          schemaVersion = 1
+          type = "jira.comparator.condition"
+          value = {
+            first = "{{key}}"
+            second = "ROAD"
+            operator = "CONTAINS"
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "jira.issue.outgoing.webhook"
+          value = {
+            url = "https://automation.atlassian.com/pro/hooks/a55a4c60343cfe529e386639837c3d3bdc6215d8?issue={{key}}"
+            headers = [
+              {
+                id = "_header_1692904232465"
+                name = ""
+                value = ""
+                headerSecure = false
+              },
+            ]
+            sendIssue = false
+            contentType = "custom"
+            customBody = '''
+{
+   "aap":"A very disturbing commnet"
+}
+'''
+            method = "POST"
+            responseEnabled = true
+            continueOnErrorEnabled = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.missing_10066
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10066"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "test"
+}

@@ -1,0 +1,34 @@
+jira.Project Alpha {
+  key = "AL"
+  description = ""
+  name = "Alpha"
+  projectTypeKey = "software"
+  components = [
+    jira.ProjectComponent.instance.Alpha__Alpha,
+    jira.ProjectComponent.instance.Alpha__Bitbucket,
+    jira.ProjectComponent.instance.Alpha__Blaat,
+    jira.ProjectComponent.instance.Alpha__Comp1,
+    jira.ProjectComponent.instance.Alpha__Comp2,
+    jira.ProjectComponent.instance.Alpha__CompNew,
+    jira.ProjectComponent.instance.Alpha__Confluence,
+    jira.ProjectComponent.instance.Alpha__GUI,
+    jira.ProjectComponent.instance.Alpha__Hardware_issues@uus,
+    jira.ProjectComponent.instance.Alpha__Jira,
+    jira.ProjectComponent.instance.Alpha__Network,
+    jira.ProjectComponent.instance.Alpha__NewComp,
+    jira.ProjectComponent.instance.Alpha__Software_issues@uus,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.AL__Software_Simplified_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.Default_software_scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.AL__Scrum_Issue_Type_Screen_Scheme@fsssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.AL__Scrum_Issue_Type_Scheme@fssss
+  fieldConfigurationScheme = jira.FieldConfigurationScheme.instance.Default_Field_Configuration_Scheme@s
+  leadAccountId = {
+    id = "557058:ed14e1de-8d99-4439-a436-57f7cf0acc5e"
+    displayName = "user1"
+  }
+  fieldContexts = [
+    jira.CustomFieldContext.instance.Group__grouppicker__c_Alpha,
+  ]
+}

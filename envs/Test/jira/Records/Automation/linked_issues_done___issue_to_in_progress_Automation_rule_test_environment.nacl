@@ -1,0 +1,183 @@
+jira.Automation linked_issues_done___issue_to_in_progress_Automation_rule_test_environment@sssyssssusss {
+  name = "linked issues done > issue to in progress"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.done.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1661411439825"
+        name = {
+          type = "FREE"
+          value = "allDone"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "false"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "jira.issue.related"
+      value = {
+        relatedType = "linked"
+        jql = ""
+        linkTypes = [
+          "is blocked by",
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "CONDITION"
+          schemaVersion = 1
+          type = "jira.jql.condition"
+          children = [
+          ]
+          conditions = [
+          ]
+          rawValue = "${ jira.Field.instance.Summary__string } ~ \"bbb\" and ${ jira.Field.instance.Status__status } = ${ jira.Status.instance.done.name }"
+        },
+        {
+          component = "CONDITION"
+          schemaVersion = 1
+          type = "jira.jql.condition"
+          children = [
+          ]
+          conditions = [
+          ]
+          rawValue = "${ jira.Field.instance.Summary__string } ~ \"ccc\" and ${ jira.Field.instance.Status__status } = ${ jira.Status.instance.done.name }"
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "jira.create.variable"
+          value = {
+            id = "_customsmartvalue_id_1661411456115"
+            name = {
+              type = "FREE"
+              value = "allDone"
+            }
+            type = "SMART"
+            query = {
+              type = "SMART"
+              value = "true"
+            }
+            lazy = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{allDone}}"
+        second = "true"
+        operator = "EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.transition"
+      value = {
+        operations = [
+        ]
+        sendNotifications = true
+        destinationStatus = {
+          type = "NAME"
+          value = jira.Status.instance.in_progress@s.name
+        }
+        transitionMatch = ""
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "linked issues done > issue to in progress"
+}

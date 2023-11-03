@@ -1,0 +1,10 @@
+jira.Field sub_locatie__cmdb_object_cftype__c@buubbuu {
+  name = "sub-locatie"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.sub_locatie__cmdb_object_cftype__c_buubbuu_Default_Configuration_Scheme_for_sub_locatie@uuuuuuumussssb,
+  ]
+  _alias = "sub-locatie"
+}

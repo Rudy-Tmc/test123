@@ -1,0 +1,10 @@
+jira.Field Satisfaction_comment__textarea__c@suuuu {
+  name = "Satisfaction comment"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+  contexts = [
+    jira.CustomFieldContext.instance.Satisfaction_comment__textarea__c_suuuu_Default_Configuration_Scheme_for_Satisfaction_comment@uuuuumusssss,
+  ]
+  _alias = "Satisfaction comment"
+}

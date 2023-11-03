@@ -1,0 +1,6 @@
+jira.IssueType Support {
+  description = "For customer support issues. Created by Jira Service Desk. (Migrated on 3 Apr 2020 12:39 UTC)"
+  name = "Support"
+  untranslatedName = "Support"
+  hierarchyLevel = 0
+}

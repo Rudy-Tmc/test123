@@ -1,0 +1,10 @@
+jira.Field External_mail__userpicker__c@suuuu {
+  name = "External mail"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:userpickergroupsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:userpicker"
+  contexts = [
+    jira.CustomFieldContext.instance.External_mail__userpicker__c_suuuu_Default_Configuration_Scheme_for_External_mail@uuuuumusssss,
+  ]
+  _alias = "External mail"
+}

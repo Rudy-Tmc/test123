@@ -1,0 +1,8 @@
+jira.SecurityScheme Kaz {
+  name = "Kaz"
+  description = ""
+  levels = [
+    jira.SecurityLevel.instance.Kaz__Agent_A@uus,
+    jira.SecurityLevel.instance.Kaz__Agents_B@uus,
+  ]
+}

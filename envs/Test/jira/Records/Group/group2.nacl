@@ -1,0 +1,3 @@
+jira.Group group2 {
+  name = "group2"
+}

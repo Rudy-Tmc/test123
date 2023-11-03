@@ -1,0 +1,101 @@
+jira.Automation change_comment_IT_service_management___template@susssbs {
+  name = "change comment"
+  state = "ENABLED"
+  description = ""
+  authorAccountId = {
+    id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+    displayName = "Automation for Jira"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:commented"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_commented"
+      eventTypes = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.comment.update"
+      value = {
+        commentId = {
+          type = "REFERENCE"
+          value = "LAST_COMMENT"
+        }
+        comment = '''
+*{{${ jira.Field.instance.Comment__comments_page@uub }.author.displayname}}* on {{${ jira.Field.instance.Comment__comments_page@uub }.created}}
+{{${ jira.Field.instance.Comment__comments_page@uub }.body}}
+'''
+        sendNotifications = true
+        editVisibility = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+*Anonymous}* on {{${ jira.Field.instance.Comment__comments_page@uub }.created}}
+{{${ jira.Field.instance.Comment__comments_page@uub }.body}}
+'''
+        publicComment = false
+        sendNotifications = true
+        addCommentOnce = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_service_management___template@sssbs
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10047"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "change comment"
+}

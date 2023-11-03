@@ -1,0 +1,13 @@
+jira.ProjectComponent Test_project_2_s__adaf@uumuu {
+  description = "adsfa"
+  assigneeType = "PROJECT_DEFAULT"
+  name = "adaf"
+  leadAccountId = {
+    id = "qm:2c421332-8d04-4e4b-8f82-6be557c04636:9ff1994b-0ca0-4e76-9275-b69c32e9bf17"
+    displayName = "rudyholtkamp+adsf@gmail.com"
+  }
+  _parent = [
+    jira.Project.instance.Test_project_2@s,
+  ]
+  _alias = "Test project 2:adaf"
+}

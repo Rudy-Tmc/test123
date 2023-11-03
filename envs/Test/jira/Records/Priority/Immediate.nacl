@@ -1,0 +1,6 @@
+jira.Priority Immediate {
+  statusColor = "#009900"
+  description = "Immediate"
+  iconUrl = "/images/icons/priority_major.gif"
+  name = "Immediate"
+}

@@ -1,0 +1,15 @@
+jira.WorkflowScheme RUDY__Personal_task_planner_workflow_scheme@fsssss {
+  name = "RUDY: Personal task planner workflow scheme"
+  description = ""
+  defaultWorkflow = jira.Workflow.instance.RUDY__Personal_task_planner_workflow@fssss
+  items = [
+    {
+      workflow = jira.Workflow.instance.RUDY__Personal_task_planner_workflow@fssss
+      issueType = jira.IssueType.instance.Task
+    },
+    {
+      workflow = jira.Workflow.instance.RUDY__Personal_task_planner_workflow@fssss
+      issueType = jira.IssueType.instance.Sub_task@b
+    },
+  ]
+}

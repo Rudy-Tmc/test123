@@ -1,0 +1,100 @@
+jira.Automation lookupObject_test@s {
+  name = "lookupObject test"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.jql.scheduled"
+    value = {
+      schedule = {
+        cronExpression = ""
+        method = "BASIC"
+        rate = 0
+        rateInterval = 86400
+        rRule = '''
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Amsterdam:20220608T140310
+RRULE:FREQ=WEEKLY;BYHOUR=9;BYMINUTE=0;BYSECOND=0;BYDAY=WE;INTERVAL=1
+END:VEVENT
+
+'''
+      }
+      jql = "${ jira.Field.instance.Key.name } = ARTE-70"
+      executionMode = "nosearch"
+      onlyUpdatedIssues = true
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+        schemaId = "48"
+        customSmartValue = {
+          id = "_customsmartvalue_id_1654689812402"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "label = \"cos0avp101\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{lookupObjects}} - {{lookupObjects.first.Status}} - {{lookupObjects.first.Status.attributeId}}"
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "lookupObject test"
+}

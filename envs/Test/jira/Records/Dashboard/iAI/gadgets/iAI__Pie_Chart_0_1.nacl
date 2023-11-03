@@ -1,0 +1,13 @@
+jira.DashboardGadget iAI__Pie_Chart_0_1@uusuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:pie-chart-gadget/gadgets/piechart-gadget.xml"
+  color = "blue"
+  position = {
+    row = 1
+    column = 0
+  }
+  title = "Pie Chart"
+  _parent = [
+    jira.Dashboard.instance.iAI,
+  ]
+  _alias = "Pie Chart"
+}

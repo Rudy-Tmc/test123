@@ -1,0 +1,6 @@
+jira.IssueType Topic {
+  description = ""
+  name = "Topic"
+  untranslatedName = "Topic"
+  hierarchyLevel = 0
+}

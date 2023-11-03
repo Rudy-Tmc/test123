@@ -1,0 +1,72 @@
+jira.DashboardGadget Pieter_test_s__Created_vs__Resolved_Chart_0_0@umuusvssuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:created-vs-resolved-issues-chart-gadget/gadgets/createdvsresolved-gadget.xml"
+  color = "blue"
+  position = {
+    row = 0
+    column = 0
+  }
+  title = "Created vs. Resolved Chart"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "isPopup"
+          value = "false"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "periodName"
+          value = "daily"
+        },
+        {
+          key = "showUnresolvedTrend"
+          value = "false"
+        },
+        {
+          key = "projectOrFilterId"
+          value = ""
+        },
+        {
+          key = "type"
+          value = "project"
+        },
+        {
+          key = "versionLabel"
+          value = "none"
+        },
+        {
+          key = "isCumulative"
+          value = "false"
+        },
+        {
+          key = "name"
+          value = "test"
+        },
+        {
+          key = "daysprevious"
+          value = "30"
+        },
+        {
+          key = "id"
+          value = "10000"
+        },
+        {
+          key = "operation"
+          value = "count"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Pieter_test@s,
+  ]
+  _alias = "Created vs. Resolved Chart"
+}

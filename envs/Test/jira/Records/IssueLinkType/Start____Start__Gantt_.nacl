@@ -1,0 +1,5 @@
+jira.IssueLinkType Start____Start__Gantt_@sbysshi {
+  name = "Start -> Start [Gantt]"
+  inward = "has to be started together with"
+  outward = "has to be started together with"
+}

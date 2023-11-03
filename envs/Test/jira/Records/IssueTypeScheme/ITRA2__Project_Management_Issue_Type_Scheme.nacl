@@ -1,0 +1,11 @@
+jira.IssueTypeScheme ITRA2__Project_Management_Issue_Type_Scheme@fsssss {
+  name = "ITRA2: Project Management Issue Type Scheme"
+  issueTypeIds = [
+    jira.IssueType.instance.Epic,
+    jira.IssueType.instance.Module,
+    jira.IssueType.instance.les,
+    jira.IssueType.instance.zelfstudie,
+    jira.IssueType.instance.toets,
+    jira.IssueType.instance.evaluatie,
+  ]
+}

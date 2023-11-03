@@ -1,0 +1,12 @@
+jira.Project IT_service_management__Essentials_@sssjk {
+  key = "ISME"
+  description = ""
+  name = "IT service management (Essentials)"
+  projectTypeKey = "service_desk"
+  entityId = "ed0ce9d0-5faa-4959-99e2-5f15b9f5192a"
+  uuid = "ed0ce9d0-5faa-4959-99e2-5f15b9f5192a"
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

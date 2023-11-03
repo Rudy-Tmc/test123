@@ -1,0 +1,9 @@
+jira.Field Task_progress__float__c@suuuu {
+  name = "Task progress"
+  description = "Progress field used by SoftwarePlant plugins (BigPicture, BigGantt) (Migrated on 3 Apr 2020 12:39 UTC)"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:float"
+  contexts = [
+    jira.CustomFieldContext.instance.Task_progress__float__c_suuuu_Default_Configuration_Scheme_for_Task_progress@uuuuumusssss,
+  ]
+  _alias = "Task progress"
+}

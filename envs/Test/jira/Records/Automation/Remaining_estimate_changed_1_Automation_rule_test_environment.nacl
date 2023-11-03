@@ -1,0 +1,182 @@
+jira.Automation Remaining_estimate_changed_1_Automation_rule_test_environment@sssusss {
+  name = "Remaining estimate changed 1"
+  state = "ENABLED"
+  description = ""
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 2
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "ANY_CHANGE"
+      fields = [
+        {
+          value = jira.Field.instance.Time_tracking__timetracking@suu
+          type = "field"
+        },
+      ]
+      actions = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{issue.fields.${ jira.Field.instance.Time_tracking__timetracking@suu }.remainingEstimateSeconds}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 3
+      type = "jira.set.entity.property"
+      value = {
+        entityType = "ISSUE"
+        key = "remainingestimate_previous"
+        value = "{{issue.properties.remainingestimate|0}}"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 3
+      type = "jira.set.entity.property"
+      value = {
+        entityType = "ISSUE"
+        key = "remainingestimate"
+        value = "{{issue.fields.${ jira.Field.instance.Time_tracking__timetracking@suu }.remainingEstimateSeconds}}"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 10
+              type = "jira.issue.transition"
+              value = {
+                operations = [
+                ]
+                sendNotifications = true
+                destinationStatus = {
+                  type = "NAME"
+                  value = jira.Status.instance.to_do@s.name
+                }
+                transitionMatch = ""
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.fields.timetracking.remainingEstimateSeconds}}"
+                second = "0"
+                operator = "GREATER_THAN"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 3
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "ID"
+                  value = jira.Field.instance.Status__status
+                }
+                selectedFieldType = "status"
+                comparison = "NOT_EQUAL"
+                compareFieldValue = {
+                  type = "NAME"
+                  value = jira.Status.instance.to_do@s.name
+                  multiValue = false
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+    jira.AutomationLabel.instance.worklog,
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Remaining estimate changed 1"
+}

@@ -1,0 +1,10 @@
+jira.Field pipo__textarea__c {
+  name = "pipo"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+  contexts = [
+    jira.CustomFieldContext.instance.pipo__textarea__c_Default_Configuration_Scheme_for_pipo@uuuuussss,
+  ]
+  _alias = "pipo"
+}

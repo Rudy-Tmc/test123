@@ -1,0 +1,137 @@
+jira.Automation User_object_updated@s {
+  name = "User object updated"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "cmdb.object.trigger"
+    value = {
+      operation = "UPDATED"
+      workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+      schemaId = "39"
+      schemaLabel = "Licenties"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{object.objectType}}: {{object.label}} [{{object.id}}] - {{object.Licenties}}"
+    },
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "jira.smart.values.branch"
+      value = {
+        id = "_customsmartvalue_id_1651743364246"
+        name = {
+          type = "FREE"
+          value = "licentieKey"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{object.Licenties}}"
+        }
+        lazy = false
+      }
+      children = [
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "cmdb.lookup.objects"
+          value = {
+            workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+            schemaId = "39"
+            customSmartValue = {
+              id = "_customsmartvalue_id_1651743270537"
+              name = {
+                type = "FREE"
+                value = "lookupObjects"
+              }
+              type = "IQL"
+              query = {
+                type = "SMART"
+                value = "\"Licenties\" IN (\"{{licentieKey}}\")"
+              }
+              lazy = false
+            }
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "codebarrel.action.log"
+          children = [
+          ]
+          conditions = [
+          ]
+          rawValue = "{{licentieKey}}: {{lookupObjects.size}}"
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "cmdb.object.edit.attributes"
+          value = {
+            attributes = [
+              {
+                name = "Aantal licenties in gebruik"
+                value = "{{lookupObjects.size}}"
+              },
+            ]
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "User object updated"
+}

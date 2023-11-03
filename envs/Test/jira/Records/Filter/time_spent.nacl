@@ -1,0 +1,70 @@
+jira.Filter time_spent@s {
+  name = "time spent"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  jql = "${ jira.Field.instance.Key.name } in portfolioChildIssuesOf(A5-1) OR ${ jira.Field.instance.Key.name } = A5-1 ORDER BY ${ jira.Field.instance.Key.name } ASC"
+  columns = [
+    {
+      label = "Issue Type"
+      value = "issuetype"
+    },
+    {
+      label = "Key"
+      value = "issuekey"
+    },
+    {
+      label = "Summary"
+      value = "summary"
+    },
+    {
+      label = "Assignee"
+      value = "assignee"
+    },
+    {
+      label = "Reporter"
+      value = "reporter"
+    },
+    {
+      label = "Priority"
+      value = "priority"
+    },
+    {
+      label = "Status"
+      value = "status"
+    },
+    {
+      label = "Original estimate"
+      value = "timeoriginalestimate"
+    },
+    {
+      label = "Time Spent"
+      value = "timespent"
+    },
+    {
+      label = "Remaining Estimate"
+      value = "timeestimate"
+    },
+    {
+      label = "Progress"
+      value = "progress"
+    },
+    {
+      label = "Σ Original Estimate"
+      value = "aggregatetimeoriginalestimate"
+    },
+    {
+      label = "Σ Time Spent"
+      value = "aggregatetimespent"
+    },
+    {
+      label = "Σ Remaining Estimate"
+      value = "aggregatetimeestimate"
+    },
+    {
+      label = "Σ Progress"
+      value = "aggregateprogress"
+    },
+  ]
+}

@@ -1,0 +1,7 @@
+jira.ScreenScheme ISD__Jira_Service_Desk_Screen_Scheme@fsssss {
+  name = "ISD: Jira Service Desk Screen Scheme"
+  description = "This Jira Service Desk Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.ISD__Jira_Service_Desk_Screen@fssss
+  }
+}

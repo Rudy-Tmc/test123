@@ -1,0 +1,20 @@
+jira.Field To_day__select__c@suuuu {
+  name = "To day"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+  contexts = [
+    jira.CustomFieldContext.instance.To_day__select__c_suuuu_Default_Configuration_Scheme_for_To_day@uuuuumusssss,
+  ]
+  _alias = "To day"
+}
+jira.Field To_Day__textfield__c@suuuu {
+  name = "To Day"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.To_Day__textfield__c_suuuu_Default_Configuration_Scheme_for_To_Day@uuuuumusssss,
+  ]
+  _alias = "To Day"
+}

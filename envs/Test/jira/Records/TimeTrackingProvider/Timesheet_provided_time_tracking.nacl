@@ -1,0 +1,5 @@
+jira.TimeTrackingProvider Timesheet_provided_time_tracking@s {
+  key = "jira-timesheet-plugin__timereports-time-tracking-provider"
+  name = "Timesheet provided time tracking"
+  url = "https://rudy.atlassian.net/plugins/servlet/ac/jira-timesheet-plugin/timereports-time-tracking-config"
+}

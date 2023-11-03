@@ -1,0 +1,6 @@
+jira.IssueType toets {
+  description = ""
+  name = "toets"
+  untranslatedName = "toets"
+  hierarchyLevel = -1
+}

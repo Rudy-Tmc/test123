@@ -1,0 +1,10 @@
+jira.Field Bedrijf__textfield__c {
+  name = "Bedrijf"
+  description = "[Hardware hand-in hand-off process|https://onegini.atlassian.net/wiki/spaces/SUP/pages/2135261191/Hardware+hand-in+hand-off+proces]"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Bedrijf__textfield__c_Default_Configuration_Scheme_for_Bedrijf@uuuuussss,
+  ]
+  _alias = "Bedrijf"
+}

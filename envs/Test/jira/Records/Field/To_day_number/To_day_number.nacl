@@ -1,0 +1,10 @@
+jira.Field To_day_number__float__c@ssuuuu {
+  name = "To day number"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:exactnumber"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:float"
+  contexts = [
+    jira.CustomFieldContext.instance.To_day_number__float__c_ssuuuu_Default_Configuration_Scheme_for_To_day_number@uuuuuumussssss,
+  ]
+  _alias = "To day number"
+}

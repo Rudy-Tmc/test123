@@ -1,0 +1,9 @@
+jira.Dashboard Trasndev_Assets@s {
+  description = ""
+  name = "Trasndev Assets"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  layout = "AA"
+}

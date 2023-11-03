@@ -1,0 +1,28 @@
+jira.Project esd {
+  key = "ESD"
+  description = ""
+  name = "esd"
+  projectTypeKey = "service_desk"
+  components = [
+    jira.ProjectComponent.instance.esd__Bitbucket,
+    jira.ProjectComponent.instance.esd__Blaat,
+    jira.ProjectComponent.instance.esd__Confluence,
+    jira.ProjectComponent.instance.esd__GUI,
+    jira.ProjectComponent.instance.esd__Hardware_issues@uus,
+    jira.ProjectComponent.instance.esd__Jira,
+    jira.ProjectComponent.instance.esd__Network,
+    jira.ProjectComponent.instance.esd__NewComp,
+    jira.ProjectComponent.instance.esd__Public_website@uus,
+    jira.ProjectComponent.instance.esd__Software_issues@uus,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.Jira_Service_Desk_IT_Support_Workflow_Scheme_generated_for_Project_ESD@s
+  permissionScheme = jira.PermissionScheme.instance.Jira_Service_Desk_Permission_Scheme_for_Project_ESD@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.ESD__Jira_Service_Desk_Issue_Type_Screen_Scheme@fsssssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.ESD__Jira_Service_Desk_Issue_Type_Scheme@fssssss
+  fieldConfigurationScheme = jira.FieldConfigurationScheme.instance.Jira_Service_Desk_Field_Configuration_Scheme_for_Project_ESD@s
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

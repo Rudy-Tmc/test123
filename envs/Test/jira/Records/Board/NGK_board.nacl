@@ -1,0 +1,49 @@
+jira.Board NGK_board@s {
+  name = "NGK board"
+  type = "simple"
+  admins = {
+    users = [
+      {
+        id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+        displayName = "Rudy Holtkamp"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Next_gen_Kanban@s
+  }
+  filterId = jira.Filter.instance.missing_10007
+  columnConfig = {
+    columns = [
+      {
+        name = "To Do"
+        statuses = [
+          jira.Status.instance.missing_10015,
+        ]
+      },
+      {
+        name = "Af"
+        statuses = [
+          jira.Status.instance.missing_10031,
+        ]
+        max = 3
+      },
+      {
+        name = "In Progress"
+        statuses = [
+          jira.Status.instance.missing_10016,
+        ]
+      },
+      {
+        name = "Done"
+        statuses = [
+          jira.Status.instance.missing_10017,
+        ]
+      },
+    ]
+    constraintType = "none"
+  }
+  estimation = {
+    field = jira.Field.instance.Story_point_estimate__jsw_story_points__c@ssuubbuu
+  }
+}

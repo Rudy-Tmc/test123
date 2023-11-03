@@ -1,0 +1,9 @@
+jira.ProjectComponent Automation_rule_test_environment_s__Hardware_issues@uuumuus {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "Hardware issues"
+  _parent = [
+    jira.Project.instance.Automation_rule_test_environment@s,
+  ]
+  _alias = "Automation rule test environment:Hardware issues"
+}

@@ -1,0 +1,45 @@
+jira.Board A4_scrum@s {
+  name = "A4 scrum"
+  type = "scrum"
+  admins = {
+    users = [
+      {
+        id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+        displayName = "Rudy Holtkamp"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Alpha_4@s
+  }
+  filterId = jira.Filter.instance.Filter_for_A4_scrum@s
+  columnConfig = {
+    columns = [
+      {
+        name = "To Do"
+        statuses = [
+          jira.Status.instance.to_do@s,
+        ]
+      },
+      {
+        name = "In Progress"
+        statuses = [
+          jira.Status.instance.in_progress@s,
+          jira.Status.instance.completed_but_not_closed@s,
+          jira.Status.instance.in_validation@s,
+        ]
+      },
+      {
+        name = "Done"
+        statuses = [
+          jira.Status.instance.done,
+          jira.Status.instance.approved,
+        ]
+      },
+    ]
+    constraintType = "none"
+  }
+  estimation = {
+    field = jira.Field.instance.Story_Points__float__c@suuuu
+  }
+}

@@ -1,0 +1,6 @@
+jira.IssueTypeScheme Service_Contract@s {
+  name = "Service Contract"
+  issueTypeIds = [
+    jira.IssueType.instance.Service_Contract@s,
+  ]
+}

@@ -1,0 +1,12 @@
+jira.IssueTypeScheme BETA__Kanban_Issue_Type_Scheme@fssss {
+  name = "BETA: Kanban Issue Type Scheme"
+  description = "(Migrated on 3 Apr 2020 12:39 UTC)"
+  defaultIssueTypeId = jira.IssueType.instance.Story
+  issueTypeIds = [
+    jira.IssueType.instance.Task,
+    jira.IssueType.instance.Sub_task@b,
+    jira.IssueType.instance.Story,
+    jira.IssueType.instance.Bug,
+    jira.IssueType.instance.Epic,
+  ]
+}

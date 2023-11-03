@@ -1,0 +1,8 @@
+jira.ScreenScheme WMP__Project_Management_Screen_Scheme@fssss {
+  name = "WMP: Project Management Screen Scheme"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.WMP__Project_Management_Edit_View_Issue_Screen@fsssdss
+    create = jira.Screen.instance.WMP__Project_Management_Create_Issue_Screen@fsssss
+  }
+}

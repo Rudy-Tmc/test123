@@ -1,0 +1,139 @@
+jira.Automation Find_object_Facilities_service_desk@suss {
+  name = "Find object"
+  state = "ENABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groups = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1638540629471"
+        name = {
+          type = "FREE"
+          value = "searchString"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "Ground floor"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+        schemaId = "2"
+        customSmartValue = {
+          id = "_customsmartvalue_id_1638540517764"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "ObjectTypeId = 3 and name=\"{{searchString}}\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Found: {{lookupObjects}} - {{lookupObjects.Name}} - {{lookupObjects.id}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+        ]
+        advancedFields = '''
+{
+   "fields": {
+      "customfield_10189": [{
+         "id":"ab8c02a9-61ac-4951-9762-a4139e9bed80:{{lookupObjects.id}}"
+      }]
+   }
+}
+'''
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Facilities_service_desk@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10021"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Find object"
+}

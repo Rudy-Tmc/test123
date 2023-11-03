@@ -1,0 +1,229 @@
+jira.Automation ISMT__Insight_Object_updated__SID_users___send_webhook_@fssssjskysss {
+  name = "ISMT: Insight Object updated (SID users)> send webhook "
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "cmdb.object.trigger"
+    value = {
+      operation = "UPDATED"
+      workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+      schemaId = "5"
+      schemaLabel = "Test CMDB"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{object.objectType}}"
+        second = "User"
+        operator = "EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{object.objectType}}: {{object.label}} [{{object.id}}]"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1647955703976"
+        name = {
+          type = "FREE"
+          value = "workspaceId"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1647955894167"
+        name = {
+          type = "FREE"
+          value = "auth"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "cnVkeS5ob2x0a2FtcEB0bWMubmw6N0Nud0QxSDVkUHdNT1NndDFNNFNFN0RD"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "https://api.atlassian.com/jsm/insight/workspace/{{workspaceId}}/v1/object/{{object.id}}/history"
+        headers = [
+          {
+            id = "_header_1647955750669"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1647955844362"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "empty"
+        method = "GET"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{webResponse.body.first.affectedAttribute}}: {{webResponse.body.first.oldValue}} > {{webResponse.body.first.newValue}}"
+    },
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "jira.smart.values.branch"
+      value = {
+        id = "_customsmartvalue_id_1647956642154"
+        name = {
+          type = "FREE"
+          value = "sid"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{webResponse.body.first.newValue.split(\", \")}}"
+        }
+        lazy = false
+      }
+      children = [
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "cmdb.lookup.objects"
+          value = {
+            workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+            schemaId = "5"
+            customSmartValue = {
+              id = "_customsmartvalue_id_1647956888711"
+              name = {
+                type = "FREE"
+                value = "lookupObjects"
+              }
+              type = "IQL"
+              query = {
+                type = "SMART"
+                value = "objectType = SID and Label=\"{{sid}}\""
+              }
+              lazy = false
+            }
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "codebarrel.action.log"
+          children = [
+          ]
+          conditions = [
+          ]
+          rawValue = "{{lookupObjects}}"
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "codebarrel.action.log"
+          children = [
+          ]
+          conditions = [
+          ]
+          rawValue = "{{sid}} - {{lookupObjects.host}} - {{object.Label}} [{{object.Access account}}]"
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ISMT: Insight Object updated (SID users)> send webhook "
+}

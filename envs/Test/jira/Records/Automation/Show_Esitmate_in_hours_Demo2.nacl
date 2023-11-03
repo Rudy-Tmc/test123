@@ -1,0 +1,122 @@
+jira.Automation Show_Esitmate_in_hours_Demo2@sssu {
+  name = "Show Esitmate in hours"
+  state = "ENABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groups = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{issue.${ jira.Field.instance.Time_tracking__timetracking@suu }.originalEstimate}}"
+        second = ""
+        operator = "NOT_EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Hours : {{#=}} {{issue.${ jira.Field.instance.Time_tracking__timetracking@suu }.originalEstimateSeconds}} / 3600 {{/}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{issue.${ jira.Field.instance.Time_tracking__timetracking@suu }.originalEstimate}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{#=}}{{${ jira.Field.instance.Time_tracking__timetracking@suu }.originalEstimate.replace(\"w\", \"* 40 +\").replace(\"d\", \"* 8 +\").replace(\"h\", \"\")}}{{/}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{#debug}}{{#=}}{{${ jira.Field.instance.Time_tracking__timetracking@suu }.originalEstimate.replace(\"w\", \"* 40 +\").replace(\"d\", \"* 8 +\").replace(\"h\", \"\")}}{{/}}h{{/}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{#=}} {{#=}}{{${ jira.Field.instance.Time_tracking__timetracking@suu }.originalEstimate.replace(\"w\", \"* 40 +\").replace(\"d\", \"* 8 +\").replace(\"h\", \"\")}}{{/}} * 30{{/}}"
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Demo2
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10002"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Show Esitmate in hours"
+}

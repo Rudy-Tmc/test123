@@ -1,0 +1,186 @@
+jira.Automation Compute_original_estimate_of_epic_Automation_rule_test_environment@ssssusss {
+  name = "Compute original estimate of epic"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 2
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "ANY_CHANGE"
+      fields = [
+        {
+          value = jira.Field.instance.Time_tracking__timetracking@suu
+          type = "field"
+        },
+      ]
+      actions = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{issue.epic link}}"
+        second = ""
+        operator = "NOT_EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1627047832187"
+        name = {
+          type = "FREE"
+          value = "originalestimate"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{issue.timetracking.originalEstimateSeconds}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Key: {{issue.key}} - {{issue.${ jira.Field.instance.Time_tracking__timetracking@suu }.originalEstimate}} - {{originalestimate}}"
+    },
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "jira.issue.related"
+      value = {
+        relatedType = "jql"
+        jql = "\"${ jira.Field.instance.Epic_Link__gh_epic_link__c@suubbuu.name }\" = {{triggerissue.epic link}}"
+        linkTypes = [
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "jira.create.variable"
+          value = {
+            id = "_customsmartvalue_id_1627049021366"
+            name = {
+              type = "FREE"
+              value = "originalestimate"
+            }
+            type = "SMART"
+            query = {
+              type = "SMART"
+              value = "{{#=}} {{originalestimate}} + {{issue.timetracking.originalEstimateSeconds}} {{/}}"
+            }
+            lazy = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "codebarrel.action.log"
+          children = [
+          ]
+          conditions = [
+          ]
+          rawValue = "Key: {{issue.key}} - {{issue.timetracking.originalEstimate}} - {{originalestimate}}"
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "jira.issue.refresh.issue"
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.refresh.issue"
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Total: {{originalestimate}}"
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Compute original estimate of epic"
+}

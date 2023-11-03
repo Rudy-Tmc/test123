@@ -1,0 +1,14 @@
+jira.Dashboard Renate {
+  description = ""
+  name = "Renate"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  gadgets = [
+    jira.DashboardGadget.instance.Renate__Days_Remaining_in_Sprint_Gadget_0_0@uussssuu,
+    jira.DashboardGadget.instance.Renate__Sprint_Burndown_Gadget_1_0@uussuu,
+    jira.DashboardGadget.instance.Renate__Sprint_Health_Gadget_1_1@uussuu,
+  ]
+  layout = "AA"
+}

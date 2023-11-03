@@ -1,0 +1,20 @@
+jira.Field Organization__select__c {
+  name = "Organization"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+  contexts = [
+    jira.CustomFieldContext.instance.Organization__select__c_Default_Configuration_Scheme_for_Organization@uuuuussss,
+  ]
+  _alias = "Organization"
+}
+jira.Field Organization__cmdb_object_cftype__c@uubbuu {
+  name = "Organization"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Organization__cmdb_object_cftype__c_uubbuu_Default_Configuration_Scheme_for_Organization@uuuuuumussss,
+  ]
+  _alias = "Organization"
+}

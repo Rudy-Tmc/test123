@@ -1,0 +1,6 @@
+jira.IssueType Request_a_budget_allocation@s {
+  description = "Have a budget or spend request? Submit it here."
+  name = "Request a budget allocation"
+  untranslatedName = "Request a budget allocation"
+  hierarchyLevel = 0
+}

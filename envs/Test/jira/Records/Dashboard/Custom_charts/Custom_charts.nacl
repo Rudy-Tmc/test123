@@ -1,0 +1,15 @@
+jira.Dashboard Custom_charts@s {
+  description = ""
+  name = "Custom charts"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  gadgets = [
+    jira.DashboardGadget.instance.Custom_charts_s__Custom_Charts_Simple_Search_0_0@umuusssuu,
+    jira.DashboardGadget.instance.Custom_charts_s__Custom_Charts_0_1@umuusuu,
+    jira.DashboardGadget.instance.Custom_charts_s__Custom_Charts_1_0@umuusuu,
+    jira.DashboardGadget.instance.Custom_charts_s__Custom_Charts_1_1@umuusuu,
+  ]
+  layout = "AA"
+}

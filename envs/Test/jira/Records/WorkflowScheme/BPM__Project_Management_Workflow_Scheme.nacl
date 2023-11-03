@@ -1,0 +1,5 @@
+jira.WorkflowScheme BPM__Project_Management_Workflow_Scheme@fssss {
+  name = "BPM: Project Management Workflow Scheme"
+  description = ""
+  defaultWorkflow = jira.Workflow.instance.BPM__Project_Management_Workflow@fsss
+}

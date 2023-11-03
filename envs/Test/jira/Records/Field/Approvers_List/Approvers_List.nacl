@@ -1,0 +1,10 @@
+jira.Field Approvers_List__multiuserpicker__c@suuuu {
+  name = "Approvers List"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:userpickergroupsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Approvers_List__multiuserpicker__c_suuuu_Default_Configuration_Scheme_for_Approvers_List@uuuuumusssss,
+  ]
+  _alias = "Approvers List"
+}

@@ -1,0 +1,13 @@
+jira.Screen Respond_to_Supplier@s {
+  name = "Respond to Supplier"
+  description = ""
+  tabs = {
+    Field_Tab@s = {
+      name = "Field Tab"
+      fields = [
+        jira.Field.instance.Respond_to_supplier__textarea__c@ssuuuu,
+      ]
+      position = 0
+    }
+  }
+}

@@ -1,0 +1,13 @@
+jira.Dashboard Risks {
+  description = ""
+  name = "Risks"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  gadgets = [
+    jira.DashboardGadget.instance.Risks__Release_Burndown_Chart_0_0@uussuu,
+    jira.DashboardGadget.instance.Risks__Two_Dimensional_Filter_Statistics_0_1@uusssuu,
+  ]
+  layout = "AA"
+}

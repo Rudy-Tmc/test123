@@ -1,0 +1,44 @@
+jira.DashboardGadget Renate__Days_Remaining_in_Sprint_Gadget_0_0@uussssuu {
+  uri = "rest/gadgets/1.0/g/com.pyxis.greenhopper.jira:greenhopper-gadget-sprint-days-remaining/gadgets/greenhopper-sprint-days-remaining.xml"
+  color = "blue"
+  position = {
+    row = 0
+    column = 0
+  }
+  title = "Days Remaining in Sprint Gadget"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "showSprintName"
+          value = "true"
+        },
+        {
+          key = "sprintId"
+          value = "auto"
+        },
+        {
+          key = "rapidViewId"
+          value = "10"
+        },
+        {
+          key = "showRapidViewName"
+          value = "true"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Renate,
+  ]
+  _alias = "Days Remaining in Sprint Gadget"
+}

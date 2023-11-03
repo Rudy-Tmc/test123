@@ -1,0 +1,35 @@
+jira.WorkflowScheme Jira_Service_Desk_IT_Support_Workflow_Scheme_generated_for_Project_HSD@s {
+  name = "Jira Service Desk IT Support Workflow Scheme generated for Project HSD"
+  description = "This Jira Service Desk IT Support Workflow Scheme was generated for Project HSD"
+  defaultWorkflow = jira.Workflow.instance.jira
+  items = [
+    {
+      workflow = jira.Workflow.instance.HSD__Jira_Service_Desk_default_workflow@fsssss
+      issueType = jira.IssueType.instance.Task
+    },
+    {
+      workflow = jira.Workflow.instance.HSD__Jira_Service_Desk_default_workflow@fsssss
+      issueType = jira.IssueType.instance.Sub_task@b
+    },
+    {
+      workflow = jira.Workflow.instance.HSD__Simple_ESM_workflow_for_Jira_Service_Desk@fsssssss
+      issueType = jira.IssueType.instance.Emailed_request@s
+    },
+    {
+      workflow = jira.Workflow.instance.HSD__Simple_ESM_workflow_for_Jira_Service_Desk@fsssssss
+      issueType = jira.IssueType.instance.Change_request@s
+    },
+    {
+      workflow = jira.Workflow.instance.HSD__Simple_ESM_workflow_for_Jira_Service_Desk@fsssssss
+      issueType = jira.IssueType.instance.Questions_for_HR@s
+    },
+    {
+      workflow = jira.Workflow.instance.HSD__Default_ESM_workflow_for_Jira_Service_Desk@fsssssss
+      issueType = jira.IssueType.instance.Employee_onboarding@s
+    },
+    {
+      workflow = jira.Workflow.instance.HSD__Default_ESM_workflow_for_Jira_Service_Desk@fsssssss
+      issueType = jira.IssueType.instance.Employee_offboarding@s
+    },
+  ]
+}

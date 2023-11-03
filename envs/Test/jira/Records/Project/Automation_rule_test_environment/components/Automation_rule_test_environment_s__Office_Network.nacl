@@ -1,0 +1,9 @@
+jira.ProjectComponent Automation_rule_test_environment_s__Office_Network@uuumuus {
+  description = "Created by Jira Service Management"
+  assigneeType = "PROJECT_DEFAULT"
+  name = "Office Network"
+  _parent = [
+    jira.Project.instance.Automation_rule_test_environment@s,
+  ]
+  _alias = "Automation rule test environment:Office Network"
+}

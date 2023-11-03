@@ -1,0 +1,6 @@
+jira.IssueType Request_a_policy_review@s {
+  description = "Need help with a policy? Submit a request here."
+  name = "Request a policy review"
+  untranslatedName = "Request a policy review"
+  hierarchyLevel = 0
+}

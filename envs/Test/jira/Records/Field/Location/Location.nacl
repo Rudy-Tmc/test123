@@ -1,0 +1,25 @@
+jira.Field Location__location__c {
+  name = "Location"
+  description = "Adding both UUID and Location fields to a project, will enable JIRA Mobile Connect for that project."
+  type = "com.atlassian.jconnect.jconnect-plugin:location"
+  _alias = "Location"
+}
+jira.Field Location__cmdb_object_cftype__c@uubbuu {
+  name = "Location"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Location__cmdb_object_cftype__c_uubbuu_Default_Configuration_Scheme_for_Location@uuuuuumussss,
+  ]
+  _alias = "Location"
+}
+jira.Field Location__textfield__c {
+  name = "Location"
+  description = ""
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Location__textfield__c_Default_Configuration_Scheme_for_Location@uuuuussss,
+  ]
+  _alias = "Location"
+}

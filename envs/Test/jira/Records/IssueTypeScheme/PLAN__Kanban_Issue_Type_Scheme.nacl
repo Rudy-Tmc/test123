@@ -1,0 +1,8 @@
+jira.IssueTypeScheme PLAN__Kanban_Issue_Type_Scheme@fssss {
+  name = "PLAN: Kanban Issue Type Scheme"
+  defaultIssueTypeId = jira.IssueType.instance.Initiative
+  issueTypeIds = [
+    jira.IssueType.instance.Initiative,
+    jira.IssueType.instance.Project,
+  ]
+}

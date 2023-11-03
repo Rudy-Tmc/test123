@@ -1,0 +1,119 @@
+jira.Automation Start_Sprint__Set_end_date_and_start_date_based_Automation_rule_test_environment@sfsssssssusss {
+  name = "Start Sprint: Set end date and start date based"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.sprint.event.trigger:started"
+    value = {
+      boardId = jira.Board.instance.ARTE_board@s
+      sprintNameFilter = ""
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Sprint:  {{issue.${ jira.Field.instance.Sprint__gh_sprint__c@uubuu.name }.startDate.jiradate()}} - {{issue.${ jira.Field.instance.Sprint__gh_sprint__c@uubuu.name }.endDate.jiradate()}}"
+    },
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "jira.issue.related"
+      value = {
+        relatedType = "sprint"
+        jql = ""
+        linkTypes = [
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "ACTION"
+          schemaVersion = 10
+          type = "jira.issue.edit"
+          value = {
+            operations = [
+              {
+                field = {
+                  type = "NAME"
+                  value = jira.Field.instance.Start_date__datepicker__c@suuuu.name
+                }
+                fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+                type = "SET"
+                rawValue = "{{issue.Sprint.startDate.jiradate()}}"
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Due_date__date@suu
+                }
+                fieldType = "duedate"
+                type = "SET"
+                rawValue = "{{issue.Sprint.endDate.jiradate()}}"
+              },
+            ]
+            sendNotifications = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Start Sprint: Set end date and start date based"
+}

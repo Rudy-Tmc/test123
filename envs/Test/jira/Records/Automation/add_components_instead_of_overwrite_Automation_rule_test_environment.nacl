@@ -1,0 +1,249 @@
+jira.Automation add_components_instead_of_overwrite_Automation_rule_test_environment@ssssusss {
+  name = "add components instead of overwrite"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.jql.scheduled"
+    value = {
+      schedule = {
+        cronExpression = ""
+        method = "BASIC"
+        rate = 0
+        rateInterval = 86400
+        rRule = '''
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Amsterdam:20220623T141004
+RRULE:FREQ=WEEKLY;BYHOUR=9;BYMINUTE=0;BYSECOND=0;BYDAY=TH;INTERVAL=1
+END:VEVENT
+
+'''
+      }
+      jql = "${ jira.Field.instance.Key.name }=ARTE-1"
+      executionMode = "jql"
+      onlyUpdatedIssues = false
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1655987643502"
+        name = {
+          type = "FREE"
+          value = "firstJSON"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{#issue.components}}{ \"name\": \"{{name}}\"} {{^last}}, {{/}}{{/}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{firstJSON}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1655988674453"
+        name = {
+          type = "FREE"
+          value = "secondJSON"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "-"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.create.variable"
+              value = {
+                id = "_customsmartvalue_id_1655988717658"
+                name = {
+                  type = "FREE"
+                  value = "secondJSON"
+                }
+                type = "SMART"
+                query = {
+                  type = "SMART"
+                  value = "{ \"name\": \"EA\"} , { \"name\": \"Billing Services\"}"
+                }
+                lazy = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{firstJSON}}"
+                second = ""
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.create.variable"
+              value = {
+                id = "_customsmartvalue_id_1655988751373"
+                name = {
+                  type = "FREE"
+                  value = "secondJSON"
+                }
+                type = "SMART"
+                query = {
+                  type = "SMART"
+                  value = "{ \"name\": \"EA\"} , { \"name\": \"Billing Services\"} , {{firstJSON}}"
+                }
+                lazy = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{secondJSON}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+        ]
+        advancedFields = '''
+{
+    "fields": {
+        "components" : [ {{secondJSON}} ]
+        }
+}
+'''
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "add components instead of overwrite"
+}

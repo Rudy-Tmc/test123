@@ -1,0 +1,6 @@
+jira.IssueType Course {
+  description = ""
+  name = "Course"
+  untranslatedName = "Course"
+  hierarchyLevel = 0
+}

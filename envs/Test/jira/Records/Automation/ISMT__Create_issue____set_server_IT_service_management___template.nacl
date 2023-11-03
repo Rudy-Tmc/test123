@@ -1,0 +1,247 @@
+jira.Automation ISMT__Create_issue____set_server_IT_service_management___template@fsssbyssusssbs {
+  name = "ISMT: Create issue -> set server"
+  state = "ENABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 3
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Creator__user
+        }
+        selectedFieldType = "creator"
+        comparison = "ONE_OF"
+        compareFieldValue = {
+          type = "ID"
+          multiValue = true
+          values = [
+            {
+              id = "5dd64082af96bc0efbe55103"
+              displayName = "Alert Integration"
+            },
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.edit.request.type"
+      value = {
+        requestType = {
+          type = "NAME"
+          value = "Incident - Alert"
+        }
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1644334849476"
+        name = {
+          type = "FREE"
+          value = "workspaceId"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1644334010332"
+        name = {
+          type = "FREE"
+          value = "server"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{issue.summary.substringBetween(\"[\",\"]\")}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{server}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+        schemaId = "5"
+        customSmartValue = {
+          id = "_customsmartvalue_id_1644334321548"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = " ObjectType = \"Server\" and Name= \"{{server}}\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{lookupObjects}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{lookupObjects.SLA}}"
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{lookupObjects}}"
+        second = ""
+        operator = "NOT_EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.SLA__select__c.name
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+            type = "SET"
+            value = {
+              type = "SMART"
+              value = "{{lookupObjects.SLA}}"
+            }
+          },
+        ]
+        advancedFields = '''
+{
+   "fields": {
+      "customfield_10200": [{
+         "id":"{{workspaceId}}:{{lookupObjects.id}}"
+      }]
+   }
+}
+'''
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_service_management___template@sssbs
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10047"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ISMT: Create issue -> set server"
+}

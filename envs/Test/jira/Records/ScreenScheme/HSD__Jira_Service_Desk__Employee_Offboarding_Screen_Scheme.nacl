@@ -1,0 +1,7 @@
+jira.ScreenScheme HSD__Jira_Service_Desk__Employee_Offboarding_Screen_Scheme@fsssfssss {
+  name = "HSD: Jira Service Desk: Employee Offboarding Screen Scheme"
+  description = "This Jira Service Desk Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.HSD__Jira_Service_Desk__Employee_Offboarding_Issue_Screen@fsssfssss
+  }
+}

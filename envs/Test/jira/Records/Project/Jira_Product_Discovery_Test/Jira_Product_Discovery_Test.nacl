@@ -1,0 +1,12 @@
+jira.Project Jira_Product_Discovery_Test@s {
+  key = "JPDT"
+  description = ""
+  name = "Jira Product Discovery Test"
+  projectTypeKey = "product_discovery"
+  entityId = "c7338f57-8b95-4baa-9d3c-a14efcdf110a"
+  uuid = "c7338f57-8b95-4baa-9d3c-a14efcdf110a"
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

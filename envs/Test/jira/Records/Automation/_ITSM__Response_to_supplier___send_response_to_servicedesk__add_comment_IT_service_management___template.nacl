@@ -1,0 +1,204 @@
+jira.Automation _ITSM__Response_to_supplier___send_response_to_servicedesk__add_comment_IT_service_management___template@hissssyssssessusssbs {
+  name = "[ITSM] Response to supplier > send response to servicedesk& add comment"
+  state = "ENABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 2
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "VALUE_ADDED"
+      fields = [
+        {
+          value = jira.Field.instance.Respond_to_supplier__textarea__c@ssuuuu.name
+          type = "fieldName"
+        },
+      ]
+      actions = [
+        "transition",
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 3
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Respond_to_supplier__textarea__c@ssuuuu.name
+        }
+        selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+        comparison = "NOT_EMPTY"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1648453126498"
+        name = {
+          type = "FREE"
+          value = "auth"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "cnVkeWhvbHRrYW1wK3N1cHBsaWVyQGdtYWlsLmNvbTptc0x4RTJnMWhCT2I4cmx5bHZuSThDRDQ="
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1648453540990"
+        name = {
+          type = "FREE"
+          value = "url"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "https://sabaas-test.atlassian.net"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{url}}/rest/servicedeskapi/request/{{issue.fields.${ jira.Field.instance.External_reference__textfield__c@suuuu.name }}}/comment"
+        headers = [
+          {
+            id = "_header_1648452567907"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1648453053137"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "custom"
+        customBody = '''
+{
+  "public": true,
+  "body": "{{issue.fields.Respond to Supplier}}"
+}
+'''
+        method = "POST"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+{panel:bgColor=#eae6ff|title={{Initiator.displayName}} responded to supplier:}
+{{issue.fields.Respond to Supplier}}{panel}
+
+
+'''
+        publicComment = false
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Respond_to_supplier__textarea__c@ssuuuu.name
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+            type = "SET"
+            rawValue = ""
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_service_management___template@sssbs
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10047"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "[ITSM] Response to supplier > send response to servicedesk& add comment"
+}

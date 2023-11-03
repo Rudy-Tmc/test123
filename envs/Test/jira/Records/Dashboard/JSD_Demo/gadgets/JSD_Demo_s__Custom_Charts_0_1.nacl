@@ -1,0 +1,64 @@
+jira.DashboardGadget JSD_Demo_s__Custom_Charts_0_1@umuusuu {
+  moduleKey = "com.atlassian.plugins.atlassian-connect-plugin:com.oldstreetsolutions.atlassian.jira.custom-charts__custom-chart-dashboard-item"
+  color = "blue"
+  position = {
+    row = 1
+    column = 0
+  }
+  title = "Custom Charts"
+  properties = [
+    {
+      key = "params"
+      values = [
+        {
+          key = "id"
+          value = "IIFgwgog7ADEA"
+        },
+        {
+          key = "title"
+          value = "FIZQsgBAtBAqCWBbAphALgewgM3gJwGc0I9kCAHDAOwNRgCFSBDAYwAtkATCANwIgByGYo2SsOnIA"
+        },
+        {
+          key = "titleType"
+          value = "MICQggSgKkA"
+        },
+        {
+          key = "searchType"
+          value = "MoSQsgCgMgog+sGBBASgYQBJA"
+        },
+        {
+          key = "aggregations"
+          value = "NobwRAhg5lBOCmUIBcCWB7AdgFQJ4Ad4wAuMAYQHkBVAOWzABpIYEll4AhXEsASQGV+VAKL9GYZASKlKtegF8AukA"
+        },
+        {
+          key = "query"
+          value = "BwEQrAzA7AQkA"
+        },
+        {
+          key = "customColumns"
+          value = "NoXSA"
+        },
+        {
+          key = "displayOptions"
+          value = "N4IgzgFg9g7gQlATgEwKaJALgGYEMA2YqANONDACq4BG+qACugMaoB2ALmFu4gK4llYVWqgCSYMPy6Ye-UpFgAtdFABqBfgBkaqQtz4CFlKOwIBhKLw765g46fwX8vALasbh8gHFElgA5wAJ4e8uSaqADmbMghdgAaAIIAHgCWYNrUurFGAJrJaRlZMgahQlBQ+OwpfgDyrHC4iAASUABu6LG4vOxQAEqo2IiokFh4hAIE+LA1flVQrGAAsmy8nfhTMACiSX5I7Nnk+emR0RZW+8W2RkfhUazIjIgs1jgERKRMEI3sFIF+qFgQF5ejUAKr0TYAEQA+nAEr0QKR-k82OxIWk-PhcMFMCBVAlNKDNoiQLhUmAAMrkR7PC5jd52ZS+Gmowp6S4CZG09FgTHYigpOiA-GEzbQiG9MybAByFBJXNRPL5gXoKQBuJFRPFm0lMrlSOYioxWMCR2FBKJJLodweUDAKTm7lxCW6UCtJ3u2kClguIBdPRJVXYdAS+BSEVYLlRgKlsp1JLQYCYiGqjvododKXmgIQ7B6LhJRlBREQohcyLA81wjtiTDDTAA1hQIL5eBEILFrdFerBNCkXA6sABWUhVOhmL6IdiidioFxgR49mDD0im8kT75NVDhiDsPsDi4AJgAbAAGUowSHDZOprNO2SeXs6dkPi-S1yZRBOVxO+kCVgfugPj+CkrARIC0o1NCwJgvQojSl4JIAS4n70EMTBpHeWAACwGiiHC4FEaGoBh9rZpgACMpCEREQwRNWd4ClGoKsIOuJNGCvQUiSNF0Qx8xMagLS8IgvT8VgAAcHyuLwWJVO0FAmAQoxvAITAyXJKQKUp+BBDGTTwhQsI5AmjQNosUBoCp4wXopFRVLUrDSrgUYtO0GAcheFgoaBqDIAAUgAjvg1kMmuaQsWxIBnNYpDINWqAAGJIC41aApCCQ5NCiWiFxRkUhxvT6nYLQpgAXvMDh9qwwyhagAC+QA"
+        },
+        {
+          key = "series1"
+          value = "N4IgxgFghgTgLgIQJ4EkAmIBc4YFMpy4YA0IAzrgOYC2uAdnGQMID2dAZgJaUCuMBnNllAA3APoAmAAwSJAWikBGOYqnCQnOmlwAPLItIUa9RlgDaoThmzjpshctUhSIqABseuLCDvylKtVJNdhYsOh43N1I6KFpvAHVcXABrAAI5VNVUgCkoOlTfEABfAF1SMBY3FhhvAGIAFgB2ACMwAA4oZxARTjJOZrcvTDgYTyKXSRk-R0b1TW09TAlDKloGMnNLa27J+39FWZd3T29fBxVDjQ5QzHDI6NihkESU9MzGnLyCqeKy8ErqnV2Ow2s0pIFur1+oMsCMxhMzv4JPU5lpdFgAMwrYzrTYaba2KbnZFdVweJ6I5QkoLXMIRKIgGJxbAvNIZZGffKFUrlAE1bC1di4ZoANgkItJUIGQzhuHGO0pcgxilRCyw9Wxa1MmAs+O8hL2ymVpOOFKJ-mNNJCdPujMeCSSbNSys531kv15VX5IAaUgxEgAnCiXFKYcNRnKETJlDIHKr0ZhGpqTBsdVt9bsY9MTeTTtGFNmrTc7gymU9WW9FKkAGLCt0qnn-L11ACsGNw9XYEklfWlsIj8oNWYUbXjizaydxab1NkzBZHOZO2Dsw6ko6LNtL9pZjrebRrdZXHqbgIFaAxzUUuG7Id7Ydlg7nscULbHWADk+1uqsGZX85fi5mhIw4ARutz0g8zLPLuGQvgezT1seFTNgKjT+uw4I9tCMoDlGwHzu6mCWGiiyqJ+qbfgST7yO6Ry5su+axrRVzWuBtplg6rzshI8GIY2yGnj6wIBo0LadLe2H9vCCqMRicZEVcaqYIoBjkKsKZ4j+s5-n6cZ0UuPiyXpLHFhBdpQRWsGpAAsrAfF-AJ3q1CKIpgOwUAYlhfbhtJQ4KHJa5vspyxqTiX7ptpRmBfpQExgF64mZukHljBqT7rZMD2Z6gm1BiUDnrgCU9HeOG+U+ckAQp8wJooWKhVqFERTJ+G6aB3SmnmLUVa+YElslnFOnBGVZSeTnsGAYBQC2KoSd5D54XFciEcRSmKBq9UadOWnNYtzFkgZOlycxwSmex27QVxBQ8cNR78XyQLsCK7AXl5964Tt-lLQGQUvuRmlUYdX2AZ1u3fb1ZkcTul2BjZdm3Q590CvUtVtI04mQiVUmRh9Uj1Aor5VSR+gin9W0A4xeNSD17X0YZLWU9TJ1JeZKWXS2qQAIIAA6ZfD2VOa5GIikkr2ldjfm4yo3aE6tSYbVOlG-hTUvAwx9Mq+DZ0Walig8dzvPRkhiM+mtGJoG0ELFZJPni0+eOKN9Ms1RO8vhTOOP22DNMHcrDtdEzbFbtrl0O5zPMjY5dRQIozQBlAlxW3N70S3j4o-R+ruNe7KdLRKMUgwoqd54lgf9VDTrimHBvAUbKE+i2YnNC2YCi1jj46S2-lBdIpOK5FLWd36qt0zGg+eZrQes06GKw0gEfG7ULZBmgzQ3hj1vzTjndOE7izAb3TUS9vlsdWro8BP7tKlyzA2VlIs-z3XtRtGAAYYm01OJ29ZUdxc3chUYBq-0lYDz-vnM++MwElz6jfculYPi2TnnzUadQ0BL3YI0YM68k4-0Yp3Eku8sASDqoAzafct5LSwftWKkDqTQIhudSyBR6gP2QZHAUIoxJgHqEVUMYt254KVCqQhSx1qkIVofJ8ndLTexoVTIRl9WIwMhhdaeVZEGPxypgqAAYRazW-rbHSIoFCzBERIFsB9s5PmMVIBOp8R4KBsZcAOyjGGpQ+NkHgXJDZ3SfmgP0uN0Zf34QtRxKgURmJJpnYB-cYzGLWsPIx4TFGnUnrfWCLDPHeJrr4nKTQ2i6OLsEtuoSpDGJrmYuW4i3bbQluUmasiC5lKWg0lxDDg4VyrFkzRTkpBoHyvUce2CDECJauU0cZiXbVKzrU6xS0ir2KSRIBKbStZTzeMsnIXiemoPqHs5urcbajJjI0fG3cM7TJiTjU5VNEmMRuYzK+riOlvHZp4twOyBRLyDIVQ5m8JanN1kFDEUhLGzJ0oCte1CmmQpSczFRTDdZbI+WwheZtmhoBFLwzGRzSmAsditBMyowXkxaviu5ZKVBe1WWkuBsEAzIs+T6NAAYl7Cz+cnJ8py04iP9CSkBJzc4UsFWnCeZdVEbJFIy1FT8RTNCgFIYUHLcEtTaAWYFJD1ISKsTpNVMhhUjnVWK2BEr2Scx4JQJlzk0BgHNl4fRIScZ6oJYpIlYitU1NJTGZ1Bq1wKGpU89p6yMgMo5haq12hhYW2VYYxiarFASl5RY6JZMBWGoTb6+NxcaXisRVKsNlqZVaPwGAIgMbjmGuIcCqJlzU2xMrUM6FEC-VVuNQi1KxDzWFp8QjJ+ujtDNEbXwkpTqlRqF5VUj1MyvWGpBZmsdcLr7tsuiCrtVrcCNBElAKhw7cU4wDI44FUyp1XIlgespvrz3ZsDWs9JqQpUAGVcBcytQGKQzQ2gYXLaUg9tVgUXJPXW-dKhG2LMYr+oZOaTWIpnk+l9RanKlqSCy79wHpBBXqKClN5Cz1LRPrTHSB70NtrcdDe+cGrUYTAFIdoqHcMSFMYSxYyN+X1qkERuxBHwNLWcTe2lpqCgfAowhuoTc3LsE-ru-5c5VCFwwwAwDOGZNSDk+AhxsncaLuecG1ILCADyYA4CUbAM0XA-o6PKZUMIpj6pNVhWnWm2TKkDVOdaXx3NOsqwGaMyJgUzRBktj0cMx1fknMTJs5gPZrGPphZcypxQKz3PQZ1vubzVriGKDQPUZoFm-yyfMRh5NtalN5ZUwVtTpWlqPKUUGu95jUhpd80JCaeyilSc5XlmM1nXXMZrYpyRnXjJNvU11rTtW6WZFSAAORYCIK1zR-O6PYLl-MKkFwiKaNF0L3qXM7ZIy8jI+4Ztzaa7lQdnDlsOpHdtlQBMIs8K2zJxwn8wP4TW21KDy7Brs2O8ZkzYkVtvapNLe7AH7Onqe0tKFr3HDA7G7eibshpuzatWADELY0DsAacUvdN3AxBRbFh4rA3VtUi9sNwb+P9s6Zhr907LZ6iE7QoDxwfhE0Remo9vLbOXM8+p3eqVAARXAYBjNoATZd4L12ZPyD-SIlsCnwdAdC7L0DXG3uq-h-xmDqRhei9O5NRoihnos6lnhgndmgHK5l+birq2aIQk+6Riu989dWtciKAMqNTe6x4wT91SuSv2793bjXIf6EI4Ewx3XIvKNoHNm0HdOLpOKiHvLor-WdXmjihS6YXd+cTZnrkbJ3ZclOTQMsls7Ak8bwHPKfphAn32dYBwbgfABBCAUpQGALAeBc00JQBIABRIfABpB9XR+B0EoE8QXABNKbHNrIoCYGIAAShzKbABxIfXR2A9+oN4OQCuADuXQ4A3BABCE-joH1wFgHAQXUAkD6HlNQAgkAH2PGrJwXAbg0CpjuRuAUCkDd695cxMBQBkCTTaA-5-4AFYBAEgEgA8AUCsBeipiyikDVDaAwAD7eDaDQH0BoD4GGAQAsAn4ABauAPerAXi2oWBo0AAMiwGAMkIge4BQEUEAA"
+        },
+        {
+          key = "series2"
+          value = "N4IgxgFghgTgLgIQJ4EkAmIBc4CuBnOAewFsBaSWOPc-IsgKwEcAbEAGhDwFMBzYrgHZUAwoQEAzAJY8cMKHElisoAIzKQkgWi4APLAAYOAqPywgEMLlEhcMHbn0FUsAbQC6HMIWaEYZgMQARuIATABs+vrsIABukniSgcxcWHAwOFwcjBkwSGYAOiAAKpL8AAREZVIwBGWWeAAOYtyFZQC8ZYGW1hC2ABQAlCAAvhwh6praepiGIMam2AByhHBlFlY2dpy8-EJ4rh7g3r4BACwA7IFgABxQ0XEJSSmYaRlZOXnYhSXlldW19SaAhaIDKAEIOl0Nr00IMRqMQMR5JAAMomLgAMUkXGYaH2mHEUGY3A4PBghBwDWEUDwYCg2ixOLxWEJxMyIHwXFEPhqLKJJJAvm0ME0PDMYFoJGieAghAA7gAtLjk0Q4PZ8tmeY4wAAyhDAAGsNQL5s9iqUuBVCFVJDVVoDmilhkA"
+        },
+        {
+          key = "version"
+          value = "1"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.JSD_Demo@s,
+  ]
+  _alias = "Custom Charts"
+}

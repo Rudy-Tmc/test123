@@ -1,0 +1,10 @@
+jira.Field Locatie__cmdb_object_cftype__c@uubbuu {
+  name = "Locatie"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Locatie__cmdb_object_cftype__c_uubbuu_Default_Configuration_Scheme_for_Locatie@uuuuuumussss,
+  ]
+  _alias = "Locatie"
+}

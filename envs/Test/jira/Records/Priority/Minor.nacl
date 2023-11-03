@@ -1,0 +1,6 @@
+jira.Priority Minor {
+  statusColor = "#999999"
+  description = "Trivial problem with little or no impact on progress."
+  iconUrl = "/images/icons/priorities/trivial.svg"
+  name = "Minor"
+}

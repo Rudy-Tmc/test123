@@ -1,0 +1,9 @@
+jira.ProjectComponent Demo2__Fantastic_Fresh_Hat@uuss {
+  name = "Fantastic Fresh Hat"
+  description = "Component: Quality-focused disintermediate strategy"
+  assigneeType = "UNASSIGNED"
+  _parent = [
+    jira.Project.instance.Demo2,
+  ]
+  _alias = "Demo2:Fantastic Fresh Hat"
+}

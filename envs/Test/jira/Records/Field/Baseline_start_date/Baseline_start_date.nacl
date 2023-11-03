@@ -1,0 +1,10 @@
+jira.Field Baseline_start_date__datepicker__c@ssuuuu {
+  name = "Baseline start date"
+  description = "Baseline start date field used by SoftwarePlant plugins (Migrated on 3 Apr 2020 12:39 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:daterange"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Baseline_start_date__datepicker__c_ssuuuu_Default_Configuration_Scheme_for_Baseline_start_date@uuuuuumussssss,
+  ]
+  _alias = "Baseline start date"
+}

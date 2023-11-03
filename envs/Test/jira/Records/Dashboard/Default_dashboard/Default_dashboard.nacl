@@ -1,0 +1,18 @@
+jira.Dashboard Default_dashboard@s {
+  name = "Default dashboard"
+  sharePermissions = [
+    {
+      type = "global"
+    },
+  ]
+  gadgets = [
+    jira.DashboardGadget.instance.Default_dashboard_s__Pie_Chart_0_0@umuusuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Two_Dimensional_Filter_Statistics_0_1@umuusssuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Filter_counts_0_2@umuusuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Introduction_0_3@umuuuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Projects_0_4@umuuuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Assigned_to_Me_1_0@umuussuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Activity_Stream_1_1@umuusuu,
+  ]
+  layout = "AA"
+}

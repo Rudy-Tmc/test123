@@ -1,0 +1,10 @@
+jira.Field linked_issue___sprint_name__textfield__c@ssbssuuuu {
+  name = "linked issue - sprint name"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.linked_issue___sprint_name__textfield__c_ssbssuuuu_Default_Configuration_Scheme_for_linked_issue___sprint_name@uuuuuuuuumussssssbss,
+  ]
+  _alias = "linked issue - sprint name"
+}

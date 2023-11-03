@@ -1,0 +1,8 @@
+jira.Filter Alpha___Beta@ses {
+  name = "Alpha & Beta"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  jql = "${ jira.Field.instance.Project__project } in (Alpha, ${ jira.Project.instance.Beta.key }, ${ jira.Project.instance.IT_service_management___template@sssbs.key })"
+}

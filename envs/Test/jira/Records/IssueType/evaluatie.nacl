@@ -1,0 +1,6 @@
+jira.IssueType evaluatie {
+  description = ""
+  name = "evaluatie"
+  untranslatedName = "evaluatie"
+  hierarchyLevel = -1
+}

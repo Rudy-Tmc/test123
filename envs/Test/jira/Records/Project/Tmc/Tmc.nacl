@@ -1,0 +1,14 @@
+jira.Project Tmc {
+  key = "TMC"
+  description = ""
+  url = "https://trello.com/b/nGCyhLrO/tmc"
+  name = "Tmc"
+  projectTypeKey = "software"
+  entityId = "b4d86eca-1a86-4854-8742-4a71163e1d64"
+  uuid = "b4d86eca-1a86-4854-8742-4a71163e1d64"
+  issueSecurityScheme = jira.SecurityScheme.instance.TMC__Simplified_Issue_Security_Scheme@fssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

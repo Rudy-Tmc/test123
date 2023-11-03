@@ -1,0 +1,9 @@
+jira.ProjectComponent Automation_rule_test_environment_s__NewComp@uuumuu {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "NewComp"
+  _parent = [
+    jira.Project.instance.Automation_rule_test_environment@s,
+  ]
+  _alias = "Automation rule test environment:NewComp"
+}

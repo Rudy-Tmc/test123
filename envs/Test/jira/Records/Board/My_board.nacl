@@ -1,0 +1,132 @@
+jira.Board My_board@s {
+  name = "My board"
+  type = "kanban"
+  admins = {
+    users = [
+      {
+        id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+        displayName = "Rudy Holtkamp"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Big_Ass_Battery_Top_level_Planning@sssbs
+  }
+  filterId = jira.Filter.instance.All_my_issues@s
+  columnConfig = {
+    columns = [
+      {
+        name = "To Do"
+        statuses = [
+          jira.Status.instance.selected_for_development@s,
+          jira.Status.instance.missing_10015,
+          jira.Status.instance.missing_10081,
+          jira.Status.instance.missing_10010,
+          jira.Status.instance.to_do@s,
+          jira.Status.instance.missing_10102,
+          jira.Status.instance.missing_10097,
+          jira.Status.instance.missing_10074,
+          jira.Status.instance.waiting_for_approval@s,
+          jira.Status.instance.missing_10060,
+          jira.Status.instance.backlog,
+          jira.Status.instance.review,
+          jira.Status.instance.missing_10101,
+          jira.Status.instance.open,
+          jira.Status.instance.reopened,
+          jira.Status.instance.missing_10109,
+          jira.Status.instance.missing_10092,
+          jira.Status.instance.not_started@s,
+          jira.Status.instance.peer_review___change_manager_approval@ssdsss,
+          jira.Status.instance.under_review@s,
+          jira.Status.instance.missing_10069,
+        ]
+      },
+      {
+        name = "In Progress"
+        statuses = [
+          jira.Status.instance.awaiting_implementation@s,
+          jira.Status.instance.waiting_for_customer@s,
+          jira.Status.instance.missing_10091,
+          jira.Status.instance.missing_10084,
+          jira.Status.instance.authorize,
+          jira.Status.instance.under_investigation@s,
+          jira.Status.instance.missing_10082,
+          jira.Status.instance.missing_10105,
+          jira.Status.instance.missing_10061,
+          jira.Status.instance.in_review_by_legal@s,
+          jira.Status.instance.missing_10075,
+          jira.Status.instance.missing_10077,
+          jira.Status.instance.escalated,
+          jira.Status.instance.missing_10031,
+          jira.Status.instance.missing_10093,
+          jira.Status.instance.missing_10094,
+          jira.Status.instance.missing_10110,
+          jira.Status.instance.missing_10073,
+          jira.Status.instance.with_other_party@s,
+          jira.Status.instance.missing_10085,
+          jira.Status.instance.ready_for_review@s,
+          jira.Status.instance.missing_10076,
+          jira.Status.instance.missing_10103,
+          jira.Status.instance.missing_10070,
+          jira.Status.instance.pending,
+          jira.Status.instance.missing_10080,
+          jira.Status.instance.in_review@s,
+          jira.Status.instance.awaiting_approval@s,
+          jira.Status.instance.work_in_progress@s,
+          jira.Status.instance.planning,
+          jira.Status.instance.missing_10111,
+          jira.Status.instance.in_progress@s,
+          jira.Status.instance.missing_10086,
+          jira.Status.instance.missing_10011,
+          jira.Status.instance.waiting_for_support@s,
+          jira.Status.instance.missing_10112,
+          jira.Status.instance.missing_10095,
+          jira.Status.instance.missing_10083,
+          jira.Status.instance.completed_but_not_closed@s,
+          jira.Status.instance.missing_10104,
+          jira.Status.instance.in_validation@s,
+          jira.Status.instance.awaiting_cab_approval@s,
+          jira.Status.instance.missing_10016,
+          jira.Status.instance.missing_10087,
+          jira.Status.instance.missing_10098,
+          jira.Status.instance.implementing,
+          jira.Status.instance.missing_10106,
+          jira.Status.instance.draft,
+        ]
+      },
+      {
+        name = "Done"
+        statuses = [
+          jira.Status.instance.missing_10099,
+          jira.Status.instance.done,
+          jira.Status.instance.cancelled,
+          jira.Status.instance.missing_10088,
+          jira.Status.instance.missing_10012,
+          jira.Status.instance.missing_10017,
+          jira.Status.instance.missing_10096,
+          jira.Status.instance.missing_10079,
+          jira.Status.instance.missing_10089,
+          jira.Status.instance.missing_10107,
+          jira.Status.instance.missing_10062,
+          jira.Status.instance.missing_10071,
+          jira.Status.instance.missing_10108,
+          jira.Status.instance.missing_10090,
+          jira.Status.instance.published,
+          jira.Status.instance.completed,
+          jira.Status.instance.canceled,
+          jira.Status.instance.declined,
+          jira.Status.instance.approved,
+          jira.Status.instance.rejected,
+          jira.Status.instance.failed,
+          jira.Status.instance.closed,
+          jira.Status.instance.missing_10100,
+          jira.Status.instance.performance,
+          jira.Status.instance.resolved,
+          jira.Status.instance.missing_10072,
+        ]
+      },
+    ]
+    constraintType = "issueCount"
+  }
+  subQuery = "fixVersion in unreleasedVersions() OR fixVersion is EMPTY"
+}

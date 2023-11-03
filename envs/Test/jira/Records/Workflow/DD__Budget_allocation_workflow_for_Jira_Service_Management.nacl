@@ -1,0 +1,485 @@
+jira.Workflow DD__Budget_allocation_workflow_for_Jira_Service_Management@fsssssss {
+  description = "This Jira Service Management Service budget allocation workflow was generated for Project DD"
+  transitions = {
+    Create__From__none__Initial@fffsff = {
+      name = "Create"
+      description = ""
+      to = jira.Status.instance.to_do@s
+      type = "initial"
+      rules = {
+        validators = [
+          {
+            type = "PermissionValidator"
+            configuration = {
+              permissionKey = "CREATE_ISSUES"
+            }
+          },
+        ]
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Issue_Created@s
+              }
+            }
+          },
+          {
+            type = "UpdateIssueStatusFunction"
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      from = [
+        {
+          sourceAngle = 78.11134196037203
+          targetAngle = 173.8817434172112
+        },
+      ]
+    }
+    In_progress__From__Pending__Directed@sfffsff = {
+      name = "In progress"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.pending
+          sourceAngle = -70.01689347810002
+          targetAngle = 78.11134196037203
+        },
+      ]
+      to = jira.Status.instance.in_progress@s
+      type = "directed"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Details_required__From__In_Progress__Directed@sfffssff = {
+      name = "Details required"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.in_progress@s
+          sourceAngle = 78.11134196037203
+          targetAngle = -70.01689347810002
+        },
+      ]
+      to = jira.Status.instance.pending
+      type = "directed"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Mark_as_done__From__Approved__Directed@ssfffsff = {
+      name = "Mark as done"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.approved
+          sourceAngle = 3.8871196185756927
+          targetAngle = 173.64115967963934
+        },
+      ]
+      to = jira.Status.instance.done
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.Jira_Service_Desk_Resolve_Issue_Screen___19@ssssssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Details_required__From__In_review__Directed@sfffssff = {
+      name = "Details required"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.in_review@s
+          sourceAngle = 78.11134196037203
+          targetAngle = 4.310963035357294
+        },
+      ]
+      to = jira.Status.instance.pending
+      type = "directed"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Waiting_approval__From__In_Progress__Directed@sfffssff = {
+      name = "Waiting approval"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.in_progress@s
+          sourceAngle = 3.457613863747836
+          targetAngle = -70.01689347810002
+        },
+      ]
+      to = jira.Status.instance.in_review@s
+      type = "directed"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Waiting_approval__From__Pending__Directed@sfffsff = {
+      name = "Waiting approval"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.pending
+          sourceAngle = 4.310963035357294
+          targetAngle = 78.11134196037203
+        },
+      ]
+      to = jira.Status.instance.in_review@s
+      type = "directed"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    In_progress__From__In_review__Directed@sfffssff = {
+      name = "In progress"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.in_review@s
+          sourceAngle = -70.01689347810002
+          targetAngle = 3.457613863747836
+        },
+      ]
+      to = jira.Status.instance.in_progress@s
+      type = "directed"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Approved__From__In_review__Directed@fffssff = {
+      name = "Approved"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.in_review@s
+          sourceAngle = 4.033461405163728
+          targetAngle = 175.5039047139389
+        },
+      ]
+      to = jira.Status.instance.approved
+      type = "directed"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+        conditions = {
+          type = "BlockInProgressApprovalCondition"
+        }
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.approved"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    In_progress__From__To_Do__Directed@sfffssff = {
+      name = "In progress"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.to_do@s
+          sourceAngle = -70.01689347810002
+          targetAngle = 176.06853895443763
+        },
+      ]
+      to = jira.Status.instance.in_progress@s
+      type = "directed"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Details_required__From__To_Do__Directed@sfffssff = {
+      name = "Details required"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.to_do@s
+          sourceAngle = 78.11134196037203
+          targetAngle = 174.9274005836694
+        },
+      ]
+      to = jira.Status.instance.pending
+      type = "directed"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+  }
+  statuses = [
+    {
+      id = jira.Status.instance.approved
+      name = "Approved"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 928.9296875
+        y = 77.80000000000001
+      }
+    },
+    {
+      id = jira.Status.instance.done
+      name = "Done"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 1148.7578125
+        y = 77.80000000000001
+      }
+    },
+    {
+      id = jira.Status.instance.in_progress@s
+      name = "In Progress"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 546.2421875
+        y = 1.350001464843757
+      }
+    },
+    {
+      id = jira.Status.instance.in_review@s
+      name = "In review"
+      properties = [
+        {
+          key = "approval.active"
+          value = "true"
+        },
+        {
+          key = "approval.condition.type"
+          value = "number"
+        },
+        {
+          key = "approval.condition.value"
+          value = "1"
+        },
+        {
+          key = "approval.exclude"
+          value = "reporter,assignee"
+        },
+        {
+          key = "approval.field.id"
+          value = "customfield_10003"
+        },
+        {
+          key = "approval.transition.approved"
+          value = "171"
+        },
+        {
+          key = "approval.transition.rejected"
+          value = "161"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 714.16796875
+        y = 77.80000000000001
+      }
+    },
+    {
+      id = jira.Status.instance.pending
+      name = "Pending"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 559.3818359375
+        y = 165.09999755859377
+      }
+    },
+    {
+      id = jira.Status.instance.to_do@s
+      name = "To Do"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 411.19921875
+        y = 77.80000000000001
+      }
+    },
+  ]
+  name = "DD: Budget allocation workflow for Jira Service Management"
+  diagramInitialEntry = {
+    x = 296.5
+    y = 47.80000000000001
+  }
+}

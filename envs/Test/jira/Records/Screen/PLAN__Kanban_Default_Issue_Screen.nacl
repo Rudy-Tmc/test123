@@ -1,0 +1,30 @@
+jira.Screen PLAN__Kanban_Default_Issue_Screen@fssss {
+  name = "PLAN: Kanban Default Issue Screen"
+  description = ""
+  tabs = {
+    Field_Tab@s = {
+      name = "Field Tab"
+      fields = [
+        jira.Field.instance.Summary__string,
+        jira.Field.instance.Issue_Type__issuetype@suu,
+        jira.Field.instance.Priority__priority,
+        jira.Field.instance.Fix_versions__array@suu,
+        jira.Field.instance.Assignee__user,
+        jira.Field.instance.Reporter__user,
+        jira.Field.instance.Description__string,
+        jira.Field.instance.Attachment__array,
+        jira.Field.instance.Linked_Issues__array@suu,
+        jira.Field.instance.Labels__array,
+        jira.Field.instance.Parent,
+        jira.Field.instance.Status__status,
+        jira.Field.instance.Parent_Link__jpo_custom_field_parent__c@suubbbuu,
+        jira.Field.instance.Target_start__jpo_custom_field_baseline_start__c@suubbbbuu,
+        jira.Field.instance.Target_end__jpo_custom_field_baseline_end__c@suubbbbuu,
+        jira.Field.instance.Priority_matrix__extension_07d43b33_e1c4_4dae_9931_b8632d7908f5_3fa7d631_b53a_44ed_a413_0b1771aab367_static_priority_matrix_type__c@suudbbbbdbbbbddbbuu,
+        jira.Field.instance.MoSCoW__extension_07d43b33_e1c4_4dae_9931_b8632d7908f5_3fa7d631_b53a_44ed_a413_0b1771aab367_static_moscow_field_type__c@uudbbbbdbbbbddbbuu,
+        jira.Field.instance.Strategisch_thema__extension_07d43b33_e1c4_4dae_9931_b8632d7908f5_3fa7d631_b53a_44ed_a413_0b1771aab367_static_labels_field_type__c@suudbbbbdbbbbddbbuu,
+      ]
+      position = 0
+    }
+  }
+}

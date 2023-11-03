@@ -1,0 +1,9 @@
+jira.ProjectComponent Automation_rule_test_environment_s__Billing_Services@uuumuus {
+  description = "Created by Jira Service Management"
+  assigneeType = "PROJECT_DEFAULT"
+  name = "Billing Services"
+  _parent = [
+    jira.Project.instance.Automation_rule_test_environment@s,
+  ]
+  _alias = "Automation rule test environment:Billing Services"
+}

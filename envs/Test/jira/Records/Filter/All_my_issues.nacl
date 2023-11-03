@@ -1,0 +1,14 @@
+jira.Filter All_my_issues@s {
+  name = "All my issues"
+  description = ""
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  jql = "${ jira.Field.instance.Project__project } in (\"Big Ass Battery Kanban\", \"Big Ass Battery Scrum\", \"Big Ass Battery Top-level Planning\") and (${ jira.Field.instance.Assignee__user } = currentUser() or ${ jira.Field.instance.Reporter__user } = currentUser() or ${ jira.Field.instance.Reporter__user } was currentUser()) ORDER BY ${ jira.Field.instance.Created__datetime } desc"
+  sharePermissions = [
+    {
+      type = "authenticated"
+    },
+  ]
+}

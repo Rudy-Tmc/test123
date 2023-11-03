@@ -1,0 +1,13 @@
+jira.IssueTypeScheme HSD__Jira_Service_Desk_Issue_Type_Scheme@fssssss {
+  name = "HSD: Jira Service Desk Issue Type Scheme"
+  description = "This Jira Service Desk Issue Type Scheme was generated automatically"
+  issueTypeIds = [
+    jira.IssueType.instance.Questions_for_HR@s,
+    jira.IssueType.instance.Employee_offboarding@s,
+    jira.IssueType.instance.Task,
+    jira.IssueType.instance.Employee_onboarding@s,
+    jira.IssueType.instance.Change_request@s,
+    jira.IssueType.instance.Sub_task@b,
+    jira.IssueType.instance.Emailed_request@s,
+  ]
+}

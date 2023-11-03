@@ -1,0 +1,114 @@
+jira.Automation Copy_sprint_name_from_linked_issue_Demo_service_desk@sssssuss {
+  name = "Copy sprint name from linked issue"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:link"
+    value = {
+      linkTypes = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{destinationIssue.sprint}}"
+        second = ""
+        operator = "NOT_EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.linked_issue___sprint_date__datepicker__c@ssbssuuuu
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+            type = "SET"
+            rawValue = "{{destinationIssue.sprint.enddate.jiraDate}}"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.linked_issue___sprint_history__textarea__c@ssbssuuuu
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+            type = "SET"
+            rawValue = '''
+{{now.jqlDateTime}}: {{destinationIssue.key}} - {{destinationIssue.sprint.enddate.format("dd/MM/yyyy")}} - {{destinationIssue.sprint.name}}
+--
+{{issue.linked issue - sprint history}}
+'''
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.linked_issue___sprint_name__textfield__c@ssbssuuuu
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+            type = "SET"
+            rawValue = "{{destinationIssue.sprint.name}}"
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Demo_service_desk@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10001"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Copy sprint name from linked issue"
+}

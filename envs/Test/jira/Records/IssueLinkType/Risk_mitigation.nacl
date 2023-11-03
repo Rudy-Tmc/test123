@@ -1,0 +1,5 @@
+jira.IssueLinkType Risk_mitigation@s {
+  name = "Risk mitigation"
+  inward = "is mitigated by"
+  outward = "mitigates risk"
+}

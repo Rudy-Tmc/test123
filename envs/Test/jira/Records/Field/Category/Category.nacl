@@ -1,0 +1,25 @@
+jira.Field Category__jwm_category__c@uubuu {
+  name = "Category"
+  description = "Choose a category using a popup picker window."
+  isLocked = true
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:jwm-category"
+  contexts = [
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Project_management@uuuuumusssssfss,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Business_Project_Management@uuuuumusssssfsss,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__3d_brood_machine@uuuuumusssssfsss,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Rademaker___New_Ideas@uuuuumusssssfssbss,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Rudy@uuuuumusssssfs,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Template_Campaign_Management@uuuuumusssssfsss,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__IWPV@uuuuumusssssfs,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Default_Configuration_Scheme_for_Category@uuuuumussss,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Alpha_3@uuuuumusssssfss,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Campaign_management@uuuuumusssssfss,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__iTrainee1@uuuuumusssssfs,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Personal_Task_Planner@uuuuumusssssfsss,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__itrainee_course_templates@uuuuumusssssfsss,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__iTrainee2@uuuuumusssssfs,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Work_Mgmt_project@uuuuumusssssfsss,
+  ]
+  _alias = "Category"
+}

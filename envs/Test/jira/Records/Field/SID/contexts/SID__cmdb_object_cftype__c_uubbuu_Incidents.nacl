@@ -1,0 +1,12 @@
+jira.CustomFieldContext SID__cmdb_object_cftype__c_uubbuu_Incidents@uuuuuumu {
+  name = "Incidents"
+  description = ""
+  isGlobalContext = false
+  issueTypeIds = [
+    jira.IssueType.instance.Incident,
+  ]
+  _parent = [
+    jira.Field.instance.SID__cmdb_object_cftype__c@uubbuu,
+  ]
+  _alias = "SID context in Incidents"
+}

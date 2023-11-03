@@ -1,0 +1,21 @@
+jira.Field Task_mode__select__c@suuuu {
+  name = "Task mode"
+  description = "Task mode field used by SoftwarePlant plugins (Migrated on 3 Apr 2020 12:39 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+  contexts = [
+    jira.CustomFieldContext.instance.Task_mode__select__c_suuuu_Default_Configuration_Scheme_for_Task_mode@uuuuumusssss,
+  ]
+  _alias = "Task mode"
+}
+jira.Field Task_mode__eu_softwareplant_biggantt__mode__c@suuvvuuuu {
+  name = "Task mode"
+  description = "Task mode field used by BigPicture plugins"
+  isLocked = true
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:selectissuefieldsearcher"
+  type = "com.atlassian.plugins.atlassian-connect-plugin:eu.softwareplant.biggantt__mode"
+  contexts = [
+    jira.CustomFieldContext.instance.Task_mode__eu_softwareplant_biggantt__mode__c_suuvvuuuu_Default_Configuration_Scheme_for_Task_mode@uuuuuuuuumusssss,
+  ]
+  _alias = "Task mode"
+}

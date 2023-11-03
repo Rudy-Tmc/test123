@@ -1,0 +1,6 @@
+jira.IssueType les {
+  description = ""
+  name = "les"
+  untranslatedName = "les"
+  hierarchyLevel = -1
+}

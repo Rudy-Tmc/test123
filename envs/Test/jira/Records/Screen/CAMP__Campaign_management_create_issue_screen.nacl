@@ -1,0 +1,24 @@
+jira.Screen CAMP__Campaign_management_create_issue_screen@fsssss {
+  name = "CAMP: Campaign management create issue screen"
+  description = ""
+  tabs = {
+    Field_tab@s = {
+      name = "Field tab"
+      fields = [
+        jira.Field.instance.Summary__string,
+        jira.Field.instance.Issue_Type__issuetype@suu,
+        jira.Field.instance.Due_date__date@suu,
+        jira.Field.instance.Description__string,
+        jira.Field.instance.Reporter__user,
+        jira.Field.instance.Assignee__user,
+        jira.Field.instance.Priority__priority,
+        jira.Field.instance.Start_date__datepicker__c@suuuu,
+        jira.Field.instance.Category__jwm_category__c@uubuu,
+        jira.Field.instance.Budget__textfield__c,
+        jira.Field.instance.Epic_Name__gh_epic_label__c@suubbuu,
+        jira.Field.instance.Parent_Link__jpo_custom_field_parent__c@suubbbuu,
+      ]
+      position = 0
+    }
+  }
+}

@@ -1,0 +1,113 @@
+jira.Automation version_released_Alpha@su {
+  name = "version released"
+  state = "ENABLED"
+  description = ""
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.version.event.trigger:released"
+    value = {
+      versionNameFilter = ""
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.lookup.issues"
+      value = {
+        id = "_customsmartvalue_id_1697467001212"
+        name = {
+          type = "FREE"
+          value = "lookupIssues"
+        }
+        type = "JQL"
+        query = {
+          type = "SMART"
+          value = "fixVersion in ({{version.name}})"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 3
+      type = "jira.issue.outgoing.email"
+      value = {
+        fromName = ""
+        replyTo = ""
+        to = [
+          {
+            type = "REFERENCE"
+            value = "INITIATOR"
+            additional = "INITIATOR"
+          },
+        ]
+        cc = [
+        ]
+        bcc = [
+        ]
+        subject = "New release: {{version.name}}"
+        body = '''
+Hi team. Your version {{version.name}} was released on {{version.releaseDate.mediumDate}}.
+
+{{#lookupIssues}}
+* <href a="{{url}}"> {{${ jira.Field.instance.Issue_Type__issuetype@suu }.name}} {{key}} {{${ jira.Field.instance.Summary__string }}} </a>
+{{/}}
+
+Nice work! :tada:
+'''
+        mimeType = "text/html"
+        convertLineBreaks = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Alpha
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10011"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "version released"
+}

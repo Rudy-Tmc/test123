@@ -1,0 +1,413 @@
+jira.Automation Approvers_list____approver___global@ss_00061yssbs {
+  name = "Approvers list => approver - global"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groups = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "https://rudy.atlassian.net/rest/api/2/issue/{{issue.key}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "https://rudy.atlassian.net/rest/api/2/issue/{{issue.key}}"
+        headers = [
+          {
+            id = "_header_1606329987521"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1606330026216"
+            name = "Authorization"
+            value = "Basic cnVkeS5ob2x0a2FtcEB0bWMubmw6V1k2WTlPOFNnUXZ0UWxLQWsxZFo5RjFE"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "empty"
+        customBody = ""
+        method = "GET"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1606374497976"
+        name = {
+          type = "FREE"
+          value = "originalApproversList"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{issue.approvers.asJsonObjectArray(\"accountId\")}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Original approvers list: {{orginalApproversList}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1606373843798"
+        name = {
+          type = "FREE"
+          value = "newApproversList"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{webhookResponse.body.fields.customfield_10145.asJsonObjectArray(\"accountId\").substringBetween(\"[\",\"]\")}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "New approvers list: {{newApproversList}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "       \"customfield_10003\" : [ {\"add\" : {{newApproversList}} } ]"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "https://rudy.atlassian.net/rest/api/2/issue/{{issue.key}}"
+        headers = [
+          {
+            id = "_header_1606390557884"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1606392237838"
+            name = "Authorization"
+            value = "Basic cnVkeS5ob2x0a2FtcEB0bWMubmw6V1k2WTlPOFNnUXZ0UWxLQWsxZFo5RjFE"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "custom"
+        customBody = '''
+{
+   "update" : {
+       "customfield_10003" : [ {"add" : {{newApproversList.substringBetween("[","]") }} }]
+   }
+}
+
+'''
+        method = "PUT"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "1"
+        second = "2"
+        operator = "EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "codebarrel.action.log"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "Adding new and original approvers"
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 10
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Approvers__multiuserpicker__c.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker"
+                    type = "SET"
+                  },
+                ]
+                advancedFields = '''
+{ "fields": 
+   {
+      "customfield_10003": 
+          {{originalApproversList}},{{newApproversList}}
+   } 
+}
+'''
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{originalApproversList}}"
+                second = ""
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{newApproversList}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "codebarrel.action.log"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "Adding new approvers"
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 10
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Approvers__multiuserpicker__c.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker"
+                    type = "SET"
+                  },
+                ]
+                advancedFields = '''
+{ "update": 
+   {
+      "customfield_10003": 
+         {{newApproversList}}
+   } 
+}
+'''
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{originalApproversList}}"
+                second = ""
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{newApproversList}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "codebarrel.action.log"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "No original approvers and no new approvers detected"
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Approvers list => approver - global"
+}

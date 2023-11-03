@@ -1,0 +1,9 @@
+jira.ProjectComponent Next_gen_Kanban_s__NewComp@uumuu {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "NewComp"
+  _parent = [
+    jira.Project.instance.Next_gen_Kanban@s,
+  ]
+  _alias = "Next gen Kanban:NewComp"
+}

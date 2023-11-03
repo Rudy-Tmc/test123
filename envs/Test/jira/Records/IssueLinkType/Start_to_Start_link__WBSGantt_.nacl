@@ -1,0 +1,5 @@
+jira.IssueLinkType Start_to_Start_link__WBSGantt_@bbssjk {
+  name = "Start-to-Start link (WBSGantt)"
+  inward = "Cannot start until linked issue starts."
+  outward = "Linked issue can start after this issue starts."
+}

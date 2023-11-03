@@ -1,0 +1,12 @@
+jira.CustomFieldContext Group__grouppicker__c_Alpha {
+  name = "Alpha"
+  description = ""
+  isGlobalContext = false
+  defaultValue = {
+    type = "grouppicker.single"
+  }
+  _parent = [
+    jira.Field.instance.Group__grouppicker__c,
+  ]
+  _alias = "Group context in Alpha"
+}

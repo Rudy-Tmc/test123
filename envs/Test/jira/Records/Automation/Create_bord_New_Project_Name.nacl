@@ -1,0 +1,582 @@
+jira.Automation Create_bord_New_Project_Name@suss {
+  name = "Create bord"
+  state = "ENABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groups = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1636030120316"
+        name = {
+          type = "FREE"
+          value = "auth"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "cnVkeS5ob2x0a2FtcEB0bWMubmw6N0Nud0QxSDVkUHdNT1NndDFNNFNFN0RD"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{baseurl}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1636027011047"
+        name = {
+          type = "FREE"
+          value = "projectkey"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "NEWKEY"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Get project id"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{baseurl}}/rest/api/latest/project/{{projectkey}}"
+        headers = [
+          {
+            id = "_header_1636029870683"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+          {
+            id = "_header_1636029879759"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "empty"
+        method = "GET"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1636029909793"
+        name = {
+          type = "FREE"
+          value = "projectid"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{webResponse.body.id}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Project id: {{projectid}} & Create filter"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{baseurl}}/rest/api/2/filter"
+        headers = [
+          {
+            id = "_header_1636026808931"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1636026822865"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "custom"
+        customBody = '''
+{
+   "name": "Project {{projectkey}} Filter",
+   "description": "Project {{projectkey}} Filter",
+   "jql": "project={{projectkey}} ORDER BY Rank ASC",
+   "favourite": "false"
+}
+'''
+        method = "POST"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1636027282463"
+        name = {
+          type = "FREE"
+          value = "filterid"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{webResponse.body.id}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Filter id:{{filterid}} & Change permission (share with project {{projectkey}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{baseurl}}/rest/api/2/filter/{{filterid}}/permission"
+        headers = [
+          {
+            id = "_header_1636027737401"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1636027775087"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "custom"
+        customBody = '''
+{
+   "type" : "project",
+   "projectId" : "{{projectid}}"
+}
+'''
+        method = "POST"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Create board"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{baseurl}}/rest/agile/1.0/board"
+        headers = [
+          {
+            id = "_header_1636030073112"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1636030106956"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "custom"
+        customBody = '''
+{
+   "name": "{{projectkey}} Board",
+   "type": "kanban",
+   "filterId": {{filterid}},
+   "location": {
+      "type": "project",
+      "projectKeyOrId": "{{projectid}}"
+   }
+} 
+'''
+        method = "POST"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1636030302739"
+        name = {
+          type = "FREE"
+          value = "boardid"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{webResponse.body.id}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Bord id: {{bordid}} & Setting columns"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{baseurl}}/rest/greenhopper/1.0/rapidviewconfig/columns"
+        headers = [
+          {
+            id = "_header_1636032914412"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1636032957216"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "custom"
+        customBody = '''
+{
+  "rapidViewId": {{boardid}},
+  "canEdit": true,
+  "currentStatisticsField": {
+    "typeId": "issueCount",
+    "fieldId": "",
+    "id": "issueCount_",
+    "name": "Issue Count",
+    "isValid": true,
+    "isEnabled": true,
+    "renderer": "number"
+  },
+  "showDaysInColumn": true,
+  "statisticsFieldValidation": {
+    "isValid": true
+  },
+  "statisticsFields": [
+    {
+      "typeId": "none",
+      "id": "none_",
+      "name": "None",
+      "isValid": true,
+      "isEnabled": false,
+      "renderer": "number"
+    },
+    {
+      "typeId": "issueCount",
+      "id": "issueCount_",
+      "name": "Issue Count",
+      "isValid": true,
+      "isEnabled": true,
+      "renderer": "number"
+    },
+    {
+      "typeId": "issueCountExclSubs",
+      "id": "issueCountExclSubs_",
+      "name": "Issue Count, excluding sub-tasks",
+      "isValid": true,
+      "isEnabled": true,
+      "renderer": "number"
+    }
+  ],
+  "mappedColumns": [
+    {
+      "id": 191,
+      "name": "Backlog",
+      "min": "",
+      "max": "",
+      "mappedStatuses": [
+        {
+          "id": "10000",
+          "name": "To Do",
+          "iconUrl": "{{baseurl}}/",
+          "statusCategory": {
+            "id": "2",
+            "key": "new",
+            "colorName": "blue-gray"
+          },
+          "issueCount": 0,
+          "isPresentInWorkflow": true
+        }
+      ],
+      "isKanPlanColumn": true,
+      "issueCount": 0
+    },
+    {
+      "id": 193,
+      "name": "In Progress",
+      "min": "",
+      "max": "",
+      "mappedStatuses": [
+        {
+          "id": "3",
+          "name": "In Progress",
+          "iconUrl": "{{baseurl}}/images/icons/statuses/inprogress.png",
+          "statusCategory": {
+            "id": "4",
+            "key": "indeterminate",
+            "colorName": "yellow"
+          },
+          "issueCount": 1,
+          "isPresentInWorkflow": true
+        }
+      ],
+      "isKanPlanColumn": false,
+      "issueCount": 1
+    },
+    {
+      "id": 196,
+      "name": "In test",
+      "min": "",
+      "max": "",
+      "mappedStatuses": [
+        {
+          "id": "10027",
+          "name": "In Validation",
+          "iconUrl": "{{baseurl}}/images/icons/statuses/generic.png",
+          "statusCategory": {
+            "id": "4",
+            "key": "indeterminate",
+            "colorName": "yellow"
+          },
+          "issueCount": 0,
+          "isPresentInWorkflow": true
+        }
+      ],
+      "isKanPlanColumn": false,
+      "issueCount": 0
+    },
+    {
+      "id": 192,
+      "name": "Approved",
+      "min": "",
+      "max": "",
+      "mappedStatuses": [
+        {
+          "id": "10035",
+          "name": "Approved",
+          "iconUrl": "{{baseurl}}/images/icons/status_generic.gif",
+          "statusCategory": {
+            "id": "3",
+            "key": "done",
+            "colorName": "green"
+          },
+          "issueCount": 0,
+          "isPresentInWorkflow": true
+        }
+      ],
+      "isKanPlanColumn": false,
+      "issueCount": 0
+    },
+    {
+      "id": 194,
+      "name": "Done",
+      "min": "",
+      "max": "",
+      "mappedStatuses": [
+        {
+          "id": "10001",
+          "name": "Done",
+          "iconUrl": "{{baseurl}}/",
+          "statusCategory": {
+            "id": "3",
+            "key": "done",
+            "colorName": "green"
+          },
+          "issueCount": 0,
+          "isPresentInWorkflow": true
+        }
+      ],
+      "isKanPlanColumn": false,
+      "issueCount": 0
+    }
+  ],
+  "unmappedStatuses": [],
+  "workflow": {
+    "isSimplifiedWorkflowFeatureEnabled": true,
+    "usingSimplifiedWorkflow": false,
+    "canSimplifyWorkflow": false,
+    "userCanSimplifyWorkflow": false
+  }
+}
+'''
+        method = "PUT"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{webhookResponse.body}}"
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.New_Project_Name@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10041"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Create bord"
+}

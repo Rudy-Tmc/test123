@@ -1,0 +1,32 @@
+jira.SecurityLevel Kaz__Agent_A@uus {
+  description = ""
+  name = "Agent A"
+  members = [
+    {
+      holder = {
+        type = "group"
+        parameter = jira.Group.instance.group1
+      }
+    },
+    {
+      holder = {
+        type = "projectLead"
+      }
+    },
+    {
+      holder = {
+        type = "group"
+        parameter = jira.Group.instance.atlassian_addons_admin@b
+      }
+    },
+    {
+      holder = {
+        type = "projectRole"
+        parameter = jira.ProjectRole.instance.atlassian_addons_project_access@b
+      }
+    },
+  ]
+  _parent = [
+    jira.SecurityScheme.instance.Kaz,
+  ]
+}

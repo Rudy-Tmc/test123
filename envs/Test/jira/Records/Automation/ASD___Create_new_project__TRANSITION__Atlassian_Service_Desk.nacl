@@ -1,0 +1,424 @@
+jira.Automation ASD___Create_new_project__TRANSITION__Atlassian_Service_Desk@sbsssshiuss {
+  name = "ASD - Create new project [TRANSITION]"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.to_do@s.name
+        },
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.in_progress@s.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 3
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Summary__string
+        }
+        selectedFieldType = "summary"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "VALUE"
+          modifier = "CASE_SENSITIVE"
+          value = "Request new Jira project"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1636099221733"
+        name = {
+          type = "FREE"
+          value = "auth"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "cnVkeS5ob2x0a2FtcEB0bWMubmw6N0Nud0QxSDVkUHdNT1NndDFNNFNFN0RD"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{Issue.Project Name}}"
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{Issue.Project Name}}"
+        second = ""
+        operator = "NOT_EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{Issue.Project key}}"
+        second = ""
+        operator = "NOT_EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1636728581113"
+        name = {
+          type = "FREE"
+          value = "projecttemplateid"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "-"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.create.variable"
+              value = {
+                id = "_customsmartvalue_id_1636728773437"
+                name = {
+                  type = "FREE"
+                  value = "projecttemplateid"
+                }
+                type = "SMART"
+                query = {
+                  type = "SMART"
+                  value = "10043"
+                }
+                lazy = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 3
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.Template__select__c.name
+                }
+                selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                comparison = "EQUALS"
+                compareFieldValue = {
+                  type = "NAME"
+                  value = "Template Kanban"
+                  multiValue = false
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.create.variable"
+              value = {
+                id = "_customsmartvalue_id_1636728922130"
+                name = {
+                  type = "FREE"
+                  value = "projecttemplateid"
+                }
+                type = "SMART"
+                query = {
+                  type = "SMART"
+                  value = "10044"
+                }
+                lazy = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 3
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.Template__select__c.name
+                }
+                selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                comparison = "EQUALS"
+                compareFieldValue = {
+                  type = "NAME"
+                  value = "Template Scrum"
+                  multiValue = false
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.create.variable"
+              value = {
+                id = "_customsmartvalue_id_1636728964272"
+                name = {
+                  type = "FREE"
+                  value = "projecttemplateid"
+                }
+                type = "SMART"
+                query = {
+                  type = "SMART"
+                  value = "10045"
+                }
+                lazy = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{baseurl}}/rest/project-templates/1.0/createshared/{{projecttemplateid}}"
+        headers = [
+          {
+            id = "_header_1635881388851"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1635881542082"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "custom"
+        customBody = '''
+{
+    "key": "{{issue.${ jira.Field.instance.Project_key__textfield__c@suuuu.name }}}",
+    "name": "{{issue.Project Name}}"
+}
+'''
+        method = "POST"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Webresponse: {{webResponse.body}}"
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{webresponse.status}}"
+        second = "200"
+        operator = "EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.comment"
+      value = {
+        comment = "Project [{{webresponse.body.projectName}}|{{baseurl}}/{{webresponse.body.returnUrl}}] [{{webresponse.body.projectKey}}] is gecreëerd. "
+        publicComment = false
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+        ]
+        advancedFields = '''
+{
+    "update": {
+        "Jira Project": [{ "set": {"id": "{{webresponse.body.projectId}}"}  } ]
+   }
+}
+'''
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Atlassian_Service_Desk@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10023"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ASD - Create new project [TRANSITION]"
+}

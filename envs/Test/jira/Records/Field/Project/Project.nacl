@@ -1,0 +1,19 @@
+jira.Field Project__project {
+  name = "Project"
+  schema = {
+    type = "project"
+    system = "project"
+  }
+  description = ""
+  _alias = "Project"
+}
+jira.Field Project__multiselect__c {
+  name = "Project"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:multiselect"
+  contexts = [
+    jira.CustomFieldContext.instance.Project__multiselect__c_Default_Configuration_Scheme_for_Project@uuuuussss,
+  ]
+  _alias = "Project"
+}

@@ -1,0 +1,5 @@
+jira.IssueLinkType End____Start__Gantt_@sbysshi {
+  name = "End -> Start [Gantt]"
+  inward = "has to be done after"
+  outward = "has to be done before"
+}

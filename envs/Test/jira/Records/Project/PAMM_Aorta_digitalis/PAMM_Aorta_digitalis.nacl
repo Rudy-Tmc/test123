@@ -1,0 +1,15 @@
+jira.Project PAMM_Aorta_digitalis@s {
+  key = "PAD"
+  description = ""
+  name = "PAMM Aorta digitalis"
+  projectTypeKey = "software"
+  workflowScheme = jira.WorkflowScheme.instance.PAD__Software_Simplified_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.PAD_software_permission_scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.PAD__Scrum_Issue_Type_Screen_Scheme@fsssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.PAD__Scrum_Issue_Type_Scheme@fssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

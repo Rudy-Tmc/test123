@@ -1,0 +1,196 @@
+jira.Automation Find_users_not_synced_for_a_week@s {
+  name = "Find users not synced for a week"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groups = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1652089979976"
+        name = {
+          type = "FREE"
+          value = "workspaceId"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1652089999816"
+        name = {
+          type = "FREE"
+          value = "auth"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "cnVkeS5ob2x0a2FtcEB0bWMubmw6N0Nud0QxSDVkUHdNT1NndDFNNFNFN0RD"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+        schemaId = "37"
+        customSmartValue = {
+          id = "_customsmartvalue_id_1652088660177"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "objecttype = User and \"Last synced\" < \"{{now.plusDays(2)}}\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{lookupObjects.name}}"
+    },
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "jira.smart.values.branch"
+      value = {
+        id = "_customsmartvalue_id_1652089217096"
+        name = {
+          type = "FREE"
+          value = "user"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{lookupObjects}}"
+        }
+        lazy = false
+      }
+      children = [
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "jira.issue.outgoing.webhook"
+          value = {
+            url = "https://api.atlassian.com/jsm/insight/workspace/{{workspaceId}}/v1/object/{{user.key}}"
+            headers = [
+              {
+                id = "_header_1652089553434"
+                name = "Content-Type"
+                value = "application/json"
+                headerSecure = false
+              },
+              {
+                id = "_header_1652090024881"
+                name = "Authorization"
+                value = "Basic {{auth}}"
+                headerSecure = false
+              },
+            ]
+            sendIssue = false
+            contentType = "custom"
+            customBody = '''
+{
+  "attributes": [ {
+    "objectTypeAttributeId":"12447",
+    "objectAttributeValues": [ {
+      "value":"6"
+    } ]
+  } ]
+}
+'''
+            method = "PUT"
+            responseEnabled = true
+            continueOnErrorEnabled = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Find users not synced for a week"
+}

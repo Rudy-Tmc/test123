@@ -1,0 +1,26 @@
+jira.Project Customer_Info@s {
+  key = "CI"
+  description = ""
+  name = "Customer Info"
+  projectTypeKey = "software"
+  components = [
+    jira.ProjectComponent.instance.Customer_Info_s__Bitbucket@umuu,
+    jira.ProjectComponent.instance.Customer_Info_s__Blaat@umuu,
+    jira.ProjectComponent.instance.Customer_Info_s__Confluence@umuu,
+    jira.ProjectComponent.instance.Customer_Info_s__GUI@umuu,
+    jira.ProjectComponent.instance.Customer_Info_s__Hardware_issues@umuus,
+    jira.ProjectComponent.instance.Customer_Info_s__Jira@umuu,
+    jira.ProjectComponent.instance.Customer_Info_s__Network@umuu,
+    jira.ProjectComponent.instance.Customer_Info_s__NewComp@umuu,
+    jira.ProjectComponent.instance.Customer_Info_s__Software_issues@umuus,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.CI__Software_Simplified_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.CI_software_permission_scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.CI__Kanban_Issue_Type_Screen_Scheme@fsssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.Service_Contract@s
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

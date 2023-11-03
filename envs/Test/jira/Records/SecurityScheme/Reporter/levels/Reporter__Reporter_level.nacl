@@ -1,0 +1,27 @@
+jira.SecurityLevel Reporter__Reporter_level@uus {
+  description = ""
+  name = "Reporter level"
+  members = [
+    {
+      holder = {
+        type = "projectRole"
+        parameter = jira.ProjectRole.instance.Administrators
+      }
+    },
+    {
+      holder = {
+        type = "projectRole"
+        parameter = jira.ProjectRole.instance.Developers
+      }
+    },
+    {
+      holder = {
+        type = "projectRole"
+        parameter = jira.ProjectRole.instance.atlassian_addons_project_access@b
+      }
+    },
+  ]
+  _parent = [
+    jira.SecurityScheme.instance.Reporter,
+  ]
+}

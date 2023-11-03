@@ -1,0 +1,10 @@
+jira.Field T_shirt_size__extension_78593511_a93d_4fa0_a19e_481372ce821e_1368fae7_d1db_4e81_9d40_c4d02f5ff78f_static_tshirt_field_type__c@bsuudbbbbdbbbbddbbuu {
+  name = "T-shirt size"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:forgeCustomFieldSearcher"
+  type = "ari:cloud:ecosystem::extension/78593511-a93d-4fa0-a19e-481372ce821e/1368fae7-d1db-4e81-9d40-c4d02f5ff78f/static/tshirt-field-type"
+  contexts = [
+    jira.CustomFieldContext.instance.T_shirt_size__extension_78593511_a93d_4fa0_a19e_481372ce821e_1368fae7_d1db_4e81_9d40_c4d02f5ff78f_static_tshirt_field_type__c_bsuudbbbbdbbbbddbbuu_Default_Configuration_Scheme_for_T_shirt_size@uuuuuuuuuuuuuuuuuuuumussssbs,
+  ]
+  _alias = "T-shirt size"
+}

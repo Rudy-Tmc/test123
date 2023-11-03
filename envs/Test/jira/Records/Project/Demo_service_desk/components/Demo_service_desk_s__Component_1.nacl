@@ -1,0 +1,13 @@
+jira.ProjectComponent Demo_service_desk_s__Component_1@uumuus {
+  name = "Component 1"
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  _parent = [
+    jira.Project.instance.Demo_service_desk@s,
+  ]
+  _alias = "Demo service desk:Component 1"
+}

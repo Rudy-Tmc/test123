@@ -1,0 +1,10 @@
+jira.Field Release_notes__textarea__c {
+  name = "Release_notes"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+  contexts = [
+    jira.CustomFieldContext.instance.Release_notes__textarea__c_Default_Configuration_Scheme_for_Release_notes@uuuuuussssu,
+  ]
+  _alias = "Release_notes"
+}

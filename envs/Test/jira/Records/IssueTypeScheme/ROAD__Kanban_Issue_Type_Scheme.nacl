@@ -1,0 +1,6 @@
+jira.IssueTypeScheme ROAD__Kanban_Issue_Type_Scheme@fssss {
+  name = "ROAD: Kanban Issue Type Scheme"
+  issueTypeIds = [
+    jira.IssueType.instance.Initiative,
+  ]
+}

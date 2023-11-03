@@ -1,0 +1,24 @@
+jira.Project Next_gen_scrum@s {
+  key = "NGS"
+  description = ""
+  name = "Next gen scrum"
+  projectTypeKey = "software"
+  entityId = "c67ba054-2402-4368-b44f-0d5cb7ef732e"
+  uuid = "c67ba054-2402-4368-b44f-0d5cb7ef732e"
+  components = [
+    jira.ProjectComponent.instance.Next_gen_scrum_s__Bitbucket@uumuu,
+    jira.ProjectComponent.instance.Next_gen_scrum_s__Blaat@uumuu,
+    jira.ProjectComponent.instance.Next_gen_scrum_s__Confluence@uumuu,
+    jira.ProjectComponent.instance.Next_gen_scrum_s__GUI@uumuu,
+    jira.ProjectComponent.instance.Next_gen_scrum_s__Hardware_issues@uumuus,
+    jira.ProjectComponent.instance.Next_gen_scrum_s__Jira@uumuu,
+    jira.ProjectComponent.instance.Next_gen_scrum_s__Network@uumuu,
+    jira.ProjectComponent.instance.Next_gen_scrum_s__NewComp@uumuu,
+    jira.ProjectComponent.instance.Next_gen_scrum_s__Software_issues@uumuus,
+  ]
+  issueSecurityScheme = jira.SecurityScheme.instance.NGS__Simplified_Issue_Security_Scheme@fssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

@@ -1,0 +1,5 @@
+jira.WorkflowScheme BR3D__Project_Management_Workflow_Scheme@fssss {
+  name = "BR3D: Project Management Workflow Scheme"
+  description = ""
+  defaultWorkflow = jira.Workflow.instance.BR3D__Project_Management_Workflow@fsss
+}

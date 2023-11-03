@@ -1,0 +1,289 @@
+jira.Workflow LSD__Contract_review_workflow_for_Jira_Service_Desk@fsssssss {
+  description = "This Jira Service Desk Service contract review workflow was generated for Project LSD"
+  transitions = {
+    Request_created__From__none__Initial@sfffsff = {
+      name = "Request created"
+      description = ""
+      to = jira.Status.instance.to_do@s
+      type = "initial"
+      rules = {
+        validators = [
+          {
+            type = "PermissionValidator"
+            configuration = {
+              permissionKey = "CREATE_ISSUES"
+            }
+          },
+        ]
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Issue_Created@s
+              }
+            }
+          },
+          {
+            type = "UpdateIssueStatusFunction"
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      from = [
+        {
+          sourceAngle = 78.11134196037203
+          targetAngle = 173.8811077550154
+        },
+      ]
+    }
+    Start_review__From__To_Do__Directed@sfffssff = {
+      name = "Start review"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.to_do@s
+          sourceAngle = 5.0447574768467085
+          targetAngle = 177.06608663937257
+        },
+      ]
+      to = jira.Status.instance.in_review_by_legal@s
+      type = "directed"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Details_required__From__In_Review_By_Legal__Directed@sfffssssff = {
+      name = "Details required"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.in_review_by_legal@s
+          sourceAngle = -12.42035668091043
+          targetAngle = -164.62672367472948
+        },
+      ]
+      to = jira.Status.instance.with_other_party@s
+      type = "directed"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Details_provided__From__With_Other_Party__Directed@sfffsssff = {
+      name = "Details provided"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.with_other_party@s
+          sourceAngle = 154.59679161582642
+          targetAngle = 20.827262291599695
+        },
+      ]
+      to = jira.Status.instance.in_review_by_legal@s
+      type = "directed"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Approved__From__In_Review_By_Legal__Directed@fffssssff = {
+      name = "Approved"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.in_review_by_legal@s
+          sourceAngle = -70.01689347810002
+          targetAngle = 175.41180155330412
+        },
+      ]
+      to = jira.Status.instance.resolved
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.Jira_Service_Desk_Resolve_Issue_Screen___10@ssssssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Cancelled__From__In_Review_By_Legal_With_Other_Party__Directed@fffsssszdssff = {
+      name = "Cancelled"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.in_review_by_legal@s
+          sourceAngle = 78.11134196037203
+          targetAngle = 78.11134196037203
+        },
+        {
+          id = jira.Status.instance.with_other_party@s
+          sourceAngle = 78.11134196037203
+          targetAngle = 175.75626445068605
+        },
+      ]
+      to = jira.Status.instance.cancelled
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.Jira_Service_Desk_Resolve_Issue_Screen___10@ssssssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+  }
+  statuses = [
+    {
+      id = jira.Status.instance.cancelled
+      name = "Cancelled"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 1303.17578125
+        y = 265.8187593048096
+      }
+    },
+    {
+      id = jira.Status.instance.in_review_by_legal@s
+      name = "In Review By Legal"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 728.58203125
+        y = 131.8
+      }
+    },
+    {
+      id = jira.Status.instance.resolved
+      name = "Resolved"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 1307.23828125
+        y = 8.006247860717792
+      }
+    },
+    {
+      id = jira.Status.instance.to_do@s
+      name = "To Do"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 447.19921875
+        y = 131.8
+      }
+    },
+    {
+      id = jira.Status.instance.with_other_party@s
+      name = "With Other Party"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 1083.74609375
+        y = 131.8
+      }
+    },
+  ]
+  name = "LSD: Contract review workflow for Jira Service Desk"
+  diagramInitialEntry = {
+    x = 314.5
+    y = 81.80000000000001
+  }
+}

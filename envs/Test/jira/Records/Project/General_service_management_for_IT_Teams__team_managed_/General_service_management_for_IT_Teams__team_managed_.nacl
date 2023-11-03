@@ -1,0 +1,12 @@
+jira.Project General_service_management_for_IT_Teams__team_managed_@ssssssjbk {
+  key = "GSMFITTM"
+  description = ""
+  name = "General service management for IT Teams (team-managed)"
+  projectTypeKey = "service_desk"
+  entityId = "a246a8b0-3371-4ad3-92c7-690d140ca306"
+  uuid = "a246a8b0-3371-4ad3-92c7-690d140ca306"
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

@@ -1,0 +1,8 @@
+jira.ProjectComponent Global_Talk_s__Back_end@umuub {
+  assigneeType = "PROJECT_DEFAULT"
+  name = "Back-end"
+  _parent = [
+    jira.Project.instance.Global_Talk@s,
+  ]
+  _alias = "Global Talk:Back-end"
+}

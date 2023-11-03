@@ -1,0 +1,117 @@
+jira.Automation Jira_Service_Management__Service_Desk__and_Jira_Software__Internal__Integration_Automation_rule_test_environment@sssjskssssjksusss {
+  name = "Jira Service Management (Service Desk) and Jira Software (Internal) Integration"
+  state = "DISABLED"
+  description = ""
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:link"
+    value = {
+      linkTypes = [
+        jira.IssueLinkType.instance.Blocks.name,
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{destinationIssue.${ jira.Field.instance.Project__project }.key}}"
+        second = "PROJECT-KEY-A"
+        operator = "EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{issue.${ jira.Field.instance.Project__project }.key}}"
+        second = "PROJECT-KEY-B"
+        operator = "EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Baseline_end_date__datepicker__c@ssuuuu.name
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+            type = "SET"
+            rawValue = "{{destination.Baseline end date}}"
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Baseline_start_date__datepicker__c@ssuuuu.name
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+            type = "SET"
+            rawValue = "{{destination.Baseline start date}}"
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Jira Service Management (Service Desk) and Jira Software (Internal) Integration"
+}

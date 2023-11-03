@@ -1,0 +1,8 @@
+jira.ProjectComponent test__M2 {
+  assigneeType = "PROJECT_DEFAULT"
+  name = "M2"
+  _parent = [
+    jira.Project.instance.test,
+  ]
+  _alias = "test:M2"
+}

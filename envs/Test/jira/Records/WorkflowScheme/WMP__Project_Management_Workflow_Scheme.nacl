@@ -1,0 +1,5 @@
+jira.WorkflowScheme WMP__Project_Management_Workflow_Scheme@fssss {
+  name = "WMP: Project Management Workflow Scheme"
+  description = ""
+  defaultWorkflow = jira.Workflow.instance.WMP__Project_Management_Workflow@fsss
+}

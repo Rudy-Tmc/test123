@@ -1,0 +1,7 @@
+jira.ScreenScheme TTTTTTT__Jira_Service_Desk__General_Questions_Screen_Scheme@fsssfssss {
+  name = "TTTTTTT: Jira Service Desk: General Questions Screen Scheme"
+  description = "This Jira Service Desk Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.TTTTTTT__Jira_Service_Desk__General_Questions_Issue_Screen@fsssfssss
+  }
+}

@@ -1,0 +1,19 @@
+jira.WorkflowScheme Jira_Service_Desk_IT_Support_Workflow_Scheme_generated_for_Project_ESD@s {
+  name = "Jira Service Desk IT Support Workflow Scheme generated for Project ESD"
+  description = "This Jira Service Desk IT Support Workflow Scheme was generated for Project ESD"
+  defaultWorkflow = jira.Workflow.instance.jira
+  items = [
+    {
+      workflow = jira.Workflow.instance.ESD__Jira_Service_Desk_default_workflow@fsssss
+      issueType = jira.IssueType.instance.Bug
+    },
+    {
+      workflow = jira.Workflow.instance.ESD__Jira_Service_Desk_default_workflow@fsssss
+      issueType = jira.IssueType.instance.New_Feature@s
+    },
+    {
+      workflow = jira.Workflow.instance.ESD__Service_Request_Fulfilment_workflow_for_Jira_Service_Desk@fssssssss
+      issueType = jira.IssueType.instance.Support
+    },
+  ]
+}

@@ -1,0 +1,3 @@
+jira.Group tempo_timesheet_approvers@b {
+  name = "tempo-timesheet-approvers"
+}

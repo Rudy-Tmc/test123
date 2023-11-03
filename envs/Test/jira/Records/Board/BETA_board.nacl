@@ -1,0 +1,40 @@
+jira.Board BETA_board@s {
+  name = "BETA board"
+  type = "kanban"
+  admins = {
+    users = [
+      {
+        id = "5e872e5acaa47a0c19a7815e"
+        displayName = "admin"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Beta
+  }
+  filterId = jira.Filter.instance.Filter_for_BETA_board@s
+  columnConfig = {
+    columns = [
+      {
+        name = "To Do"
+        statuses = [
+          jira.Status.instance.selected_for_development@s,
+        ]
+      },
+      {
+        name = "In Progress"
+        statuses = [
+          jira.Status.instance.in_progress@s,
+        ]
+      },
+      {
+        name = "Done"
+        statuses = [
+          jira.Status.instance.done,
+        ]
+      },
+    ]
+    constraintType = "issueCount"
+  }
+  subQuery = "fixVersion in unreleasedVersions() OR fixVersion is EMPTY"
+}

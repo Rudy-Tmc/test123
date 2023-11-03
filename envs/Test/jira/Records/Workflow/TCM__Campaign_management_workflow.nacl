@@ -1,0 +1,362 @@
+jira.Workflow TCM__Campaign_management_workflow@fsss {
+  description = ""
+  transitions = {
+    Create__From__none__Initial@fffsff = {
+      name = "Create"
+      description = ""
+      to = jira.Status.instance.not_started@s
+      type = "initial"
+      rules = {
+        validators = [
+          {
+            type = "PermissionValidator"
+            configuration = {
+              permissionKey = "CREATE_ISSUES"
+            }
+          },
+        ]
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Issue_Created@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.submit"
+          value = "common.forms.create"
+        },
+        {
+          key = "jira.i18n.title"
+          value = "common.forms.create"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      from = [
+        {
+          sourceAngle = 78.11134196037203
+          targetAngle = 176.10192123905045
+        },
+      ]
+    }
+    Not_started__From__any_status__Global@sfffssff = {
+      name = "Not started"
+      description = ""
+      to = jira.Status.instance.not_started@s
+      type = "global"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Planning__From__any_status__Global@fffssff = {
+      name = "Planning"
+      description = ""
+      to = jira.Status.instance.planning
+      type = "global"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    In_Progress__From__any_status__Global@sfffssff = {
+      name = "In Progress"
+      description = ""
+      to = jira.Status.instance.in_progress@s
+      type = "global"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Ready_for_review__From__any_status__Global@ssfffssff = {
+      name = "Ready for review"
+      description = ""
+      to = jira.Status.instance.ready_for_review@s
+      type = "global"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Approved__From__any_status__Global@fffssff = {
+      name = "Approved"
+      description = ""
+      to = jira.Status.instance.approved
+      type = "global"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Done__From__any_status__Global@fffssff = {
+      name = "Done"
+      description = ""
+      to = jira.Status.instance.done
+      type = "global"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Performance__From__any_status__Global@fffssff = {
+      name = "Performance"
+      description = ""
+      to = jira.Status.instance.performance
+      type = "global"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    In_Review__From__any_status__Global@sfffssff = {
+      name = "In Review"
+      description = ""
+      to = jira.Status.instance.in_review@s
+      type = "global"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+  }
+  statuses = [
+    {
+      id = jira.Status.instance.approved
+      name = "Approved"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 1901.4453125
+        y = 235.9
+      }
+    },
+    {
+      id = jira.Status.instance.done
+      name = "Done"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 1944.4140625
+        y = 274.9
+      }
+    },
+    {
+      id = jira.Status.instance.in_progress@s
+      name = "In Progress"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 1758.703125
+        y = 110
+      }
+    },
+    {
+      id = jira.Status.instance.in_review@s
+      name = "In Review"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 1870.7265625
+        y = 190.85000244140622
+      }
+    },
+    {
+      id = jira.Status.instance.not_started@s
+      name = "Not started"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 1622
+        y = 19
+      }
+    },
+    {
+      id = jira.Status.instance.performance
+      name = "Performance"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 1976.1796875
+        y = 315.9
+      }
+    },
+    {
+      id = jira.Status.instance.planning
+      name = "Planning"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 1705.9765625
+        y = 62.900000000000006
+      }
+    },
+    {
+      id = jira.Status.instance.ready_for_review@s
+      name = "Ready for review"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 1797.0859375
+        y = 150.9
+      }
+    },
+  ]
+  name = "TCM: Campaign management workflow"
+  diagramInitialEntry = {
+    x = 1512
+    y = 0
+  }
+}

@@ -1,0 +1,44 @@
+jira.Board Gamma_scrum@s {
+  name = "Gamma scrum"
+  type = "scrum"
+  admins = {
+    users = [
+      {
+        id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+        displayName = "Rudy Holtkamp"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Gamma
+  }
+  filterId = jira.Filter.instance.Filter_for_Gamma_scrum@s
+  columnConfig = {
+    columns = [
+      {
+        name = "To Do"
+        statuses = [
+          jira.Status.instance.to_do@s,
+        ]
+      },
+      {
+        name = "In Progress"
+        statuses = [
+          jira.Status.instance.in_progress@s,
+          jira.Status.instance.in_validation@s,
+        ]
+      },
+      {
+        name = "Done"
+        statuses = [
+          jira.Status.instance.approved,
+          jira.Status.instance.done,
+        ]
+      },
+    ]
+    constraintType = "none"
+  }
+  estimation = {
+    field = jira.Field.instance.Story_Points__float__c@suuuu
+  }
+}

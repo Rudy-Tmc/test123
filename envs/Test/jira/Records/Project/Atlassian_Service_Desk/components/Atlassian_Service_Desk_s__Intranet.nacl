@@ -1,0 +1,13 @@
+jira.ProjectComponent Atlassian_Service_Desk_s__Intranet@uumuu {
+  description = "Issues related to the intranet. Created by Jira Service Management."
+  assigneeType = "UNASSIGNED"
+  name = "Intranet"
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  _parent = [
+    jira.Project.instance.Atlassian_Service_Desk@s,
+  ]
+  _alias = "Atlassian Service Desk:Intranet"
+}

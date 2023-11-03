@@ -1,0 +1,10 @@
+jira.IssueTypeScreenScheme RUDY__Personal_task_planner_screen_scheme@fsssss {
+  name = "RUDY: Personal task planner screen scheme"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.RUDY__Personal_task_planner_screen_scheme@fsssss
+    },
+  ]
+}

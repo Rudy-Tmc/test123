@@ -1,0 +1,11 @@
+jira.Field Tijd_voor_selectie_van_normale_wijzigingen__sd_sla_field__c@sssssuubbuu {
+  name = "Tijd voor selectie van normale wijzigingen"
+  description = "This custom field was created by Jira Service Management."
+  isLocked = true
+  searcherKey = "com.atlassian.servicedesk:sd-sla-field-searcher"
+  type = "com.atlassian.servicedesk:sd-sla-field"
+  contexts = [
+    jira.CustomFieldContext.instance.Tijd_voor_selectie_van_normale_wijzigingen__sd_sla_field__c_sssssuubbuu_Standaardconfiguratieschema_voor_Tijd_voor_selectie_van_normale_wijzigingen@uuuuuuuuuuumusssssss,
+  ]
+  _alias = "Tijd voor selectie van normale wijzigingen"
+}

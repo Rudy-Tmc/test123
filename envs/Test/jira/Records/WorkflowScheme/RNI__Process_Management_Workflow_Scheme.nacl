@@ -1,0 +1,5 @@
+jira.WorkflowScheme RNI__Process_Management_Workflow_Scheme@fssss {
+  name = "RNI: Process Management Workflow Scheme"
+  description = ""
+  defaultWorkflow = jira.Workflow.instance.RNI__Process_Management_Workflow@fsss
+}

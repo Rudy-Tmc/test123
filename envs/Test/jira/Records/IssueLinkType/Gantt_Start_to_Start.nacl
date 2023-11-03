@@ -1,0 +1,5 @@
+jira.IssueLinkType Gantt_Start_to_Start@s {
+  name = "Gantt Start to Start"
+  inward = "has to be started together with"
+  outward = "has to be started together with"
+}

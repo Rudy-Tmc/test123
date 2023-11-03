@@ -1,0 +1,10 @@
+jira.Field Email_body__textarea__c@suuuu {
+  name = "Email body"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+  contexts = [
+    jira.CustomFieldContext.instance.Email_body__textarea__c_suuuu_Default_Configuration_Scheme_for_Email_body@uuuuumusssss,
+  ]
+  _alias = "Email body"
+}

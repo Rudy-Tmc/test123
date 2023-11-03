@@ -1,0 +1,60 @@
+jira.DashboardGadget Custom_charts_s__Custom_Charts_0_1@umuusuu {
+  moduleKey = "com.atlassian.plugins.atlassian-connect-plugin:com.oldstreetsolutions.atlassian.jira.custom-charts__custom-chart-dashboard-item"
+  color = "blue"
+  position = {
+    row = 1
+    column = 0
+  }
+  title = "Custom Charts"
+  properties = [
+    {
+      key = "params"
+      values = [
+        {
+          key = "id"
+          value = "IIZgIgnATAQkA"
+        },
+        {
+          key = "title"
+          value = "Q"
+        },
+        {
+          key = "titleType"
+          value = "MICQggSgKkA"
+        },
+        {
+          key = "searchType"
+          value = "MoSQsgCgMgog+sGBBASgYQBJA"
+        },
+        {
+          key = "aggregations"
+          value = "NobwRAhg5lBOCmUIBcCWB7AdgFQJ4Ad4wAuMAYQHkBVAOWzABpIYEll4AhXEsAYwFcAzsnQBbAGap4AGwAmAfQCMABmUAmACyMwyAkVIBlKgFkwAXwC6QA"
+        },
+        {
+          key = "query"
+          value = "EIRgogLATAwkA"
+        },
+        {
+          key = "displayOptions"
+          value = "N4IgzgFg9g7gQlATgEwKaJALgGYEMA2YqANONDACq4BG+qACugMaoB2ALmFu4gK4llYVWqgCSYMPy6Ye-UpFgAtdFABqBfgBkaqQljyEBCylHYEAwlF4dufI+QqmLUfLwC2rW3MEwA4oisABzgATy97WE1UAHM2ZHD5cgANAEEADwBLMG1qXQSfAE10rJy8mTtEoSgXdgzAgHlWOFxEAAkoADd0fNxedigAJVRsRFRIfQIiUgJ8WHrA2qhWMABZNl4e-FmYAFE0wKR2fONi7Ji4y2sj8u8TzLPY1mRGRBYbHEmBJggW9goQwKoLAgADKFBS5gA0jsACIAfTgKQGIFIgNebHYMKygXwuDCmBAqhSmgAqjsUSBcPcQeQXm9rgYpj5lAE6RjSnoPoZUcwMViwDi8RQMnRgUTSTs4fQdgNzDsAHIUClo+n8wUhegZIEE8VkqUyuWK5W8jhq3EhU5i4lkil0R7PKBgDKLTwElJ9KC285PbQhKzXEDu-oU2rsOgpfAZaKsNwY4GGigyiloMBMRB1F30R3OjJLYEIdj9NwU4wkoiIURuNFgJa4F35JiRpgAawoEACvGiEHydriA0iGTczqwAFZSLU6OYfoh2KJ2Kg3GAXv2YKPSBb7lPfq1UFGIOxNIPh5gAEwANgADJUYDCxmmM7nXbIIjAOdJn9f5e5cohLK4PBM3IgKw37oP4QQZKw0TAvK9Rwr4Az1CS9CiPKvgUiBbg-vQoxMFkj5YAAjNM0TRKM0R1o+wqxiSrDHiArRIQMIIUrgpHkZRSzUag7S8IgAycVgAAcpBMO4vC4rUXSOGY+CAUyYluBJlHSU4+ChPGrRIhQCIFMmLTNisUBoPJqAAL5AA"
+        },
+        {
+          key = "series1"
+          value = "N4IgxgFghgTgLgIQJ4EkAmIBc4CuBnOAewFsAzASwFMAbNAfQEYAGJgJiZABoQ9KBzYpQB2cPAGFCQinxwwoccpKygAbnQBsykOSFpKADyxNuvAcNFYA2qHIZsazdxVRqOSlhCOQQqII8A5AHEAaQACAGUABxgdOFCGLm0pQiwhHGpqAF8AXW4wQmpCGA8AYgAjUlZ1FkSVcjxyMup3TDgYN0zuSmJIuCQtHT1DTAYTfkERPCsbOxBu3v6nFzdU9OpuHz9sf0l3bh1SFMw0jJy8gqLSgBYAdjKwAA4oWvrG5qw2jqc6B4HdAywrDGZkm020szUvyWrhaICh3l8sPCvkizQi0Vi8USByOJyyuXAF2K2BKpFIDzKNScryaLU+lE6IDUNz+QywAGZgRMLJhrOCPMzastYSyNoiPMiemiojERKFWNjkqtTgT8oViSBSZQyuoqi8GrSPu0GYziPJIJLKAAxKi0KaYUguXjcPgwQg4SJiKB4MBQPQ2mhoe2O6jOkD4SgSdX2+ncIp6WV8Dx6H3CNA6JMmCCEADuAC1KG6JDhQQ6nZRzuqADKEMAAaywId4mSAA"
+        },
+        {
+          key = "series2"
+          value = "N4IgxgFghgTgLgIQJ4EkAmIBc4CuBnOAewFsAzASwFMAbNAfQEYAGJgJiZABoQ9KBzYpQB2cPAGFCQinxwwoccpKygAbnQBsykOSFpKADyxNuvAcNFYA2qHIZsazdxVRqOSlhCOQQqII8A5AHEAaQACAGUABxgdOFCGLm0pQiwhHGpqAF8AXW4wQmpCGA8AYgAjUlZ1FkSVcjxyMup3TDgYN0zuSmJIuCQtHT1DTAYTfkERPCsbOxBu3v6nFzdU9OpuHz9sf0l3bh1SFMw0jJy8gqLSgBYAdjKwAA4oWvrG5qw2jqc6B4HdAywrDGZkm020szUvyWrhaICh3l8sPCvkizQi0Vi8USByOJyyuXAF2K2BKpFIDzKNScryaLU+lE6IDUNz+QywAGZgRMLJhrOCPMzastYSyNoiPMiemiojERKFWNjkqtTgT8oViSBSZQyuoqi8GrSPu0GYziPJIJLKAAxKi0KaYUguXjcPgwQg4SJiKB4MBQPQ2mhoe2O6jOkD4SgSdXBp2UbhFPSyvgePQ+4RoHTJkwQQgAdwAWpQ3RIcKCHbHzuqADKEMAAaywId4mSAA"
+        },
+        {
+          key = "version"
+          value = "1"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Custom_charts@s,
+  ]
+  _alias = "Custom Charts"
+}

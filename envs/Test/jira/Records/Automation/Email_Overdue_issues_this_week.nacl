@@ -1,0 +1,118 @@
+jira.Automation Email_Overdue_issues_this_week@s {
+  name = "Email Overdue issues this week"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.jql.scheduled"
+    value = {
+      schedule = {
+        cronExpression = ""
+        method = "BASIC"
+        rate = 0
+        rateInterval = 86400
+        rRule = '''
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Amsterdam:20211112T163455
+RRULE:FREQ=WEEKLY;BYHOUR=5;BYMINUTE=0;BYSECOND=0;BYDAY=MO;INTERVAL=1
+END:VEVENT
+
+'''
+      }
+      jql = "due<=endOfWeek(1) AND ${ jira.Field.instance.Due_date__date@suu }>=startOfWeek(1)"
+      executionMode = "nosearch"
+      onlyUpdatedIssues = true
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.lookup.issues"
+      value = {
+        id = "_customsmartvalue_id_1636731393058"
+        name = {
+          type = "FREE"
+          value = "lookupIssues"
+        }
+        type = "JQL"
+        query = {
+          type = "SMART"
+          value = "due<=endOfWeek(1) AND ${ jira.Field.instance.Due_date__date@suu }>=startOfWeek(1)"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 3
+      type = "jira.issue.outgoing.email"
+      value = {
+        fromName = ""
+        replyTo = ""
+        to = [
+          {
+            type = "REFERENCE"
+            value = "INITIATOR"
+            additional = "INITIATOR"
+          },
+        ]
+        cc = [
+        ]
+        bcc = [
+        ]
+        subject = "Overdue issues this week"
+        body = '''
+{{#lookupIssues}}
+{{key}} | {{${ jira.Field.instance.Summary__string }}} | {{${ jira.Field.instance.Status__status }.name}} | {{${ jira.Field.instance.Assignee__user }}}
+{{/}}
+'''
+        mimeType = "text/html"
+        convertLineBreaks = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Email Overdue issues this week"
+}

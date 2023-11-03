@@ -1,0 +1,950 @@
+jira.Workflow SDAF__Change_Management_workflow_for_Jira_Service_Desk@fsssssss {
+  description = "This Jira Service Desk Change Management workflow was generated for Project SDAF"
+  transitions = {
+    Create__From__none__Initial@fffsff = {
+      name = "Create"
+      description = ""
+      to = jira.Status.instance.peer_review___change_manager_approval@ssdsss
+      type = "initial"
+      rules = {
+        validators = [
+          {
+            type = "PermissionValidator"
+            configuration = {
+              permissionKey = "CREATE_ISSUES"
+            }
+          },
+        ]
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Issue_Created@s
+              }
+            }
+          },
+          {
+            type = "UpdateIssueStatusFunction"
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      from = [
+        {
+          sourceAngle = 78.11134196037203
+          targetAngle = -70.01689347810002
+        },
+      ]
+    }
+    Back_to_implementing__From__Resolved__Directed@ssfffsff = {
+      name = "Back to implementing"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.resolved
+          sourceAngle = -17.85295896048911
+          targetAngle = 24.83607003398809
+        },
+      ]
+      to = jira.Status.instance.implementing
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.Workflow_Screen___7@ssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+          {
+            type = "UpdateIssueFieldFunction"
+            configuration = {
+              fieldId = jira.Field.instance.Resolution__resolution
+              fieldValue = ""
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.back.to.implementing"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+        {
+          key = "sd.resolution.clear"
+          value = ""
+        },
+      ]
+    }
+    Decline__From__Awaiting_CAB_approval_Peer_review___change_manager_approval__Directed@fffssszdssdsssff = {
+      name = "Decline"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.awaiting_cab_approval@s
+          sourceAngle = 2.28348175141239
+          targetAngle = 175.24713861386095
+        },
+        {
+          id = jira.Status.instance.peer_review___change_manager_approval@ssdsss
+          sourceAngle = 1.4665249544761652
+          targetAngle = -70.01689347810002
+        },
+      ]
+      to = jira.Status.instance.declined
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.JIRA_Service_Desk_Resolve_Issue_Screen___6@ssssssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.decline"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+        {
+          key = "opsbar-sequence"
+          value = "10"
+        },
+      ]
+    }
+    Close__From__Canceled_Declined_Resolved__Directed@fffszdzdff = {
+      name = "Close"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.resolved
+          sourceAngle = 3.9558093455401213
+          targetAngle = 174.67487281477946
+        },
+        {
+          id = jira.Status.instance.declined
+          sourceAngle = 78.11134196037203
+          targetAngle = 4.492144589704093
+        },
+        {
+          id = jira.Status.instance.canceled
+          sourceAngle = 78.11134196037203
+          targetAngle = 78.11134196037203
+        },
+      ]
+      to = jira.Status.instance.closed
+      type = "directed"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.close"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Cancel__From__Awaiting_implementation_Declined_Pending_Planning__Directed@fffsszdzdzdff = {
+      name = "Cancel"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.planning
+          sourceAngle = -156.68433170668632
+          targetAngle = -70.01689347810002
+        },
+        {
+          id = jira.Status.instance.awaiting_implementation@s
+          sourceAngle = 177.64827438451007
+          targetAngle = 3.9079299015327598
+        },
+        {
+          id = jira.Status.instance.pending
+          sourceAngle = 174.92652558324858
+          targetAngle = -17.66009144100066
+        },
+        {
+          id = jira.Status.instance.declined
+          sourceAngle = 78.11134196037203
+          targetAngle = -17.66009144100066
+        },
+      ]
+      to = jira.Status.instance.canceled
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.JIRA_Service_Desk_Resolve_Issue_Screen___6@ssssssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.submit"
+          value = "sd.workflow.save"
+        },
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.cancel"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Emergency_override__From__Awaiting_CAB_approval_Peer_review___change_manager_approval__Directed@sfffssszdssdsssff = {
+      name = "Emergency override"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.awaiting_cab_approval@s
+          sourceAngle = 18.157097450298473
+          targetAngle = -70.01689347810002
+        },
+        {
+          id = jira.Status.instance.peer_review___change_manager_approval@ssdsss
+          sourceAngle = 1.4665249544761652
+          targetAngle = 2.1734020730692247
+        },
+      ]
+      to = jira.Status.instance.awaiting_implementation@s
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.Workflow_Screen___7@ssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.emergency.override"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Ready_for_CAB_approval__From__Declined_Planning__Directed@sssfffszdff = {
+      name = "Ready for CAB approval"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.planning
+          sourceAngle = 78.11134196037203
+          targetAngle = -70.01689347810002
+        },
+        {
+          id = jira.Status.instance.declined
+          sourceAngle = 175.24713861386095
+          targetAngle = 2.28348175141239
+        },
+      ]
+      to = jira.Status.instance.awaiting_cab_approval@s
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.Workflow_Screen___7@ssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+          {
+            type = "UpdateIssueFieldFunction"
+            configuration = {
+              fieldId = jira.Field.instance.Resolution__resolution
+              fieldValue = ""
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.ready.for.cab.approval"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+        {
+          key = "opsbar-sequence"
+          value = "10"
+        },
+        {
+          key = "sd.resolution.clear"
+          value = ""
+        },
+      ]
+    }
+    Approve__From__Peer_review___change_manager_approval__Directed@fffsssdsssff = {
+      name = "Approve"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.peer_review___change_manager_approval@ssdsss
+          sourceAngle = 78.11134196037203
+          targetAngle = -70.01689347810002
+        },
+      ]
+      to = jira.Status.instance.planning
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.Workflow_Screen___7@ssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.approve"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+        {
+          key = "opsbar-sequence"
+          value = "5"
+        },
+      ]
+    }
+    Cancel__From__Peer_review___change_manager_approval__Directed@fffsssdsssff = {
+      name = "Cancel"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.peer_review___change_manager_approval@ssdsss
+          sourceAngle = 178.4543703426222
+          targetAngle = -157.49563280159705
+        },
+      ]
+      to = jira.Status.instance.canceled
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.JIRA_Service_Desk_Resolve_Issue_Screen___6@ssssssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.submit"
+          value = "sd.workflow.save"
+        },
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.cancel"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Back_to_peer_review__From__Declined__Directed@sssfffsff = {
+      name = "Back to peer review"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.declined
+          sourceAngle = -70.01689347810002
+          targetAngle = 1.4665249544761652
+        },
+      ]
+      to = jira.Status.instance.peer_review___change_manager_approval@ssdsss
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.Workflow_Screen___7@ssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+          {
+            type = "UpdateIssueFieldFunction"
+            configuration = {
+              fieldId = jira.Field.instance.Resolution__resolution
+              fieldValue = ""
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.back.to.peer.review"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+        {
+          key = "sd.resolution.clear"
+          value = ""
+        },
+      ]
+    }
+    Approve__From__Awaiting_CAB_approval__Directed@fffsssff = {
+      name = "Approve"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.awaiting_cab_approval@s
+          sourceAngle = 78.11134196037203
+          targetAngle = -168.2280536692225
+        },
+      ]
+      to = jira.Status.instance.awaiting_implementation@s
+      type = "directed"
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.approve"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Ready_for_implementation__From__Pending_Planning__Directed@ssfffszdff = {
+      name = "Ready for implementation"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.planning
+          sourceAngle = 4.034015144274942
+          targetAngle = -10.25786840249142
+        },
+        {
+          id = jira.Status.instance.pending
+          sourceAngle = 4.311595447066515
+          targetAngle = 177.64827438451007
+        },
+      ]
+      to = jira.Status.instance.awaiting_implementation@s
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.Workflow_Screen___7@ssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.ready.for.implementation"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+        {
+          key = "opsbar-sequence"
+          value = "5"
+        },
+      ]
+    }
+    Pending__From__Awaiting_implementation_Planning__Directed@fffsszdff = {
+      name = "Pending"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.planning
+          sourceAngle = 143.33448488579964
+          targetAngle = -19.266170022040647
+        },
+        {
+          id = jira.Status.instance.awaiting_implementation@s
+          sourceAngle = 177.64827438451007
+          targetAngle = 31.120959725492295
+        },
+      ]
+      to = jira.Status.instance.pending
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.JIRA_Service_Desk_Pending_Reason_screen___6@ssssssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.pending"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Back_to_planning__From__Pending__Directed@ssfffsff = {
+      name = "Back to planning"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.pending
+          sourceAngle = -154.8888787755194
+          targetAngle = 175.30632020531613
+        },
+      ]
+      to = jira.Status.instance.planning
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.Workflow_Screen___7@ssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.back.to.planning"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Start_implementation__From__Awaiting_implementation__Directed@sfffssff = {
+      name = "Start implementation"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.awaiting_implementation@s
+          sourceAngle = 160.20297350449414
+          targetAngle = -161.5920331704399
+        },
+      ]
+      to = jira.Status.instance.implementing
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.Workflow_Screen___7@ssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.start.implementation"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Back_to_awaiting_implementation__From__Implementing__Directed@sssfffsff = {
+      name = "Back to awaiting implementation"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.implementing
+          sourceAngle = 3.2628571825821506
+          targetAngle = 17.35855315666481
+        },
+      ]
+      to = jira.Status.instance.awaiting_implementation@s
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.Workflow_Screen___7@ssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.back.to.awaiting.implementation"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+    Change_completed__From__Implementing__Directed@sfffsff = {
+      name = "Change completed"
+      description = ""
+      from = [
+        {
+          id = jira.Status.instance.implementing
+          sourceAngle = 150.10738853977978
+          targetAngle = -157.1878967278368
+        },
+      ]
+      to = jira.Status.instance.resolved
+      type = "directed"
+      screen = {
+        id = jira.Screen.instance.JIRA_Service_Desk_Resolve_Issue_Screen___6@ssssssbs
+      }
+      rules = {
+        postFunctions = [
+          {
+            type = "FireIssueEventFunction"
+            configuration = {
+              event = {
+                id = jira.IssueEvent.instance.Generic_Event@s
+              }
+            }
+          },
+        ]
+      }
+      properties = [
+        {
+          key = "jira.i18n.title"
+          value = "sd.workflow.change.completed"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+    }
+  }
+  statuses = [
+    {
+      id = jira.Status.instance.awaiting_cab_approval@s
+      name = "Awaiting CAB approval"
+      properties = [
+        {
+          key = "approval.active"
+          value = "false"
+        },
+        {
+          key = "approval.condition.type"
+          value = "number"
+        },
+        {
+          key = "approval.condition.value"
+          value = "1"
+        },
+        {
+          key = "approval.field.id"
+          value = "customfield_10003"
+        },
+        {
+          key = "approval.transition.approved"
+          value = "31"
+        },
+        {
+          key = "approval.transition.rejected"
+          value = "121"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 768.4384765625
+        y = 74.3284216308594
+      }
+    },
+    {
+      id = jira.Status.instance.awaiting_implementation@s
+      name = "Awaiting implementation"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 819.9085083007812
+        y = 186.66522888183596
+      }
+    },
+    {
+      id = jira.Status.instance.canceled
+      name = "Canceled"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 501.6553497314453
+        y = 438.8186407470703
+      }
+    },
+    {
+      id = jira.Status.instance.closed
+      name = "Closed"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 1042.9771118164062
+        y = 438.8186407470703
+      }
+    },
+    {
+      id = jira.Status.instance.declined
+      name = "Declined"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 1136.7896118164062
+        y = 74.3284216308594
+      }
+    },
+    {
+      id = jira.Status.instance.implementing
+      name = "Implementing"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 835.583251953125
+        y = 317.72377685546877
+      }
+    },
+    {
+      id = jira.Status.instance.peer_review___change_manager_approval@ssdsss
+      name = "Peer review / change manager approval"
+      properties = [
+        {
+          key = "approval.active"
+          value = "false"
+        },
+        {
+          key = "approval.condition.type"
+          value = "percent"
+        },
+        {
+          key = "approval.condition.value"
+          value = "100"
+        },
+        {
+          key = "approval.field.id"
+          value = "customfield_10003"
+        },
+        {
+          key = "approval.transition.approved"
+          value = "161"
+        },
+        {
+          key = "approval.transition.rejected"
+          value = "121"
+        },
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 712.5244140625
+        y = -171.30898567199705
+      }
+    },
+    {
+      id = jira.Status.instance.pending
+      name = "Pending"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 595.3691558837891
+        y = -2.571507892608622
+      }
+    },
+    {
+      id = jira.Status.instance.planning
+      name = "Planning"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 812.0166015625
+        y = -94.36796756744383
+      }
+    },
+    {
+      id = jira.Status.instance.resolved
+      name = "Resolved"
+      properties = [
+        {
+          key = "jira.issue.editable"
+          value = "true"
+        },
+      ]
+      location = {
+        x = 841.8082275390625
+        y = 438.8186407470703
+      }
+    },
+  ]
+  name = "SDAF: Change Management workflow for Jira Service Desk"
+  diagramInitialEntry = {
+    x = 849.7275390625
+    y = -246.85745544433593
+  }
+}

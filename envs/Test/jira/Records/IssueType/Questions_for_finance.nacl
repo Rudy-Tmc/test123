@@ -1,0 +1,6 @@
+jira.IssueType Questions_for_finance@s {
+  description = "Got a question for the finance team? Submit it here."
+  name = "Questions for finance"
+  untranslatedName = "Questions for finance"
+  hierarchyLevel = 0
+}

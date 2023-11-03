@@ -1,0 +1,189 @@
+jira.Automation web_req_Automation_rule_test_environment@susss {
+  name = "web req"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groups = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1639985739994"
+        name = {
+          type = "FREE"
+          value = "auth"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "cnVkeS5ob2x0a2FtcEB0bWMubmw6N0Nud0QxSDVkUHdNT1NndDFNNFNFN0RD"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.create"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "Blabla"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Description__string
+            }
+            fieldType = "description"
+            type = "SET"
+            rawValue = "bla"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Project__project
+            }
+            fieldType = "project"
+            type = "SET"
+            value = {
+              value = "current"
+              type = "COPY"
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Issue_Type__issuetype@suu
+            }
+            fieldType = "issuetype"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.IssueType.instance.Task
+            }
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "jira.issue.related"
+      value = {
+        relatedType = "recentlycreated"
+        jql = ""
+        linkTypes = [
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "jira.issue.outgoing.webhook"
+          value = {
+            url = "https://automation.atlassian.com/pro/hooks/e400fd58087942a6437fafc43d4c6e3230a1e472?issue={{issue}}"
+            headers = [
+              {
+                id = "_header_1639985696961"
+                name = "Content-Type"
+                value = "application/json"
+                headerSecure = false
+              },
+              {
+                id = "_header_1639985716227"
+                name = "Authorization"
+                value = "Basic {{auth}}"
+                headerSecure = false
+              },
+            ]
+            sendIssue = false
+            contentType = "empty"
+            method = "POST"
+            responseEnabled = false
+            continueOnErrorEnabled = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "web req"
+}

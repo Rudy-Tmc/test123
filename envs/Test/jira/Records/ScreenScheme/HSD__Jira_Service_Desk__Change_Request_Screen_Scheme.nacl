@@ -1,0 +1,7 @@
+jira.ScreenScheme HSD__Jira_Service_Desk__Change_Request_Screen_Scheme@fsssfssss {
+  name = "HSD: Jira Service Desk: Change Request Screen Scheme"
+  description = "This Jira Service Desk Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.HSD__Jira_Service_Desk__Change_Request_Issue_Screen@fsssfssss
+  }
+}

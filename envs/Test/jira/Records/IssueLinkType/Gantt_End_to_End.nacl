@@ -1,0 +1,5 @@
+jira.IssueLinkType Gantt_End_to_End@s {
+  name = "Gantt End to End"
+  inward = "has to be finished together with"
+  outward = "has to be finished together with"
+}

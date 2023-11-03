@@ -1,0 +1,6 @@
+jira.IssueType Risk {
+  description = "Hedge issue type"
+  name = "Risk"
+  untranslatedName = "Risk"
+  hierarchyLevel = 0
+}

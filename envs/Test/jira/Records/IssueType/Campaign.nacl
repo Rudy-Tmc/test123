@@ -1,0 +1,6 @@
+jira.IssueType Campaign {
+  description = ""
+  name = "Campaign"
+  untranslatedName = "Campaign"
+  hierarchyLevel = 0
+}

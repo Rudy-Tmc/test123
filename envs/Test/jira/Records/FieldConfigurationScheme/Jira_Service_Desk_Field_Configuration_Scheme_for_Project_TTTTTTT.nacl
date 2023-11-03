@@ -1,0 +1,10 @@
+jira.FieldConfigurationScheme Jira_Service_Desk_Field_Configuration_Scheme_for_Project_TTTTTTT@s {
+  name = "Jira Service Desk Field Configuration Scheme for Project TTTTTTT"
+  description = "This Jira Service Desk Field Configuration Scheme was generated for Project TTTTTTT"
+  items = [
+    {
+      issueTypeId = "default"
+      fieldConfigurationId = jira.FieldConfiguration.instance.Jira_Service_Desk_Field_Configuration_for_Project_TTTTTTT@s
+    },
+  ]
+}

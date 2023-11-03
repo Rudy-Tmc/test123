@@ -1,0 +1,9 @@
+jira.ProjectComponent Automation_rule_test_environment_s__Confluence@uuumuu {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "Confluence"
+  _parent = [
+    jira.Project.instance.Automation_rule_test_environment@s,
+  ]
+  _alias = "Automation rule test environment:Confluence"
+}

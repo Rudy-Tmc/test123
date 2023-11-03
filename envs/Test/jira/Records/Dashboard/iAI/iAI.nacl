@@ -1,0 +1,14 @@
+jira.Dashboard iAI {
+  name = "iAI"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  gadgets = [
+    jira.DashboardGadget.instance.iAI__Two_Dimensional_Filter_Statistics_0_0@uusssuu,
+    jira.DashboardGadget.instance.iAI__Pie_Chart_0_1@uusuu,
+    jira.DashboardGadget.instance.iAI__Two_Dimensional_Filter_Statistics_0_2@uusssuu,
+    jira.DashboardGadget.instance.iAI__Filter_Results_1_0@uusuu,
+  ]
+  layout = "AA"
+}

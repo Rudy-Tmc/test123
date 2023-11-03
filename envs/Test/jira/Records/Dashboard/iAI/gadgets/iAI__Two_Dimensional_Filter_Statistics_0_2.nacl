@@ -1,0 +1,60 @@
+jira.DashboardGadget iAI__Two_Dimensional_Filter_Statistics_0_2@uusssuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:two-dimensional-stats-gadget/gadgets/two-dimensional-stats-gadget.xml"
+  color = "blue"
+  position = {
+    row = 2
+    column = 0
+  }
+  title = "Two Dimensional Filter Statistics"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "filterId"
+          value = jira.Filter.instance.Filter_for_TEST_board@s
+        },
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "sortDirection"
+          value = "asc"
+        },
+        {
+          key = "isPopup"
+          value = "false"
+        },
+        {
+          key = "ystattype"
+          value = "statuses"
+        },
+        {
+          key = "more"
+          value = "false"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "sortBy"
+          value = "natural"
+        },
+        {
+          key = "xstattype"
+          value = "allFixfor"
+        },
+        {
+          key = "numberToShow"
+          value = "5"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.iAI,
+  ]
+  _alias = "Two Dimensional Filter Statistics"
+}

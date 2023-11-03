@@ -1,0 +1,8 @@
+jira.IssueTypeScheme RUDY__Personal_task_planner_issue_type_scheme@fssssss {
+  name = "RUDY: Personal task planner issue type scheme"
+  defaultIssueTypeId = jira.IssueType.instance.Task
+  issueTypeIds = [
+    jira.IssueType.instance.Task,
+    jira.IssueType.instance.Sub_task@b,
+  ]
+}

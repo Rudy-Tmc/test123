@@ -1,0 +1,368 @@
+jira.Automation Global___Copy_boards__Project_created_@sbssshsi {
+  name = "Global - Copy boards [Project created]"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.project.event.trigger:created"
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1636036662667"
+        name = {
+          type = "FREE"
+          value = "auth"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "cnVkeS5ob2x0a2FtcEB0bWMubmw6N0Nud0QxSDVkUHdNT1NndDFNNFNFN0RD"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{baseurl}}/rest/agile/1.0/board?projectKeyOrId={{${ jira.Field.instance.Project__project }.id}}"
+        headers = [
+          {
+            id = "_header_1636729521548"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1636729560666"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "empty"
+        method = "GET"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "jira.smart.values.branch"
+      value = {
+        id = "_customsmartvalue_id_1636729636336"
+        name = {
+          type = "FREE"
+          value = "board"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{webResponse.body}}"
+        }
+        lazy = false
+      }
+      children = [
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "jira.issue.outgoing.webhook"
+          value = {
+            url = "{{baseurl}}/rest/greenhopper/1.0/rapidview/{{board.id}}/copy"
+            headers = [
+              {
+                id = "_header_1636036335882"
+                name = "Content-Type"
+                value = "application/json"
+                headerSecure = false
+              },
+              {
+                id = "_header_1636036638695"
+                name = "Authorization"
+                value = "Basic {{auth}}"
+                headerSecure = false
+              },
+            ]
+            sendIssue = false
+            contentType = "empty"
+            method = "PUT"
+            responseEnabled = true
+            continueOnErrorEnabled = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "jira.create.variable"
+          value = {
+            id = "_customsmartvalue_id_1636036408910"
+            name = {
+              type = "FREE"
+              value = "newboardid"
+            }
+            type = "SMART"
+            query = {
+              type = "SMART"
+              value = "{{webResponse.body.id}}"
+            }
+            lazy = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "jira.create.variable"
+          value = {
+            id = "_customsmartvalue_id_1636729925930"
+            name = {
+              type = "FREE"
+              value = "newboardname"
+            }
+            type = "SMART"
+            query = {
+              type = "SMART"
+              value = "{{board.displayname.replace(\"Template\",{{project.name}})}}"
+            }
+            lazy = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "jira.issue.outgoing.webhook"
+          value = {
+            url = "{{baseurl}}/rest/api/2/filter"
+            headers = [
+              {
+                id = "_header_1636037005430"
+                name = "Content-Type"
+                value = "application/json"
+                headerSecure = false
+              },
+              {
+                id = "_header_1636037019347"
+                name = "Authorization"
+                value = "Basic {{auth}}"
+                headerSecure = false
+              },
+            ]
+            sendIssue = false
+            contentType = "custom"
+            customBody = '''
+{
+   "name": "Filter for {{newboardname}} board",
+   "description": "Filter for {{project.key}}",
+   "jql": "project={{project.key}} ORDER BY Rank ASC",
+   "favourite": "false"
+}
+'''
+            method = "POST"
+            responseEnabled = true
+            continueOnErrorEnabled = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "jira.create.variable"
+          value = {
+            id = "_customsmartvalue_id_1636036428429"
+            name = {
+              type = "FREE"
+              value = "filterid"
+            }
+            type = "SMART"
+            query = {
+              type = "SMART"
+              value = "{{webResponse.body.id}}"
+            }
+            lazy = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "jira.issue.outgoing.webhook"
+          value = {
+            url = "{{baseurl}}/rest/api/2/filter/{{filterid}}/permission"
+            headers = [
+              {
+                id = "_header_1636037188584"
+                name = "Content-Type"
+                value = "application/json"
+                headerSecure = false
+              },
+              {
+                id = "_header_1636037200026"
+                name = "Authorization"
+                value = "Basic {{auth}}"
+                headerSecure = false
+              },
+            ]
+            sendIssue = false
+            contentType = "custom"
+            customBody = '''
+{
+   "type" : "project",
+   "projectId" : "{{project.id}}"
+}
+'''
+            method = "POST"
+            responseEnabled = true
+            continueOnErrorEnabled = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "jira.issue.outgoing.webhook"
+          value = {
+            url = "{{baseurl}}/rest/greenhopper/1.0/rapidviewconfig/name"
+            headers = [
+              {
+                id = "_header_1636036529081"
+                name = "Content-Type"
+                value = "application/json"
+                headerSecure = false
+              },
+              {
+                id = "_header_1636036558281"
+                name = "Authorization"
+                value = "Basic {{auth}}"
+                headerSecure = false
+              },
+            ]
+            sendIssue = false
+            contentType = "custom"
+            customBody = '''
+{
+   "id":{{newboardid}},
+   "name":"{{newboardname}}"
+}
+'''
+            method = "PUT"
+            responseEnabled = true
+            continueOnErrorEnabled = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "jira.issue.outgoing.webhook"
+          value = {
+            url = "{{baseurl}}/rest/greenhopper/1.0/rapidviewconfig/filter"
+            headers = [
+              {
+                id = "_header_1636036869854"
+                name = "Content-Type"
+                value = "application/json"
+                headerSecure = false
+              },
+              {
+                id = "_header_1636038511923"
+                name = "Authorization"
+                value = "Basic {{auth}}"
+                headerSecure = false
+              },
+            ]
+            sendIssue = false
+            contentType = "custom"
+            customBody = '''
+{ 
+   "id": "{{newboardid}}",
+   "savedFilterId": "{{filterid}}" 
+}
+'''
+            method = "PUT"
+            responseEnabled = true
+            continueOnErrorEnabled = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Global - Copy boards [Project created]"
+}

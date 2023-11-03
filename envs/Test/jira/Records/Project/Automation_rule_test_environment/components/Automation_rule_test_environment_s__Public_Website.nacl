@@ -1,0 +1,9 @@
+jira.ProjectComponent Automation_rule_test_environment_s__Public_Website@uuumuus {
+  description = "Created by Jira Service Management"
+  assigneeType = "PROJECT_DEFAULT"
+  name = "Public Website"
+  _parent = [
+    jira.Project.instance.Automation_rule_test_environment@s,
+  ]
+  _alias = "Automation rule test environment:Public Website"
+}

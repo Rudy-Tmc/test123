@@ -1,0 +1,473 @@
+jira.Automation ASD___Project_name_validation___Project_key_generated__VALUE_CHANGE___Atlassian_Service_Desk@sbssssesssshsisuss {
+  name = "ASD - Project name validation & Project key generated [VALUE CHANGE] "
+  state = "DISABLED"
+  description = "First we check if the project name already exists, if so we let Jira generated a new one. Then we create a project key from the project name"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 2
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "ANY_CHANGE"
+      fields = [
+        {
+          value = jira.Field.instance.Project_name__textfield__c@suuuu.name
+          type = "fieldName"
+        },
+      ]
+      actions = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1636726234109"
+        name = {
+          type = "FREE"
+          value = "auth"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "cnVkeS5ob2x0a2FtcEB0bWMubmw6N0Nud0QxSDVkUHdNT1NndDFNNFNFN0RD"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 3
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Project_name__textfield__c@suuuu.name
+        }
+        selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+        comparison = "NOT_EMPTY"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{baseurl}}/rest/api/3/projectvalidate/validProjectName?name={{issue.${ jira.Field.instance.Project_name__textfield__c@suuuu.name }.urlEncode}}"
+        headers = [
+          {
+            id = "_header_1636727308576"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1636727371700"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "empty"
+        method = "GET"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Response: {{webhookResponse.body}}"
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.issue.comment"
+              value = {
+                comment = "The project name *{{issue.Project Name}}* was already in use, so the new project name will be *{{webresponse.body}}*."
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 10
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Project_name__textfield__c@suuuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+                    type = "SET"
+                    rawValue = "{{webhookResponse.body}}"
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.issue.refresh.issue"
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{webhookResponse.body}}"
+                second = "{{issue.Project name}}"
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 3
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Project_key__textfield__c@suuuu.name
+        }
+        selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+        comparison = "EMPTY"
+        compareFieldValue = {
+          type = "VALUE"
+          value = ""
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1636726455927"
+        name = {
+          type = "FREE"
+          value = "projectkey"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{issue.Project name.match(\"\\b(\\w)\").toUpperCase().join(\" \").remove(\" \")}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.create.variable"
+              value = {
+                id = "_customsmartvalue_id_1636726508471"
+                name = {
+                  type = "FREE"
+                  value = "projectkey"
+                }
+                type = "SMART"
+                query = {
+                  type = "SMART"
+                  value = "{{issue.Project name.remove(\" \").left(3)}}"
+                }
+                lazy = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{projectkey.length()}}"
+                second = "2"
+                operator = "LESS_THAN"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Checking project key: {{projectkey}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{baseurl}}/rest/api/3/projectvalidate/validProjectKey?key={{projectkey}}"
+        headers = [
+          {
+            id = "_header_1636726639228"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1636726648584"
+            name = "Authorization"
+            value = "Basic {{auth}}"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "empty"
+        method = "GET"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Response: {{webhookResponse.body}}"
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.create.variable"
+              value = {
+                id = "_customsmartvalue_id_1636726747483"
+                name = {
+                  type = "FREE"
+                  value = "projectkey"
+                }
+                type = "SMART"
+                query = {
+                  type = "SMART"
+                  value = "{{webResponse.body}}"
+                }
+                lazy = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{webhookResponse.body}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Project_key__textfield__c@suuuu.name
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+            type = "SET"
+            rawValue = "{{projectkey}}"
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.comment"
+      value = {
+        comment = "The project key will be: *{{projectkey}}*, which was created from the project name *{{issue.${ jira.Field.instance.Project_name__textfield__c@suuuu.name }}}*."
+        publicComment = false
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Atlassian_Service_Desk@s
+    },
+  ]
+  labels = [
+    jira.AutomationLabel.instance.Create_project@s,
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10023"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ASD - Project name validation & Project key generated [VALUE CHANGE] "
+}

@@ -1,0 +1,11 @@
+jira.IssueTypeScheme TTTTTTT__Jira_Service_Desk_Issue_Type_Scheme@fssssss {
+  name = "TTTTTTT: Jira Service Desk Issue Type Scheme"
+  description = "This Jira Service Desk Issue Type Scheme was generated automatically"
+  issueTypeIds = [
+    jira.IssueType.instance.Task,
+    jira.IssueType.instance.Ask_a_question@s,
+    jira.IssueType.instance.Sub_task@b,
+    jira.IssueType.instance.Submit_a_request_or_incident@s,
+    jira.IssueType.instance.Emailed_request@s,
+  ]
+}

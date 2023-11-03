@@ -1,0 +1,154 @@
+jira.Automation Deleted_issue_email@s {
+  name = "Deleted issue email"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groups = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{#issue.attachment}} {{content.substringAfterLast(\"/\") }} {{/}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 3
+      type = "jira.issue.outgoing.email"
+      value = {
+        fromName = ""
+        replyTo = ""
+        to = [
+          {
+            type = "REFERENCE"
+            value = "INITIATOR"
+            additional = "INITIATOR"
+          },
+        ]
+        cc = [
+        ]
+        bcc = [
+        ]
+        subject = "{{issue.key}} - {{issue.${ jira.Field.instance.Summary__string }}} is verwijderd door {{initiator.displayName}}"
+        body = '''
+<h2>{{issue.key}} - {{issue.${ jira.Field.instance.Summary__string }}}</h2>
+---
+<b>Description</b>
+{{issue.${ jira.Field.instance.Description__string }}}
+
+<b>Links</b>
+{{#if(not(issue.issuelinks.isEmpty))}}
+   {{#issue.issuelinks.outwardIssue}}
+      <a href="{{baseurl}}/browse/{{key}}">{{key}}</a> - {{fields.${ jira.Field.instance.Summary__string }}}
+   {{/}}
+   {{#issue.issuelinks.inwardIssue}}
+      <a href="{{baseurl}}/browse/{{key}}">{{key}}</a> - {{fields.${ jira.Field.instance.Summary__string }}}
+   {{/}}
+{{/}}
+{{#if(issue.issuelinks.isEmpty)}}
+   There are no issue links
+{{/}}
+
+<b>Attachments</b>
+{{#if(not(issue.attachmentisEmpty))}}
+   {{#issue.attachment}}
+      <a href="{{content}}">{{content.substringAfterLast("/")}}</a>
+   {{/}}
+{{/}}
+{{#if(not(issue.attachmentisEmpty))}}
+   There are no attachments
+{{/}}
+'''
+        mimeType = "text/html"
+        convertLineBreaks = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Description__string
+            }
+            fieldType = "description"
+            type = "SET"
+            rawValue = '''
+{{issue.summary}}
+
+*Attachments*
+{{#if(not(issue.attachmentisEmpty))}}
+   {{#issue.attachment}}
+   [{{content.substringAfterLast("/")}}|{{content}}] 
+   {{/}}
+{{/}}
+{{#if(not(issue.attachmentisEmpty))}}
+   There are no attachments
+{{/}}
+'''
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Deleted issue email"
+}

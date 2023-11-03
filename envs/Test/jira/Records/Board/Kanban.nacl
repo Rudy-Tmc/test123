@@ -1,0 +1,37 @@
+jira.Board Kanban {
+  name = "Kanban"
+  type = "kanban"
+  admins = {
+    users = [
+      {
+        id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+        displayName = "Rudy Holtkamp"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Demo2
+  }
+  filterId = jira.Filter.instance.Filter_voor_Kanban@s
+  columnConfig = {
+    columns = [
+      {
+        name = "Nog doen"
+      },
+      {
+        name = "Actief"
+        statuses = [
+          jira.Status.instance.in_progress@s,
+        ]
+      },
+      {
+        name = "Gereed"
+        statuses = [
+          jira.Status.instance.done,
+        ]
+      },
+    ]
+    constraintType = "issueCount"
+  }
+  subQuery = "fixVersion in unreleasedVersions() OR fixVersion is EMPTY"
+}

@@ -1,0 +1,9 @@
+jira.CustomFieldContext Tijd_voor_selectie_van_normale_wijzigingen__sd_sla_field__c_sssssuubbuu_Standaardconfiguratieschema_voor_Tijd_voor_selectie_van_normale_wijzigingen@uuuuuuuuuuumusssssss {
+  name = "Standaardconfiguratieschema voor Tijd voor selectie van normale wijzigingen"
+  description = "Standaardconfiguratieschema gegenereerd door Jira"
+  isGlobalContext = true
+  _parent = [
+    jira.Field.instance.Tijd_voor_selectie_van_normale_wijzigingen__sd_sla_field__c@sssssuubbuu,
+  ]
+  _alias = "Tijd voor selectie van normale wijzigingen context in Standaardconfiguratieschema voor Tijd voor selectie van normale wijzigingen"
+}

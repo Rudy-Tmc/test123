@@ -1,0 +1,38 @@
+jira.Project IT_service_management___template@sssbs {
+  key = "ISMT"
+  description = ""
+  name = "IT service management - template"
+  projectTypeKey = "service_desk"
+  components = [
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__Active_Directory@uuuuumuus,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__Analytics_and_Reporting_Service@uuuuumuusss,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__Billing_Services@uuuuumuus,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__Cloud_Storage_Services@uuuuumuuss,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__Data_Center_Services@uuuuumuuss,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__Email_and_Collaboration_Services@uuuuumuusss,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__Financial_Services@uuuuumuus,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__HR_Services@uuuuumuus,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__Intranet@uuuuumuu,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__Jira@uuuuumuu,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__Office_Network@uuuuumuus,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__Payroll_Services@uuuuumuus,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__Printers@uuuuumuu,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__Public_Website@uuuuumuus,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__VPN_Server@uuuuumuus,
+    jira.ProjectComponent.instance.IT_service_management___template_sssbs__Webstore_Purchasing_Services@uuuuumuuss,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.Jira_Service_Management_IT_Support_Workflow_Scheme_generated_for_Project_ISMT@s
+  permissionScheme = jira.PermissionScheme.instance.Jira_Service_Management_Permission_Scheme_for_Project_ISMT@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueSecurityScheme = jira.SecurityScheme.instance.Reporter
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.ISMT__Jira_Service_Management_Issue_Type_Screen_Scheme@fsssssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.ISMT__Jira_Service_Management_Issue_Type_Scheme@fssssss
+  fieldConfigurationScheme = jira.FieldConfigurationScheme.instance.Jira_Service_Management_Field_Configuration_Scheme_for_Project_ISMT@s
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  fieldContexts = [
+    jira.CustomFieldContext.instance.SID__cmdb_object_cftype__c_uubbuu_Incidents@uuuuuumu,
+  ]
+}

@@ -1,0 +1,9 @@
+jira.ProjectComponent new_scrum_s__Practical_Concrete_Shoes@umuuss {
+  name = "Practical Concrete Shoes"
+  description = "Component: Secured scalable pricing structure"
+  assigneeType = "PROJECT_LEAD"
+  _parent = [
+    jira.Project.instance.new_scrum@s,
+  ]
+  _alias = "new scrum:Practical Concrete Shoes"
+}

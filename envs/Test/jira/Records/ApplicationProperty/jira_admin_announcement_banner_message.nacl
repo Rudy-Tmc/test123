@@ -1,0 +1,10 @@
+jira.ApplicationProperty jira_admin_announcement_banner_message@v {
+  id = "jira.admin.announcement.banner.message"
+  value = '''
+Reminder: today at 16:00 CEST we will start the backup to move to https://onewelcome.atlassian.net.
+Changes made after 16:00 will NOT be migrated! After 20:00 you will not be able to login anymore.
+'''
+  name = "jira.admin.announcement.banner.message"
+  type = "string"
+  defaultValue = ""
+}

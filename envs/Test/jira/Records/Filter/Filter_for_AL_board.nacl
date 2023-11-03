@@ -1,0 +1,16 @@
+jira.Filter Filter_for_AL_board@s {
+  name = "Filter for AL board"
+  owner = {
+    id = "5e872e5acaa47a0c19a7815e"
+    displayName = "admin"
+  }
+  jql = "${ jira.Field.instance.Project__project } = ${ jira.Project.instance.Alpha.key } ORDER BY ${ jira.Field.instance.Rank__gh_lexo_rank__c@uubbuu.name } ASC"
+  sharePermissions = [
+    {
+      type = "project"
+      project = {
+        id = jira.Project.instance.Alpha
+      }
+    },
+  ]
+}

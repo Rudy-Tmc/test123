@@ -1,0 +1,134 @@
+jira.Automation Send_email_to_external_mail_Demo_service_desk@ssssuss {
+  name = "Send email to external mail"
+  state = "ENABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groups = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 3
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.External_mail__userpicker__c@suuuu.name
+        }
+        selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:userpicker"
+        comparison = "NOT_EMPTY"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1614006981648"
+        name = {
+          type = "FREE"
+          value = "body"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{issue.fields.External email body}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 3
+      type = "jira.issue.outgoing.email"
+      value = {
+        fromName = ""
+        replyTo = "demo@rudy.atlassian.net"
+        to = [
+          {
+            type = "COPY"
+            value = "customfield_10158"
+          },
+        ]
+        cc = [
+        ]
+        bcc = [
+        ]
+        subject = "{{issue.key}} - {{issue.fields.${ jira.Field.instance.Email_subject__textfield__c@suuuu.name }}}"
+        body = '''
+{{issue.fields.${ jira.Field.instance.Email_body__textarea__c@suuuu.name }}}
+
+Attachments:
+<ul>
+{{#issue.attachment}}
+<li><a href="{{content}}">{{filename}}</a></li>
+{{/issue.attachment}}
+</ul>
+
+'''
+        mimeType = "text/html"
+        convertLineBreaks = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Demo_service_desk@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10001"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Send email to external mail"
+}

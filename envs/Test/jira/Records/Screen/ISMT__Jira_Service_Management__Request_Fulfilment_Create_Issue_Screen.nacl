@@ -1,0 +1,40 @@
+jira.Screen ISMT__Jira_Service_Management__Request_Fulfilment_Create_Issue_Screen@fsssfsssss {
+  name = "ISMT: Jira Service Management: Request Fulfilment Create Issue Screen"
+  description = ""
+  tabs = {
+    Default = {
+      name = "Default"
+      fields = [
+        jira.Field.instance.Summary__string,
+        jira.Field.instance.Issue_Type__issuetype@suu,
+        jira.Field.instance.Attachment__array,
+        jira.Field.instance.Description__string,
+        jira.Field.instance.Linked_Issues__array@suu,
+        jira.Field.instance.Affected_hardware__textfield__c@suuuu,
+        jira.Field.instance.Affects_versions__array@suu,
+        jira.Field.instance.Assignee__user,
+        jira.Field.instance.Reporter__user,
+        jira.Field.instance.Organizations__sd_customer_organizations__c@uubbuu,
+        jira.Field.instance.Components__array,
+        jira.Field.instance.Security_Level__securitylevel@suu,
+        jira.Field.instance.Priority__priority,
+        jira.Field.instance.Labels__array,
+        jira.Field.instance.Request_participants__sd_request_participants__c@suubbuu,
+        jira.Field.instance.Approvers__multiuserpicker__c,
+        jira.Field.instance.Linked_assets__assetfield__c@suuuu,
+        jira.Field.instance.Bedrijven__select__c,
+        jira.Field.instance.Preference_date__datepicker__c@suuuu,
+        jira.Field.instance.Approvers_insight__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Building__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Floor__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Location__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Organization__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.SID__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Configuration_item__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Supplier__select__c,
+        jira.Field.instance.External_reference__textfield__c@suuuu,
+      ]
+      position = 0
+    }
+  }
+}

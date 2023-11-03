@@ -1,0 +1,10 @@
+jira.Field End_date__datepicker__c@suuuu {
+  name = "End date"
+  description = "End date field used by SoftwarePlant plugins (Migrated on 3 Apr 2020 12:39 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:daterange"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+  contexts = [
+    jira.CustomFieldContext.instance.End_date__datepicker__c_suuuu_Default_Configuration_Scheme_for_End_date@uuuuumusssss,
+  ]
+  _alias = "End date"
+}

@@ -1,0 +1,9 @@
+jira.IssueTypeScheme WMP__Project_Management_Issue_Type_Scheme@fsssss {
+  name = "WMP: Project Management Issue Type Scheme"
+  defaultIssueTypeId = jira.IssueType.instance.Task
+  issueTypeIds = [
+    jira.IssueType.instance.Task,
+    jira.IssueType.instance.Sub_task@b,
+    jira.IssueType.instance.Epic,
+  ]
+}

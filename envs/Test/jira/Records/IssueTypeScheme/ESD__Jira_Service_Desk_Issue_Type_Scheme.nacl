@@ -1,0 +1,9 @@
+jira.IssueTypeScheme ESD__Jira_Service_Desk_Issue_Type_Scheme@fssssss {
+  name = "ESD: Jira Service Desk Issue Type Scheme"
+  description = "This Jira Service Desk Issue Type Scheme was generated automatically"
+  issueTypeIds = [
+    jira.IssueType.instance.New_Feature@s,
+    jira.IssueType.instance.Support,
+    jira.IssueType.instance.Bug,
+  ]
+}

@@ -1,0 +1,14 @@
+jira.IssueTypeScheme GT__Kanban_Issue_Type_Scheme@fssss {
+  name = "GT: Kanban Issue Type Scheme"
+  defaultIssueTypeId = jira.IssueType.instance.Story
+  issueTypeIds = [
+    jira.IssueType.instance.Task,
+    jira.IssueType.instance.Sub_task@b,
+    jira.IssueType.instance.Story,
+    jira.IssueType.instance.Bug,
+    jira.IssueType.instance.Epic,
+    jira.IssueType.instance.Maintenance,
+    jira.IssueType.instance.Feature,
+    jira.IssueType.instance.Support,
+  ]
+}

@@ -1,0 +1,209 @@
+jira.Automation Update_licentie_aantal@s {
+  name = "Update licentie aantal"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "cmdb.object.trigger"
+    value = {
+      operation = "UPDATED"
+      workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+      schemaId = "34"
+      schemaLabel = "CMDB"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{object.objectType}}"
+        second = "Licentie"
+        operator = "EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{object.Totaal aantal licenties}} - {{object.Gebruikers.size}} "
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "cmdb.object.edit.attributes"
+      value = {
+        attributes = [
+          {
+            name = "Beschikbare licenties"
+            value = "{{#=}}{{object.Totaal aantal licenties}} - {{object.Gebruikers.size}}{{/}}"
+          },
+          {
+            name = "Aantal gebruikte licenties"
+            value = "{{object.Gebruikers.size}}"
+          },
+        ]
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "cmdb.object.edit.attributes"
+      value = {
+        attributes = [
+          {
+            name = "Status"
+            value = "Active"
+          },
+        ]
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "cmdb.object.edit.attributes"
+              value = {
+                attributes = [
+                  {
+                    name = "Status"
+                    value = "Out of stock"
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}}{{object.Totaal aantal licenties}} - {{object.Gebruikers.size}} {{/}}"
+                second = "0"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "cmdb.object.edit.attributes"
+              value = {
+                attributes = [
+                  {
+                    name = "Status"
+                    value = "Action Needed"
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}}{{object.Totaal aantal licenties}} - {{object.Gebruikers.size}} {{/}}"
+                second = "0"
+                operator = "LESS_THAN"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Update licentie aantal"
+}

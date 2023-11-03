@@ -1,0 +1,11 @@
+jira.Field Tijd_tot_voltooid__sd_sla_field__c@ssuubbuu {
+  name = "Tijd tot voltooid"
+  description = "This custom field was created by Jira Service Management."
+  isLocked = true
+  searcherKey = "com.atlassian.servicedesk:sd-sla-field-searcher"
+  type = "com.atlassian.servicedesk:sd-sla-field"
+  contexts = [
+    jira.CustomFieldContext.instance.Tijd_tot_voltooid__sd_sla_field__c_ssuubbuu_Standaardconfiguratieschema_voor_Tijd_tot_voltooid@uuuuuuuumussss,
+  ]
+  _alias = "Tijd tot voltooid"
+}

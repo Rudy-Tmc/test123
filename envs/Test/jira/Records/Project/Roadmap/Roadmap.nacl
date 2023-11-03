@@ -1,0 +1,15 @@
+jira.Project Roadmap {
+  key = "ROAD"
+  description = ""
+  name = "Roadmap"
+  projectTypeKey = "software"
+  workflowScheme = jira.WorkflowScheme.instance.ROAD__Software_Simplified_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.ROAD_software_permission_scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.ROAD__Kanban_Issue_Type_Screen_Scheme@fsssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.ROAD__Kanban_Issue_Type_Scheme@fssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

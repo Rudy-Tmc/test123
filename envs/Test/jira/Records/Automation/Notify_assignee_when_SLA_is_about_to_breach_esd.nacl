@@ -1,0 +1,85 @@
+jira.Automation Notify_assignee_when_SLA_is_about_to_breach_esd@sssssssu {
+  name = "Notify assignee when SLA is about to breach"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.sla.threshold.trigger"
+    value = {
+      customFieldId = "customfield_10032"
+      thresholdType = "WILL_BREACH"
+      thresholdValue = 1800000
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+Hey [~accountId:{{${ jira.Field.instance.Assignee__user }.accountId}}],
+
+This ticket will breach its SLA in 30 minutes. You should action or reassign it as soon as possible.
+
+Cheers,
+Your friendly automation bot
+'''
+        publicComment = false
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.esd
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "POLLING"
+    },
+    {
+      tagType = "SAMPLE_RULE"
+      tagValue = "service_desk"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10013"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Notify assignee when SLA is about to breach"
+}

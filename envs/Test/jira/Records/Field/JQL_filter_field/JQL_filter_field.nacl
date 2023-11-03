@@ -1,0 +1,10 @@
+jira.Field JQL_filter_field__extension_78593511_a93d_4fa0_a19e_481372ce821e_1368fae7_d1db_4e81_9d40_c4d02f5ff78f_static_jql_filter_field__c@ssuudbbbbdbbbbddbbuu {
+  name = "JQL filter field"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:forgeCustomFieldSearcher"
+  type = "ari:cloud:ecosystem::extension/78593511-a93d-4fa0-a19e-481372ce821e/1368fae7-d1db-4e81-9d40-c4d02f5ff78f/static/jql-filter-field"
+  contexts = [
+    jira.CustomFieldContext.instance.JQL_filter_field__extension_78593511_a93d_4fa0_a19e_481372ce821e_1368fae7_d1db_4e81_9d40_c4d02f5ff78f_static_jql_filter_field__c_ssuudbbbbdbbbbddbbuu_Default_Configuration_Scheme_for_JQL_filter_field@uuuuuuuuuuuuuuuuuuuumussssss,
+  ]
+  _alias = "JQL filter field"
+}

@@ -1,0 +1,3 @@
+jira.Group tempo_rate_manager@b {
+  name = "tempo-rate-manager"
+}

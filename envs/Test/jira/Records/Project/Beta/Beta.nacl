@@ -1,0 +1,31 @@
+jira.Project Beta {
+  key = "BETA"
+  description = ""
+  name = "Beta"
+  projectTypeKey = "software"
+  components = [
+    jira.ProjectComponent.instance.Beta__Bitbucket,
+    jira.ProjectComponent.instance.Beta__Blaat,
+    jira.ProjectComponent.instance.Beta__Blocked,
+    jira.ProjectComponent.instance.Beta__Cleanup__to_be_deleted@uubsss,
+    jira.ProjectComponent.instance.Beta__Confluence,
+    jira.ProjectComponent.instance.Beta__GUI,
+    jira.ProjectComponent.instance.Beta__Hardware_issues@uus,
+    jira.ProjectComponent.instance.Beta__Hour_registration@uus,
+    jira.ProjectComponent.instance.Beta__Icebox,
+    jira.ProjectComponent.instance.Beta__Jira,
+    jira.ProjectComponent.instance.Beta__Network,
+    jira.ProjectComponent.instance.Beta__NewComp,
+    jira.ProjectComponent.instance.Beta__Software_issues@uus,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.BETA__Software_Simplified_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.Default_software_scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.BETA__Kanban_Issue_Type_Screen_Scheme@fsssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.BETA__Kanban_Issue_Type_Scheme@fssss
+  fieldConfigurationScheme = jira.FieldConfigurationScheme.instance.Default_Field_Configuration_Scheme@s
+  leadAccountId = {
+    id = "5e872e5acaa47a0c19a7815e"
+    displayName = "admin"
+  }
+}

@@ -1,0 +1,14 @@
+jira.Screen Project_status@s {
+  name = "Project status"
+  description = ""
+  tabs = {
+    Field_Tab@s = {
+      name = "Field Tab"
+      fields = [
+        jira.Field.instance.Project_status__select__c@suuuu,
+        jira.Field.instance.Project_update__textarea__c@suuuu,
+      ]
+      position = 0
+    }
+  }
+}

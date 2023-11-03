@@ -1,0 +1,5 @@
+jira.Status performance {
+  name = "Performance"
+  statusCategory = jira.StatusCategory.instance.Done
+  description = ""
+}

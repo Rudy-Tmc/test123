@@ -1,0 +1,7 @@
+jira.ScreenScheme LSD__Jira_Service_Desk__Contract_Review_Screen_Scheme@fsssfssss {
+  name = "LSD: Jira Service Desk: Contract Review Screen Scheme"
+  description = "This Jira Service Desk Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.LSD__Jira_Service_Desk__Contract_Review_Issue_Screen@fsssfssss
+  }
+}

@@ -1,0 +1,8 @@
+jira.ProjectComponent Alpha__Comp2 {
+  name = "Comp2"
+  assigneeType = "UNASSIGNED"
+  _parent = [
+    jira.Project.instance.Alpha,
+  ]
+  _alias = "Alpha:Comp2"
+}

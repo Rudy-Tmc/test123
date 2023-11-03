@@ -1,0 +1,7 @@
+jira.ScreenScheme TESTTT__Scrum_Default_Screen_Scheme@fssss {
+  name = "TESTTT: Scrum Default Screen Scheme"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.TESTTT__Scrum_Default_Issue_Screen@fssss
+  }
+}

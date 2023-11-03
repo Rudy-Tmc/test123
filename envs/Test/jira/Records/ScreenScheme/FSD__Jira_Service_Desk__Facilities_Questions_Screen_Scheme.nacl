@@ -1,0 +1,7 @@
+jira.ScreenScheme FSD__Jira_Service_Desk__Facilities_Questions_Screen_Scheme@fsssfssss {
+  name = "FSD: Jira Service Desk: Facilities Questions Screen Scheme"
+  description = "This Jira Service Desk Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.FSD__Jira_Service_Desk__Facilities_Questions_Issue_Screen@fsssfssss
+  }
+}

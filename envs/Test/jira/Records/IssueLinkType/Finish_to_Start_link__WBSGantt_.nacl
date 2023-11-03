@@ -1,0 +1,5 @@
+jira.IssueLinkType Finish_to_Start_link__WBSGantt_@bbssjk {
+  name = "Finish-to-Start link (WBSGantt)"
+  inward = "Cannot start until linked issue finishes."
+  outward = "Linked issue cannot start until this issue finishes."
+}

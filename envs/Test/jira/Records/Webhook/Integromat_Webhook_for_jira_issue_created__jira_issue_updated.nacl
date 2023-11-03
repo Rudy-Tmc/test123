@@ -1,0 +1,13 @@
+jira.Webhook Integromat_Webhook_for_jira_issue_created__jira_issue_updated@sssfuzdsfu {
+  name = "Integromat Webhook for jira:issue_created, jira:issue_updated"
+  url = "https://hook.eu1.make.com/8t5a50la5edcijy3wo3nuof5pjc6hknc"
+  excludeBody = false
+  filters = {
+    issue_related_events_section = "${ jira.Field.instance.Project__project } = Alpha"
+  }
+  events = [
+    "jira:issue_updated",
+    "jira:issue_created",
+  ]
+  enabled = true
+}

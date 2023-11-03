@@ -1,0 +1,10 @@
+jira.Field Respond_to_supplier__textarea__c@ssuuuu {
+  name = "Respond to supplier"
+  description = "Add a new comment to supplier ticket"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+  contexts = [
+    jira.CustomFieldContext.instance.Respond_to_supplier__textarea__c_ssuuuu_Default_Configuration_Scheme_for_Comment_to_supplier@uuuuuumussssss,
+  ]
+  _alias = "Respond to supplier"
+}

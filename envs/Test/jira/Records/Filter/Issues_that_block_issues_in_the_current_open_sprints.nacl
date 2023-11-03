@@ -1,0 +1,14 @@
+jira.Filter Issues_that_block_issues_in_the_current_open_sprints@s {
+  name = "Issues that block issues in the current open sprints"
+  description = "Filter managed by ScriptRunner:  issueFunction in linkedIssuesOf(\"filter=10028\", \"is blocked by\")"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  jql = " issue in (AL-13,AL-1,DEM-4,NGS-7,NGS-2)"
+  sharePermissions = [
+    {
+      type = "authenticated"
+    },
+  ]
+}

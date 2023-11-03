@@ -1,0 +1,14 @@
+jira.Project Huisdingen {
+  key = "HUIS"
+  description = ""
+  url = "https://trello.com/b/HhwXNqfU/huisdingen"
+  name = "Huisdingen"
+  projectTypeKey = "software"
+  entityId = "0386734d-6c31-45d7-a749-d73a79d10635"
+  uuid = "0386734d-6c31-45d7-a749-d73a79d10635"
+  issueSecurityScheme = jira.SecurityScheme.instance.HUIS__Simplified_Issue_Security_Scheme@fssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

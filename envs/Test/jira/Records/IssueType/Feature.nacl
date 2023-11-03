@@ -1,0 +1,6 @@
+jira.IssueType Feature {
+  description = ""
+  name = "Feature"
+  untranslatedName = "Feature"
+  hierarchyLevel = 0
+}

@@ -1,0 +1,13 @@
+jira.DashboardGadget Demo_service_desk_dashboard_s__Two_Dimensional_Filter_Statistics_0_4@uuumuusssuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:two-dimensional-stats-gadget/gadgets/two-dimensional-stats-gadget.xml"
+  color = "blue"
+  position = {
+    row = 4
+    column = 0
+  }
+  title = "Two Dimensional Filter Statistics"
+  _parent = [
+    jira.Dashboard.instance.Demo_service_desk_dashboard@s,
+  ]
+  _alias = "Two Dimensional Filter Statistics"
+}

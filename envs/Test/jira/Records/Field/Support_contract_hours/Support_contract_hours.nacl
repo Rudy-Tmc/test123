@@ -1,0 +1,10 @@
+jira.Field Support_contract_hours__textfield__c@ssuuuu {
+  name = "Support contract hours"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Support_contract_hours__textfield__c_ssuuuu_Default_Configuration_Scheme_for_Support_contract_hours@uuuuuumussssss,
+  ]
+  _alias = "Support contract hours"
+}

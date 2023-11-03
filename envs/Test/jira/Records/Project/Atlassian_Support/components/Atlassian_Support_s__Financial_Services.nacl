@@ -1,0 +1,13 @@
+jira.ProjectComponent Atlassian_Support_s__Financial_Services@umuus {
+  description = "Created by Jira Service Management"
+  assigneeType = "PROJECT_DEFAULT"
+  name = "Financial Services"
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  _parent = [
+    jira.Project.instance.Atlassian_Support@s,
+  ]
+  _alias = "Atlassian Support:Financial Services"
+}

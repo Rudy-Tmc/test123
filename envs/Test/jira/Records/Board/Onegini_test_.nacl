@@ -1,0 +1,44 @@
+jira.Board Onegini_test_@s {
+  name = "Onegini test "
+  type = "kanban"
+  admins = {
+    users = [
+      {
+        id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+        displayName = "Rudy Holtkamp"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Automation_rule_test_environment@s
+  }
+  filterId = jira.Filter.instance.test_onegini_one_board_for_service_desk_and_other_issues@s
+  columnConfig = {
+    columns = [
+      {
+        name = "To Do"
+        statuses = [
+          jira.Status.instance.to_do@s,
+        ]
+      },
+      {
+        name = "In Progress"
+        statuses = [
+          jira.Status.instance.in_progress@s,
+          jira.Status.instance.pending,
+        ]
+      },
+      {
+        name = "Done"
+        statuses = [
+          jira.Status.instance.done,
+          jira.Status.instance.closed,
+          jira.Status.instance.resolved,
+          jira.Status.instance.canceled,
+        ]
+      },
+    ]
+    constraintType = "issueCount"
+  }
+  subQuery = "fixVersion in unreleasedVersions() OR fixVersion is EMPTY"
+}

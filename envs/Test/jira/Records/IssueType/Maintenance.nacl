@@ -1,0 +1,6 @@
+jira.IssueType Maintenance {
+  description = ""
+  name = "Maintenance"
+  untranslatedName = "Maintenance"
+  hierarchyLevel = 0
+}

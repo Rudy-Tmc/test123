@@ -1,0 +1,152 @@
+jira.Automation Copy_SLA2_Beta_Demo_service_desk@suuss {
+  name = "Copy SLA2"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:link"
+    value = {
+      linkTypes = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "SLA: {{${ jira.Field.instance.Time_to_resolution__sd_sla_field__c@ssuubbuu }.ongoingCycle.remainingTime.millis}}"
+    },
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "jira.issue.related"
+      value = {
+        relatedType = "linked"
+        jql = ""
+        linkTypes = [
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "codebarrel.action.log"
+          children = [
+          ]
+          conditions = [
+          ]
+          rawValue = "created: {{triggerissue.created}}"
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 10
+          type = "jira.issue.edit"
+          value = {
+            operations = [
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Copied_SLA__datetime__c@suuuu
+                }
+                fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:datetime"
+                type = "SET"
+                rawValue = "{{triggerissue.created.plusMillis( 48997180) }}"
+              },
+            ]
+            sendNotifications = true
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 1
+          type = "codebarrel.action.log"
+          children = [
+          ]
+          conditions = [
+          ]
+          rawValue = "Value: {{triggerissue.created.plusMillis( customfield_10031.ongoingCycle.remainingTime.millis) }}"
+        },
+        {
+          component = "ACTION"
+          schemaVersion = 10
+          type = "jira.issue.edit"
+          value = {
+            operations = [
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Copied_SLA___date_time__datetime__c@ssbssuuuu
+                }
+                fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:datetime"
+                type = "SET"
+                rawValue = "{{triggerissue.created.plusMillis( customfield_10031.ongoingCycle.remainingTime.millis) }}"
+              },
+            ]
+            sendNotifications = true
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Beta
+    },
+    {
+      projectId = jira.Project.instance.Demo_service_desk@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Copy SLA2"
+}

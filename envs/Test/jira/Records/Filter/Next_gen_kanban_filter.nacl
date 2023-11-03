@@ -1,0 +1,17 @@
+jira.Filter Next_gen_kanban_filter@s {
+  name = "Next gen kanban filter"
+  description = ""
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  jql = "${ jira.Field.instance.Project__project } = \"Next gen Kanban\""
+  sharePermissions = [
+    {
+      type = "project"
+      project = {
+        id = jira.Project.instance.Next_gen_Kanban@s
+      }
+    },
+  ]
+}

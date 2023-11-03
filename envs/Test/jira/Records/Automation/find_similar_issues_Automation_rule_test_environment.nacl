@@ -1,0 +1,114 @@
+jira.Automation find_similar_issues_Automation_rule_test_environment@ssusss {
+  name = "find similar issues"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.jql.condition"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "${ jira.Field.instance.Summary__string } ~ \"{{issue.summary}}\""
+    },
+    {
+      component = "BRANCH"
+      schemaVersion = 1
+      type = "jira.issue.related"
+      value = {
+        relatedType = "jql"
+        jql = "${ jira.Field.instance.Summary__string } ~ \"{{issue.summary}}\""
+        linkTypes = [
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "ACTION"
+          schemaVersion = 3
+          type = "jira.issue.outgoing.email"
+          value = {
+            fromName = ""
+            replyTo = ""
+            to = [
+              {
+                type = "REFERENCE"
+                value = jira.Group.instance.site_admins@b
+                additional = "GROUP"
+              },
+            ]
+            cc = [
+            ]
+            bcc = [
+            ]
+            subject = "Issue {{triggerissue.key}} has similar issues"
+            body = '''
+Issues:
+{{triggerissue.key}} and {{issue.key}} are similar
+'''
+            mimeType = "text/html"
+            convertLineBreaks = true
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "find similar issues"
+}

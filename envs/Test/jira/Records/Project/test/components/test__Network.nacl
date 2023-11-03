@@ -1,0 +1,9 @@
+jira.ProjectComponent test__Network {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "Network"
+  _parent = [
+    jira.Project.instance.test,
+  ]
+  _alias = "test:Network"
+}

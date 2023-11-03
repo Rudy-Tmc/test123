@@ -1,0 +1,19 @@
+jira.Project Test_project_2@s {
+  key = "T2"
+  description = ""
+  name = "Test project 2"
+  projectTypeKey = "software"
+  components = [
+    jira.ProjectComponent.instance.Test_project_2_s__adaf@uumuu,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.AL__Software_Simplified_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.Default_software_scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.AL__Scrum_Issue_Type_Screen_Scheme@fsssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.AL__Scrum_Issue_Type_Scheme@fssss
+  fieldConfigurationScheme = jira.FieldConfigurationScheme.instance.Default_Field_Configuration_Scheme@s
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

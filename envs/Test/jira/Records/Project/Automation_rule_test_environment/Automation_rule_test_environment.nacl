@@ -1,0 +1,47 @@
+jira.Project Automation_rule_test_environment@s {
+  key = "ARTE"
+  description = ""
+  name = "Automation rule test environment"
+  projectCategory = jira.ProjectCategory.instance.Test
+  projectTypeKey = "software"
+  components = [
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Active_Directory@uuumuus,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Analytics_and_Reporting_Service@uuumuusss,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Billing_Services@uuumuus,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Bitbucket@uuumuu,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Blaat@uuumuu,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Cloud_Storage_Services@uuumuuss,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Confluence@uuumuu,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Data_Center_Services@uuumuuss,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__EA@uuumuu,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Email_and_Collaboration_Services@uuumuusss,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Financial_Services@uuumuus,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__GUI@uuumuu,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Hardware_issues@uuumuus,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__HR_Services@uuumuus,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Intranet@uuumuu,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Jira@uuumuu,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Network@uuumuu,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__NewComp@uuumuu,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Office_Network@uuumuus,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__PA@uuumuu,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Payroll_Services@uuumuus,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Printers@uuumuu,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Public_Website@uuumuus,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Software_issues@uuumuus,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__SSH_aap@uuumuuf,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__SSH_hond@uuumuuf,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__SSH_kat@uuumuuf,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__VPN_Server@uuumuus,
+    jira.ProjectComponent.instance.Automation_rule_test_environment_s__Webstore_Purchasing_Services@uuumuuss,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.ARTE__Software_Simplified_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.ARTE_software_permission_scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.ARTE__Scrum_Issue_Type_Screen_Scheme@fsssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.ARTE__Scrum_Issue_Type_Scheme@fssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

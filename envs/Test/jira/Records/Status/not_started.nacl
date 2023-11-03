@@ -1,0 +1,5 @@
+jira.Status not_started@s {
+  name = "Not started"
+  statusCategory = jira.StatusCategory.instance.To_Do@s
+  description = ""
+}

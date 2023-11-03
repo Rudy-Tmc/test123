@@ -1,0 +1,11 @@
+jira.IssueTypeScheme BABTLP__Kanban_Issue_Type_Scheme@fssss {
+  name = "BABTLP: Kanban Issue Type Scheme"
+  issueTypeIds = [
+    jira.IssueType.instance.Initiative,
+    jira.IssueType.instance.Epic,
+    jira.IssueType.instance.Story,
+    jira.IssueType.instance.Task,
+    jira.IssueType.instance.Bug,
+    jira.IssueType.instance.Sub_task@b,
+  ]
+}

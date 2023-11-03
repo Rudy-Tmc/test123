@@ -1,0 +1,5 @@
+jira.IssueLinkType Finish_to_Finish__Teamboard_@bbsjk {
+  name = "Finish-to-Finish (Teamboard)"
+  inward = "Cannot finish until linked issue is finished."
+  outward = "Linked issue cannot finish until this issue finishes."
+}

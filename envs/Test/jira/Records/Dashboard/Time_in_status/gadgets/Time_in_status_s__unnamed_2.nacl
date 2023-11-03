@@ -1,0 +1,119 @@
+jira.DashboardGadget Time_in_status_s__unnamed_2@uumuuu {
+  moduleKey = "com.atlassian.plugins.atlassian-connect-plugin:com.rvs.atlassian.plugins.wtis__time-reports-dashboard-item-key"
+  color = "blue"
+  position = {
+    row = 0
+    column = 0
+  }
+  title = ""
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "criteria"
+          values = [
+            {
+              key = "selectedProject"
+              value = [
+                {
+                  label = "Alpha"
+                  value = "AL"
+                  style = "classic"
+                },
+                {
+                  label = "Beta"
+                  value = "BETA"
+                  style = "classic"
+                },
+              ]
+            },
+            {
+              key = "searchType"
+              value = "Basic"
+            },
+            {
+              key = "sortCriteria"
+              values = [
+                {
+                  key = "label"
+                  value = "created (desc)"
+                },
+                {
+                  key = "value"
+                  value = "created_desc"
+                },
+                {
+                  key = "field"
+                  value = "created"
+                },
+                {
+                  key = "direction"
+                  value = "desc"
+                },
+              ]
+            },
+            {
+              key = "jql"
+              value = ""
+            },
+            {
+              key = "fromDate"
+              value = "2021-11-01"
+            },
+            {
+              key = "toDate"
+              value = ""
+            },
+          ]
+        },
+        {
+          key = "fields"
+          value = [
+            "summary",
+            "status",
+            "assignee",
+            "created",
+          ]
+        },
+        {
+          key = "componentCriteria"
+          values = [
+            {
+              key = "selectedReport"
+              value = 1
+            },
+            {
+              key = "selectedView"
+              value = "Table"
+            },
+            {
+              key = "period"
+              value = "Week"
+            },
+            {
+              key = "fromDate"
+              value = "2022-05-14"
+            },
+            {
+              key = "toDate"
+              value = "2022-06-13"
+            },
+            {
+              key = "sortStatus"
+              value = ""
+            },
+          ]
+        },
+        {
+          key = "isConfigured"
+          value = true
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Time_in_status@s,
+  ]
+  _alias = ""
+}

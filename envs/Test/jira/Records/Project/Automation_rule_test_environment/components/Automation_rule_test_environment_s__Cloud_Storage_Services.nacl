@@ -1,0 +1,9 @@
+jira.ProjectComponent Automation_rule_test_environment_s__Cloud_Storage_Services@uuumuuss {
+  description = "Created by Jira Service Management"
+  assigneeType = "PROJECT_DEFAULT"
+  name = "Cloud Storage Services"
+  _parent = [
+    jira.Project.instance.Automation_rule_test_environment@s,
+  ]
+  _alias = "Automation rule test environment:Cloud Storage Services"
+}

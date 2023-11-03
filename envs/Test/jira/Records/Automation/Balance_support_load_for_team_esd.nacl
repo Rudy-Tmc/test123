@@ -1,0 +1,100 @@
+jira.Automation Balance_support_load_for_team_esd@ssssu {
+  name = "Balance support load for team"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 4
+      type = "jira.user.condition"
+      value = {
+        conditions = [
+          {
+            field = "initiator"
+            check = "IS_CUSTOMER"
+            criteria = [
+            ]
+          },
+        ]
+        operator = "AND"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 3
+      type = "jira.issue.assign"
+      value = {
+        assignType = "LIST_VALUE"
+        jql = "${ jira.Field.instance.Created__datetime } >= 2020-06-08 order by ${ jira.Field.instance.Created__datetime } desc"
+        excludedUsers = [
+        ]
+        userList = [
+          {
+            type = "ID"
+            value = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+          },
+        ]
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.esd
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "SAMPLE_RULE"
+      tagValue = "service_desk"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10013"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Balance support load for team"
+}

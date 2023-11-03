@@ -1,0 +1,42 @@
+jira.Board NGK {
+  name = "NGK"
+  type = "kanban"
+  admins = {
+    users = [
+      {
+        id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+        displayName = "Rudy Holtkamp"
+      },
+    ]
+  }
+  location = {
+    userId = 10000
+    userAccountId = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+  }
+  filterId = jira.Filter.instance.Next_gen_kanban_filter@s
+  columnConfig = {
+    columns = [
+      {
+        name = "To Do"
+        statuses = [
+          jira.Status.instance.missing_10015,
+        ]
+      },
+      {
+        name = "In Progress"
+        statuses = [
+          jira.Status.instance.missing_10016,
+          jira.Status.instance.missing_10031,
+        ]
+      },
+      {
+        name = "Done"
+        statuses = [
+          jira.Status.instance.missing_10017,
+        ]
+      },
+    ]
+    constraintType = "issueCount"
+  }
+  subQuery = "fixVersion in unreleasedVersions() OR fixVersion is EMPTY"
+}

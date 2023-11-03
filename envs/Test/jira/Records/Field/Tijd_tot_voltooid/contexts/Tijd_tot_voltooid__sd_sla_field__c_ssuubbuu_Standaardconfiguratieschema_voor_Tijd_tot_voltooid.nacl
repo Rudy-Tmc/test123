@@ -1,0 +1,9 @@
+jira.CustomFieldContext Tijd_tot_voltooid__sd_sla_field__c_ssuubbuu_Standaardconfiguratieschema_voor_Tijd_tot_voltooid@uuuuuuuumussss {
+  name = "Standaardconfiguratieschema voor Tijd tot voltooid"
+  description = "Standaardconfiguratieschema gegenereerd door Jira"
+  isGlobalContext = true
+  _parent = [
+    jira.Field.instance.Tijd_tot_voltooid__sd_sla_field__c@ssuubbuu,
+  ]
+  _alias = "Tijd tot voltooid context in Standaardconfiguratieschema voor Tijd tot voltooid"
+}

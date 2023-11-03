@@ -1,0 +1,60 @@
+jira.Board ISMT_board@s {
+  name = "ISMT board"
+  type = "kanban"
+  admins = {
+    users = [
+      {
+        id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+        displayName = "Rudy Holtkamp"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Alpha
+  }
+  filterId = jira.Filter.instance.Filter_for_ISMT_board@s
+  columnConfig = {
+    columns = [
+      {
+        name = "To Do"
+        statuses = [
+          jira.Status.instance.reopened,
+          jira.Status.instance.waiting_for_approval@s,
+          jira.Status.instance.under_review@s,
+          jira.Status.instance.review,
+          jira.Status.instance.open,
+        ]
+      },
+      {
+        name = "In Progress"
+        statuses = [
+          jira.Status.instance.awaiting_implementation@s,
+          jira.Status.instance.waiting_for_customer@s,
+          jira.Status.instance.authorize,
+          jira.Status.instance.under_investigation@s,
+          jira.Status.instance.work_in_progress@s,
+          jira.Status.instance.planning,
+          jira.Status.instance.implementing,
+          jira.Status.instance.in_progress@s,
+          jira.Status.instance.escalated,
+          jira.Status.instance.waiting_for_support@s,
+          jira.Status.instance.pending,
+        ]
+      },
+      {
+        name = "Done"
+        statuses = [
+          jira.Status.instance.done,
+          jira.Status.instance.failed,
+          jira.Status.instance.resolved,
+          jira.Status.instance.completed,
+          jira.Status.instance.closed,
+          jira.Status.instance.canceled,
+          jira.Status.instance.declined,
+        ]
+      },
+    ]
+    constraintType = "issueCount"
+  }
+  subQuery = "fixVersion in unreleasedVersions() OR fixVersion is EMPTY"
+}

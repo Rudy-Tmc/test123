@@ -1,0 +1,108 @@
+jira.Automation Resolve_issues_due_to_inactivity_Demo_service_desk@ssssuss {
+  name = "Resolve issues due to inactivity"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.jql.scheduled"
+    value = {
+      schedule = {
+        cronExpression = ""
+        method = "FIXED"
+        rate = 1
+        rateInterval = 86400
+      }
+      jql = "${ jira.Field.instance.Status__status } = \"${ jira.Status.instance.in_progress@s.name }\" and ${ jira.Field.instance.Updated__datetime } < -5d"
+      executionMode = "jql"
+      onlyUpdatedIssues = false
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.transition"
+      value = {
+        operations = [
+        ]
+        sendNotifications = true
+        destinationStatus = {
+          type = "ID"
+          value = jira.Status.instance.resolved
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+Hi {{issue.${ jira.Field.instance.Reporter__user }.displayName.split(\" \").first}},
+
+We haven't heard back from you for 5 days, so we're automatically closing this support request for now.
+
+Please feel free to re-open or comment on this issue if you still need help!
+
+Cheers,
+  Automation for JIRA
+'''
+        publicComment = true
+        sendNotifications = true
+        addCommentOnce = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Demo_service_desk@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "SAMPLE_RULE"
+      tagValue = "service_desk"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10001"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Resolve issues due to inactivity"
+}

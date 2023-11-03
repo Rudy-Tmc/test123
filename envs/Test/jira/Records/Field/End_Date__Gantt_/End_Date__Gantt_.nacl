@@ -1,0 +1,10 @@
+jira.Field End_Date__Gantt___datetime__c@sshiuuuu {
+  name = "End Date [Gantt]"
+  description = "Task end date on Gantt Suite from BrizoIT"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:datetimerange"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datetime"
+  contexts = [
+    jira.CustomFieldContext.instance.End_Date__Gantt___datetime__c_sshiuuuu_Default_Configuration_Scheme_for_End_Date__Gantt_@uuuuuuuumusssssshi,
+  ]
+  _alias = "End Date [Gantt]"
+}

@@ -1,0 +1,24 @@
+jira.Project Next_gen_Kanban@s {
+  key = "NGK"
+  description = ""
+  name = "Next gen Kanban"
+  projectTypeKey = "software"
+  entityId = "f82d64e2-5a1b-4de1-8d4f-4d01a91fe4c0"
+  uuid = "f82d64e2-5a1b-4de1-8d4f-4d01a91fe4c0"
+  components = [
+    jira.ProjectComponent.instance.Next_gen_Kanban_s__Bitbucket@uumuu,
+    jira.ProjectComponent.instance.Next_gen_Kanban_s__Blaat@uumuu,
+    jira.ProjectComponent.instance.Next_gen_Kanban_s__Confluence@uumuu,
+    jira.ProjectComponent.instance.Next_gen_Kanban_s__GUI@uumuu,
+    jira.ProjectComponent.instance.Next_gen_Kanban_s__Hardware_issues@uumuus,
+    jira.ProjectComponent.instance.Next_gen_Kanban_s__Jira@uumuu,
+    jira.ProjectComponent.instance.Next_gen_Kanban_s__Network@uumuu,
+    jira.ProjectComponent.instance.Next_gen_Kanban_s__NewComp@uumuu,
+    jira.ProjectComponent.instance.Next_gen_Kanban_s__Software_issues@uumuus,
+  ]
+  issueSecurityScheme = jira.SecurityScheme.instance.NGK__Simplified_Issue_Security_Scheme@fssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

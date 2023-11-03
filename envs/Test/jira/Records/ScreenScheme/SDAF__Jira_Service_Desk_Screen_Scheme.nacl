@@ -1,0 +1,7 @@
+jira.ScreenScheme SDAF__Jira_Service_Desk_Screen_Scheme@fsssss {
+  name = "SDAF: Jira Service Desk Screen Scheme"
+  description = "This Jira Service Desk Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.SDAF__Jira_Service_Desk_Screen@fssss
+  }
+}

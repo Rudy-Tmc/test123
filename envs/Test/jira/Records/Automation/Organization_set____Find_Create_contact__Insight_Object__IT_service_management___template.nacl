@@ -1,0 +1,312 @@
+jira.Automation Organization_set____Find_Create_contact__Insight_Object__IT_service_management___template@ssbysdssjskusssbs {
+  name = "Organization set -> Find/Create contact (Insight Object)"
+  state = "ENABLED"
+  description = '''
+When the organizations field is set on an issue this rule will lookup the reporter's name in the CMDB. When it is found the rule stops. When it is not found the first organization in the organizations field will be looked up in the CMDB. #Assumption: a user only belongs to one organization, if not you can add that in the CMDB manually. 
+If the organization does not exists, it will be created, along with the organization.id.
+Then the an Contact object will be created with the reports displayname as the Contact name. The object will linked to the Jira user id of the reporter.
+With this we can show objects belonging to the organization or user the next time the users files a ticket via the portal.
+'''
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 2
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "VALUE_ADDED"
+      fields = [
+        {
+          value = jira.Field.instance.Organizations__sd_customer_organizations__c@uubbuu.name
+          type = "fieldName"
+        },
+      ]
+      actions = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Org: {{issue.organizations.first.name}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Lookup: ObjectType = Contacts and Name = \"{{${ jira.Field.instance.Reporter__user }.displayName}}\""
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+        schemaId = "5"
+        customSmartValue = {
+          id = "_customsmartvalue_id_1646035384323"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "ObjectType = Contacts and Name = \"{{reporter.displayName}}\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "LookupObjects: {{lookupObjects}}"
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{lookupObjects.size}}"
+        second = "0"
+        operator = "EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Contact was not found in Insight, so let's create it. But first check if the organization exists."
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Lookup: ObjectType = Organization and Name = \"{{issue.organizations.first.name}}\""
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+        schemaId = "5"
+        customSmartValue = {
+          id = "_customsmartvalue_id_1646038727452"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "ObjectType = Organization and Name = \"{{issue.organizations.first.name}}\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "LookupObjects: {{lookupObjects}}"
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "codebarrel.action.log"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "No organization was found, so create one."
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "cmdb.object.create"
+              value = {
+                workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+                schemaLabel = "Test CMDB"
+                schemaId = "5"
+                objectTypeLabel = "Organization"
+                objectTypeId = "26"
+                attributes = [
+                  {
+                    name = "Name"
+                    value = "{{issue.organizations.first.name}}"
+                    isLabel = true
+                  },
+                  {
+                    name = "Organization Id"
+                    value = "{{issue.organizations.first.id}}"
+                    isLabel = false
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{lookupObjects.size}}"
+                second = "0"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "cmdb.object.create"
+      value = {
+        workspaceId = "ab8c02a9-61ac-4951-9762-a4139e9bed80"
+        schemaLabel = "Test CMDB"
+        schemaId = "5"
+        objectTypeLabel = "Contacts"
+        objectTypeId = "27"
+        attributes = [
+          {
+            name = "Name"
+            value = "{{reporter.displayName}}"
+            isLabel = true
+          },
+          {
+            name = "User"
+            value = "{{reporter}}"
+            isLabel = false
+          },
+          {
+            name = "Organization"
+            value = "{{issue.organizations.first.name}}"
+            isLabel = false
+          },
+        ]
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_service_management___template@sssbs
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "CREATION_TYPE"
+      tagValue = "USER"
+    },
+    {
+      tagType = "SAMPLE_RULE"
+      tagValue = "service_desk"
+    },
+    {
+      tagType = "TEMPLATE_ID"
+      tagValue = "itsm_template_4"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10047"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Organization set -> Find/Create contact (Insight Object)"
+}

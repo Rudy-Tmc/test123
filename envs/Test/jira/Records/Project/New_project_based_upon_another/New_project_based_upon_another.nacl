@@ -1,0 +1,26 @@
+jira.Project New_project_based_upon_another@s {
+  key = "NPBUA"
+  description = ""
+  name = "New project based upon another"
+  projectTypeKey = "software"
+  components = [
+    jira.ProjectComponent.instance.New_project_based_upon_another_s__Bitbucket@uuuumuu,
+    jira.ProjectComponent.instance.New_project_based_upon_another_s__Blaat@uuuumuu,
+    jira.ProjectComponent.instance.New_project_based_upon_another_s__Confluence@uuuumuu,
+    jira.ProjectComponent.instance.New_project_based_upon_another_s__GUI@uuuumuu,
+    jira.ProjectComponent.instance.New_project_based_upon_another_s__Hardware_issues@uuuumuus,
+    jira.ProjectComponent.instance.New_project_based_upon_another_s__Jira@uuuumuu,
+    jira.ProjectComponent.instance.New_project_based_upon_another_s__Network@uuuumuu,
+    jira.ProjectComponent.instance.New_project_based_upon_another_s__NewComp@uuuumuu,
+    jira.ProjectComponent.instance.New_project_based_upon_another_s__Software_issues@uuuumuus,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.NPBUA__Software_Simplified_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.NPBUA_software_permission_scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.NPBUA__Kanban_Issue_Type_Screen_Scheme@fsssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.NPBUA__Kanban_Issue_Type_Scheme@fssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+}

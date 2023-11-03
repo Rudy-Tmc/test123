@@ -1,0 +1,222 @@
+jira.Automation a_Alpha {
+  name = "a"
+  state = "ENABLED"
+  description = ""
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.jql.scheduled"
+    value = {
+      schedule = {
+        cronExpression = ""
+        method = "BASIC"
+        rate = 0
+        rateInterval = 86400
+        rRule = '''
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Amsterdam:20231009T084537
+RRULE:FREQ=WEEKLY;BYHOUR=9;BYMINUTE=0;BYSECOND=0;BYDAY=MO;INTERVAL=1
+END:VEVENT
+
+'''
+      }
+      jql = "${ jira.Field.instance.Key.name } = AL-80"
+      executionMode = "jql"
+      onlyUpdatedIssues = false
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 10
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.End_Date__Gantt___datetime__c@sshiuuuu.name
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:datetime"
+            type = "SET"
+            rawValue = "{{now}}"
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "1"
+        second = ""
+        operator = "EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+Hi,
+Dankjewel voor je briefing!
+We gaan deze bespreken tijdens ons grafisch overleg op donderdag.
+
+Hieronder lees je wat er daarna met je briefing gebeurt:
+* Wij ontvangen vanuit veel verschillende opdrachtgevers opdrachten voor grafisch ontwerp. Om dit proces goed te laten verlopen, werken wij met een backlog en in sprints.
+* Jouw briefing komt automatisch op de backlog.
+* Onze sprint duurt twee weken (even + oneven week).
+* Elke dinsdag in een even week bepalen we welke projecten we in de sprint daarna oppakken (sprintvoorbereiding). Dus op de dinsdag in week 2 plannen we de projecten voor week 4 en 5.
+* De minimale doorlooptijd voordat jouw briefing opgepakt kan worden is 2,5 week.
+* Dit is echter afhankelijk van de prioritering van andere projecten, de volledigheid van de briefing en de beschikbare uren.
+'''
+        publicComment = false
+        sendNotifications = true
+        addCommentOnce = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1696833995482"
+        name = {
+          type = "FREE"
+          value = "values"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = ", { \"value\": \"GEB-118801\" }"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{values}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1696833995482"
+        name = {
+          type = "FREE"
+          value = "values"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{#if(values.startsWith(\",\"))}}{{values.subStringAfter(\",\")}}{{/}}{{#if(not(values.startsWith(\",\")))}}{{values}}{{/}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{#if(values.startsWith(\",\"))}}{{values.subStringAfter(\",\")}}{{/}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{#if(not(values.startsWith(\",\")))}}{{values}}{{/}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{values}}"
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Alpha
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10011"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "a"
+}

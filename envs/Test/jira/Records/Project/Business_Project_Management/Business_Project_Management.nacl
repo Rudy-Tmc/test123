@@ -1,0 +1,29 @@
+jira.Project Business_Project_Management@s {
+  key = "BPM"
+  description = ""
+  name = "Business Project Management"
+  projectTypeKey = "business"
+  components = [
+    jira.ProjectComponent.instance.Business_Project_Management_s__Bitbucket@uumuu,
+    jira.ProjectComponent.instance.Business_Project_Management_s__Blaat@uumuu,
+    jira.ProjectComponent.instance.Business_Project_Management_s__Confluence@uumuu,
+    jira.ProjectComponent.instance.Business_Project_Management_s__GUI@uumuu,
+    jira.ProjectComponent.instance.Business_Project_Management_s__Hardware_issues@uumuus,
+    jira.ProjectComponent.instance.Business_Project_Management_s__Jira@uumuu,
+    jira.ProjectComponent.instance.Business_Project_Management_s__Network@uumuu,
+    jira.ProjectComponent.instance.Business_Project_Management_s__NewComp@uumuu,
+    jira.ProjectComponent.instance.Business_Project_Management_s__Software_issues@uumuus,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.BPM__Project_Management_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.BPM_permission_scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.BPM__Project_Management_Issue_Type_Screen_Scheme@fssssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.BPM__Project_Management_Issue_Type_Scheme@fsssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  fieldContexts = [
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Business_Project_Management@uuuuumusssssfsss,
+  ]
+}

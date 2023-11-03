@@ -1,0 +1,10 @@
+jira.Field Organizations_for_reporting__textfield__c@ssuuuu {
+  name = "Organizations for reporting"
+  description = "This field is only used for reporting purposes, do not change it. (Migrated on 3 Apr 2020 12:39 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Organizations_for_reporting__textfield__c_ssuuuu_Default_Configuration_Scheme_for_Organizations_for_reporting@uuuuuumussssss,
+  ]
+  _alias = "Organizations for reporting"
+}

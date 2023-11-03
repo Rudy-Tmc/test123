@@ -1,0 +1,10 @@
+jira.Field Head_of_department__userpicker__c@ssuuuu {
+  name = "Head of department"
+  description = "(Migrated on 3 Apr 2020 12:39 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:userpickergroupsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:userpicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Head_of_department__userpicker__c_ssuuuu_Default_Configuration_Scheme_for_Head_of_department@uuuuuumussssss,
+  ]
+  _alias = "Head of department"
+}

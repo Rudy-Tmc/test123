@@ -1,0 +1,8 @@
+jira.ProjectComponent Demo_service_desk_s__SystemX@uumuu {
+  name = "SystemX"
+  assigneeType = "UNASSIGNED"
+  _parent = [
+    jira.Project.instance.Demo_service_desk@s,
+  ]
+  _alias = "Demo service desk:SystemX"
+}

@@ -1,0 +1,13 @@
+jira.IssueTypeScheme AL__Scrum_Issue_Type_Scheme@fssss {
+  name = "AL: Scrum Issue Type Scheme"
+  description = "(Migrated on 3 Apr 2020 12:40 UTC)"
+  defaultIssueTypeId = jira.IssueType.instance.Task
+  issueTypeIds = [
+    jira.IssueType.instance.Project,
+    jira.IssueType.instance.Epic,
+    jira.IssueType.instance.Task,
+    jira.IssueType.instance.Story,
+    jira.IssueType.instance.Bug,
+    jira.IssueType.instance.Sub_task@b,
+  ]
+}

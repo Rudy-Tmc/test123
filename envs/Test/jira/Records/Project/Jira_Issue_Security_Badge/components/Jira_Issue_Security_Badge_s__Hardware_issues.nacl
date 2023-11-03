@@ -1,0 +1,9 @@
+jira.ProjectComponent Jira_Issue_Security_Badge_s__Hardware_issues@uuumuus {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "Hardware issues"
+  _parent = [
+    jira.Project.instance.Jira_Issue_Security_Badge@s,
+  ]
+  _alias = "Jira Issue Security Badge:Hardware issues"
+}

@@ -1,0 +1,5 @@
+jira.IssueLinkType Hierarchy__Gantt_@shi {
+  name = "Hierarchy [Gantt]"
+  inward = "is parent of"
+  outward = "is child of"
+}

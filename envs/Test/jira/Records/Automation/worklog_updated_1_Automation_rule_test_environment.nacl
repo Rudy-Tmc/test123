@@ -1,0 +1,503 @@
+jira.Automation worklog_updated_1_Automation_rule_test_environment@ssusss {
+  name = "worklog updated 1"
+  state = "ENABLED"
+  description = ""
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.issue.event.trigger:worklog"
+    value = {
+      actions = [
+        "updated",
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{issue.${ jira.Field.instance.Time_tracking__timetracking@suu }.originalEstimateSeconds|0}}"
+        second = "0"
+        operator = "GREATER_THAN"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "An estimate has been set on this issue, which means this is not a general issue (like 'internal meetings')"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1675329876299"
+        name = {
+          type = "FREE"
+          value = "timestamp"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{now.jiraDateTime}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{${ jira.Field.instance.Log_Work__array@suu }.id}} - {{${ jira.Field.instance.Log_Work__array@suu }.timeSpentSeconds}} - {{timestamp}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "{{baseurl}}/rest/api/3/issue/{{issue}}/properties/worklog_{{${ jira.Field.instance.Log_Work__array@suu }.id}}"
+        headers = [
+          {
+            id = "_header_1675331006079"
+            name = "Content-Type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1675331058307"
+            name = "Authorization"
+            value = "Basic cnVkeS5ob2x0a2FtcEB0bWMubmw6N0Nud0QxSDVkUHdNT1NndDFNNFNFN0RD"
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "empty"
+        method = "GET"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "codebarrel.action.log"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "{{webResponse.body}} "
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 3
+              type = "jira.set.entity.property"
+              value = {
+                entityType = "ISSUE"
+                key = "worklog_{{worklog.id}}_{{timestamp}}"
+                value = "{{worklog.timeSpentSeconds}}"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 3
+              type = "jira.set.entity.property"
+              value = {
+                entityType = "ISSUE"
+                key = "worklog_{{worklog.id}}_previous"
+                value = "{{webResponse.body.value}}"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 3
+              type = "jira.set.entity.property"
+              value = {
+                entityType = "ISSUE"
+                key = "worklog_{{worklog.id}}_diff"
+                value = "{{#=}} {{worklog.timeSpentSeconds}} - {{webResponse.body.value}} {{/}}"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{webhookResponse.status}}"
+                second = "200"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 3
+      type = "jira.set.entity.property"
+      value = {
+        entityType = "ISSUE"
+        key = "worklog_{{${ jira.Field.instance.Log_Work__array@suu }.id}}"
+        value = "{{${ jira.Field.instance.Log_Work__array@suu }.timeSpentSeconds}}"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{issue.properties.originalestimate}} - {{${ jira.Field.instance.Log_Work__array@suu }.timeSpentSeconds}} "
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "codebarrel.action.log"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "More hours written then remaining: Status will be closed, not possible to write additional hours, time deficit exists. "
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 3
+              type = "jira.set.entity.property"
+              value = {
+                entityType = "ISSUE"
+                key = "timedeficit"
+                value = "{{#=}} - ( {{issue.properties.originalestimate}} - {{worklog.timeSpentSeconds}} ) {{/}}"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 3
+              type = "jira.set.entity.property"
+              value = {
+                entityType = "ISSUE"
+                key = "remainingestimate_previous"
+                value = "{{issue.properties.remainingestimate|0}}"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 3
+              type = "jira.set.entity.property"
+              value = {
+                entityType = "ISSUE"
+                key = "remainingestimate"
+                value = "{{#=}}{{issue.properties.remainingestimate|0}} + {{worklog.timeSpentSeconds|0}} - {{webResponse.body.value|0}}{{/}}"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}} {{issue.properties.originalestimate|0}} - {{worklog.timeSpentSeconds|0}} {{/}}"
+                second = "0"
+                operator = "LESS_THAN"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 3
+              type = "jira.set.entity.property"
+              value = {
+                entityType = "ISSUE"
+                key = "timedeficit"
+                value = "0"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 3
+              type = "jira.set.entity.property"
+              value = {
+                entityType = "ISSUE"
+                key = "remainingestimate_previous"
+                value = "{{issue.properties.remainingestimate|0}}"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 3
+              type = "jira.set.entity.property"
+              value = {
+                entityType = "ISSUE"
+                key = "remainingestimate"
+                value = "0"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 10
+              type = "jira.issue.transition"
+              value = {
+                operations = [
+                ]
+                sendNotifications = true
+                destinationStatus = {
+                  type = "NAME"
+                  value = jira.Status.instance.done.name
+                }
+                transitionMatch = ""
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "jira.issue.comment"
+              value = {
+                comment = "There are no remaining hours left, close issue to prevent creating more worklogs"
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}} {{issue.properties.originalestimate}} - {{worklog.timeSpentSeconds}} {{/}}"
+                second = "0"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 3
+              type = "jira.set.entity.property"
+              value = {
+                entityType = "ISSUE"
+                key = "timedeficit"
+                value = "0"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 3
+              type = "jira.set.entity.property"
+              value = {
+                entityType = "ISSUE"
+                key = "remainingestimate_previous"
+                value = "{{issue.properties.remainingestimate|0}}"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              schemaVersion = 3
+              type = "jira.set.entity.property"
+              value = {
+                entityType = "ISSUE"
+                key = "remainingestimate"
+                value = "{{#=}}{{issue.properties.remainingestimate|0}} + {{worklog.timeSpentSeconds|0}} - {{webResponse.body.value|0}}{{/}}"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Automation_rule_test_environment@s
+    },
+  ]
+  labels = [
+    jira.AutomationLabel.instance.worklog,
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-software::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10012"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "worklog updated 1"
+}

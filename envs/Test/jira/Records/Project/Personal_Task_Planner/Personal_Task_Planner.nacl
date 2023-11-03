@@ -1,0 +1,18 @@
+jira.Project Personal_Task_Planner@s {
+  key = "TODO"
+  description = ""
+  name = "Personal Task Planner"
+  projectTypeKey = "business"
+  workflowScheme = jira.WorkflowScheme.instance.TODO__Personal_task_planner_workflow_scheme@fsssss
+  permissionScheme = jira.PermissionScheme.instance.Default_Permission_Scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.TODO__Personal_task_planner_screen_scheme@fsssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.TODO__Personal_task_planner_issue_type_scheme@fssssss
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  fieldContexts = [
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Personal_Task_Planner@uuuuumusssssfsss,
+  ]
+}

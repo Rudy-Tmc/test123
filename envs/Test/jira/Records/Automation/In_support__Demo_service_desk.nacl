@@ -1,0 +1,185 @@
+jira.Automation In_support__Demo_service_desk@sauss {
+  name = "In support?"
+  state = "DISABLED"
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 1
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groups = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Mon-Sun: {{#=}} {{issue.${ jira.Field.instance.From_Day__textfield__c@suuuu }.left(1)}} <= {{issue.${ jira.Field.instance.To_Day__textfield__c@suuuu }.left(1)}}{{/}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "today >= from day: {{#=}}{{issue.${ jira.Field.instance.Created__datetime }.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} >= {{issue.${ jira.Field.instance.From_Day__textfield__c@suuuu }.left(1)}}{{/}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Today <= To day: {{#=}}{{issue.${ jira.Field.instance.Created__datetime }.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} <= {{issue.${ jira.Field.instance.To_Day__textfield__c@suuuu }.left(1)}} {{/}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Sun-Mon: {{#=}}{{issue.${ jira.Field.instance.From_Day__textfield__c@suuuu }.left(1)}} > {{issue.${ jira.Field.instance.To_Day__textfield__c@suuuu }.left(1)}}{{/}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "today <= from day: {{#=}}{{issue.${ jira.Field.instance.Created__datetime }.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} <= {{issue.${ jira.Field.instance.From_Day__textfield__c@suuuu }.left(1)}}{{/}}"
+    },
+    {
+      component = "ACTION"
+      schemaVersion = 1
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Today >= from day: {{#=}}{{issue.${ jira.Field.instance.Created__datetime }.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} >= {{issue.${ jira.Field.instance.To_Day__textfield__c@suuuu }.left(1)}}{{/}}"
+    },
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "codebarrel.action.log"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "This issue is within the support contract"
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{#=}}(({{issue.customfield_10041.left(1)}} <= {{issue.customfield_10040.left(1)}} && ({{issue.created.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} >= {{issue.customfield_10041.left(1)}} && {{issue.created.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} <= {{issue.customfield_10040.left(1)}})) ||     ({{issue.customfield_10041.left(1)}} > {{issue.customfield_10040.left(1)}}  && ({{issue.created.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} <= {{issue.customfield_10041.left(1)}} && {{issue.created.convertToTimeZone(\"Europe/Amsterdam\").getDayOfWeek}} >= {{issue.customfield_10040.left(1)}}))) {{/}}"
+                second = "1"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 1
+              type = "codebarrel.action.log"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "This issue is outside the support contract"
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Demo_service_desk@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10001"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "In support?"
+}

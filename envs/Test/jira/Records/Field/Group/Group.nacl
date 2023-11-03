@@ -1,0 +1,11 @@
+jira.Field Group__grouppicker__c {
+  name = "Group"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:grouppickersearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:grouppicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Group__grouppicker__c_Default_Configuration_Scheme_for_Group@uuuuussss,
+    jira.CustomFieldContext.instance.Group__grouppicker__c_Alpha,
+  ]
+  _alias = "Group"
+}

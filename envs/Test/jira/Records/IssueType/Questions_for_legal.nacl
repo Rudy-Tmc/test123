@@ -1,0 +1,6 @@
+jira.IssueType Questions_for_legal@s {
+  description = "Got a legal question? Submit it here."
+  name = "Questions for legal"
+  untranslatedName = "Questions for legal"
+  hierarchyLevel = 0
+}

@@ -1,0 +1,9 @@
+jira.ProjectComponent esd__GUI {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "GUI"
+  _parent = [
+    jira.Project.instance.esd,
+  ]
+  _alias = "esd:GUI"
+}

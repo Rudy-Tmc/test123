@@ -1,0 +1,10 @@
+jira.Field Approvers_insight__cmdb_object_cftype__c@suubbuu {
+  name = "Approvers insight"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Approvers_insight__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Approvers_insight@uuuuuuumusssss,
+  ]
+  _alias = "Approvers insight"
+}

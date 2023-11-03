@@ -1,0 +1,11 @@
+jira.Field Tijd_tot_eerste_reactie__sd_sla_field__c@sssuubbuu {
+  name = "Tijd tot eerste reactie"
+  description = "This custom field was created by Jira Service Management."
+  isLocked = true
+  searcherKey = "com.atlassian.servicedesk:sd-sla-field-searcher"
+  type = "com.atlassian.servicedesk:sd-sla-field"
+  contexts = [
+    jira.CustomFieldContext.instance.Tijd_tot_eerste_reactie__sd_sla_field__c_sssuubbuu_Standaardconfiguratieschema_voor_Tijd_tot_eerste_reactie@uuuuuuuuumusssss,
+  ]
+  _alias = "Tijd tot eerste reactie"
+}

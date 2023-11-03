@@ -1,0 +1,4 @@
+jira.ProjectRole Tempo_Project_Managers@s {
+  name = "Tempo Project Managers"
+  description = "This role grants users access to view all worklogs within a particular project. Deleting this role will prevent Tempo Project Managers from viewing worklogs accessed through the \"Tempo Project Managers\" role. This action cannot be undone."
+}

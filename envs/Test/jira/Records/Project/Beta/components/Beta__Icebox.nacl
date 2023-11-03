@@ -1,0 +1,8 @@
+jira.ProjectComponent Beta__Icebox {
+  name = "Icebox"
+  assigneeType = "UNASSIGNED"
+  _parent = [
+    jira.Project.instance.Beta,
+  ]
+  _alias = "Beta:Icebox"
+}

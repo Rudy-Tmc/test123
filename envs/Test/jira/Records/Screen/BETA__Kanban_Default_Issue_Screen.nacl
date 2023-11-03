@@ -1,0 +1,30 @@
+jira.Screen BETA__Kanban_Default_Issue_Screen@fssss {
+  name = "BETA: Kanban Default Issue Screen"
+  description = " (Migrated on 3 Apr 2020 12:39 UTC)"
+  tabs = {
+    Field_Tab@s = {
+      name = "Field Tab"
+      fields = [
+        jira.Field.instance.Epic_Name__gh_epic_label__c@suubbuu,
+        jira.Field.instance.Summary__string,
+        jira.Field.instance.Issue_Type__issuetype@suu,
+        jira.Field.instance.Reporter__user,
+        jira.Field.instance.Components__array,
+        jira.Field.instance.Description__string,
+        jira.Field.instance.Fix_versions__array@suu,
+        jira.Field.instance.Priority__priority,
+        jira.Field.instance.Labels__array,
+        jira.Field.instance.Security_Level__securitylevel@suu,
+        jira.Field.instance.Attachment__array,
+        jira.Field.instance.Linked_Issues__array@suu,
+        jira.Field.instance.Assignee__user,
+        jira.Field.instance.Epic_Link__gh_epic_link__c@suubbuu,
+        jira.Field.instance.WBSO_category__migrated___select__c@ssjkuuuu,
+        jira.Field.instance.Msg__viewmessage__c,
+        jira.Field.instance.Copied_SLA___date_time__datetime__c@ssbssuuuu,
+        jira.Field.instance.Due_date__date@suu,
+      ]
+      position = 0
+    }
+  }
+}

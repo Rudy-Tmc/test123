@@ -1,0 +1,6 @@
+jira.IssueType Initiative {
+  description = " (Migrated on 3 Apr 2020 12:39 UTC)"
+  name = "Initiative"
+  untranslatedName = "Initiative"
+  hierarchyLevel = 3
+}

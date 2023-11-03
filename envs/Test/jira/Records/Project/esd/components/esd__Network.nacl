@@ -1,0 +1,9 @@
+jira.ProjectComponent esd__Network {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "Network"
+  _parent = [
+    jira.Project.instance.esd,
+  ]
+  _alias = "esd:Network"
+}

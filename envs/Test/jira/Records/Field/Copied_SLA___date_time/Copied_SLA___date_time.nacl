@@ -1,0 +1,21 @@
+jira.Field Copied_SLA___date_time__datetime__c@ssbssuuuu {
+  name = "Copied SLA - date time"
+  description = '''
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	JIRA.bind(JIRA.Events.NEW_CONTENT_ADDED, function (e,context) {		
+		callFunction();
+	});
+		callFunction();
+	function callFunction(){  		AJS.$('label[for=customfield_10123]').css({color:'#ff6347'});
+	}
+});
+</script>
+'''
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:datetimerange"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datetime"
+  contexts = [
+    jira.CustomFieldContext.instance.Copied_SLA___date_time__datetime__c_ssbssuuuu_Default_Configuration_Scheme_for_Copied_SLA___date_time@uuuuuuuuumussssssbss,
+  ]
+  _alias = "Copied SLA - date time"
+}

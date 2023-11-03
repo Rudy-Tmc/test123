@@ -1,0 +1,13 @@
+jira.Screen test {
+  name = "test"
+  description = ""
+  tabs = {
+    Field_Tab@s = {
+      name = "Field Tab"
+      fields = [
+        jira.Field.instance.Log_Work__array@suu,
+      ]
+      position = 0
+    }
+  }
+}

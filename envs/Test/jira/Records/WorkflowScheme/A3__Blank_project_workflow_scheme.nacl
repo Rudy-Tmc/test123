@@ -1,0 +1,15 @@
+jira.WorkflowScheme A3__Blank_project_workflow_scheme@fssss {
+  name = "A3: Blank project workflow scheme"
+  description = ""
+  defaultWorkflow = jira.Workflow.instance.A3__Blank_project_default_workflow@fssss
+  items = [
+    {
+      workflow = jira.Workflow.instance.A3__Blank_project_default_workflow@fssss
+      issueType = jira.IssueType.instance.Task
+    },
+    {
+      workflow = jira.Workflow.instance.A3__Blank_project_default_workflow@fssss
+      issueType = jira.IssueType.instance.Sub_task@b
+    },
+  ]
+}

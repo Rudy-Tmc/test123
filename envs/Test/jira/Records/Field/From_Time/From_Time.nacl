@@ -1,0 +1,20 @@
+jira.Field From_time__select__c@suuuu {
+  name = "From time"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+  contexts = [
+    jira.CustomFieldContext.instance.From_time__select__c_suuuu_Default_Configuration_Scheme_for_From_time@uuuuumusssss,
+  ]
+  _alias = "From time"
+}
+jira.Field From_Time__textfield__c@suuuu {
+  name = "From Time"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.From_Time__textfield__c_suuuu_Default_Configuration_Scheme_for_From_Time@uuuuumusssss,
+  ]
+  _alias = "From Time"
+}

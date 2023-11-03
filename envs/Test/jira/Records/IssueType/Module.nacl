@@ -1,0 +1,6 @@
+jira.IssueType Module {
+  description = ""
+  name = "Module"
+  untranslatedName = "Module"
+  hierarchyLevel = 0
+}

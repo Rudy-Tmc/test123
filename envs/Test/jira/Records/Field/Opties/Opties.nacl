@@ -1,0 +1,10 @@
+jira.Field Opties__multicheckboxes__c {
+  name = "Opties"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:multicheckboxes"
+  contexts = [
+    jira.CustomFieldContext.instance.Opties__multicheckboxes__c_Default_Configuration_Scheme_for_Opties@uuuuussss,
+  ]
+  _alias = "Opties"
+}

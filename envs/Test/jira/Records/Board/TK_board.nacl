@@ -1,0 +1,46 @@
+jira.Board TK_board@s {
+  name = "TK board"
+  type = "kanban"
+  admins = {
+    users = [
+      {
+        id = "5e300b4ce504e30cabd38652"
+        displayName = "rudyholtkamp+rudy.atlassian.net"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Template_Kanban@s
+  }
+  filterId = jira.Filter.instance.Filter_for_TK_board@s
+  columnConfig = {
+    columns = [
+      {
+        name = "Backlog"
+        statuses = [
+          jira.Status.instance.backlog,
+        ]
+      },
+      {
+        name = "Selected for Development"
+        statuses = [
+          jira.Status.instance.selected_for_development@s,
+        ]
+      },
+      {
+        name = "In Progress"
+        statuses = [
+          jira.Status.instance.in_progress@s,
+        ]
+      },
+      {
+        name = "Done"
+        statuses = [
+          jira.Status.instance.done,
+        ]
+      },
+    ]
+    constraintType = "issueCount"
+  }
+  subQuery = "fixVersion in unreleasedVersions() OR fixVersion is EMPTY"
+}

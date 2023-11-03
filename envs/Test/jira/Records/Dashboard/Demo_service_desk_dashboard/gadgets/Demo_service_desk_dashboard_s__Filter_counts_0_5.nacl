@@ -1,0 +1,89 @@
+jira.DashboardGadget Demo_service_desk_dashboard_s__Filter_counts_0_5@uuumuusuu {
+  moduleKey = "com.atlassian.servicedesk.dashboard-items-plugin:filter-count-dashboard-item"
+  color = "blue"
+  position = {
+    row = 5
+    column = 0
+  }
+  title = "Filter counts"
+  properties = [
+    {
+      key = "countOptions"
+      value = [
+        {
+          name = "At risk - Time to first response"
+          jql = "\"Time to first response\" < 30m AND \"Time to first response\" != breached()"
+          hasTrigger = false
+          trigger = {
+            display = ""
+            triggerEquality = ""
+            triggerOn = ""
+          }
+          id = "c113"
+        },
+        {
+          name = "At risk - Time to resolution"
+          jql = "\"Time to resolution\" < 30m AND \"Time to resolution\" != breached()"
+          hasTrigger = false
+          trigger = {
+            display = ""
+            triggerEquality = ""
+            triggerOn = ""
+          }
+          id = "c117"
+        },
+        {
+          name = "At risk - Onzin"
+          jql = "Onzin < 30m AND Onzin != breached()"
+          hasTrigger = false
+          trigger = {
+            display = ""
+            triggerEquality = ""
+            triggerOn = ""
+          }
+          id = "c121"
+        },
+        {
+          name = "At risk - Time waiting for customers"
+          jql = "\"Time waiting for customers\" < 30m AND \"Time waiting for customers\" != breached()"
+          hasTrigger = false
+          trigger = {
+            display = ""
+            triggerEquality = ""
+            triggerOn = ""
+          }
+          id = "c125"
+        },
+      ]
+    },
+    {
+      key = "isConfigured"
+      value = true
+    },
+    {
+      key = "projectFilterDetails"
+      values = [
+        {
+          key = "name"
+          value = "Demo service desk"
+        },
+        {
+          key = "type"
+          value = "project"
+        },
+        {
+          key = "id"
+          value = "10001"
+        },
+      ]
+    },
+    {
+      key = "refresh"
+      value = "15"
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Demo_service_desk_dashboard@s,
+  ]
+  _alias = "Filter counts"
+}

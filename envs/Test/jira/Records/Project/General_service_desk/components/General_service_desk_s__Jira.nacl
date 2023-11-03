@@ -1,0 +1,13 @@
+jira.ProjectComponent General_service_desk_s__Jira@uumuu {
+  name = "Jira"
+  description = "Issues related to Jira. Created by Jira Service Desk."
+  assigneeType = "UNASSIGNED"
+  leadAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  _parent = [
+    jira.Project.instance.General_service_desk@s,
+  ]
+  _alias = "General service desk:Jira"
+}

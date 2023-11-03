@@ -1,0 +1,6 @@
+jira.IssueType Spike {
+  description = " (Migrated on 3 Apr 2020 12:39 UTC)"
+  name = "Spike"
+  untranslatedName = "Spike"
+  hierarchyLevel = 0
+}

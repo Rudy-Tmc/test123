@@ -1,0 +1,8 @@
+jira.Filter Risks_in_AL@s {
+  name = "Risks in AL"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  jql = "${ jira.Field.instance.Project__project } in (\"IT service management - template\")"
+}

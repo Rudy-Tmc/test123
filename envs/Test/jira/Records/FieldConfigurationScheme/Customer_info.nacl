@@ -1,0 +1,10 @@
+jira.FieldConfigurationScheme Customer_info@s {
+  name = "Customer info"
+  description = ""
+  items = [
+    {
+      issueTypeId = "default"
+      fieldConfigurationId = jira.FieldConfiguration.instance.Customer_Info@s
+    },
+  ]
+}

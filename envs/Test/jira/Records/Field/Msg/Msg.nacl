@@ -1,0 +1,18 @@
+jira.Field Msg__viewmessage__c {
+  name = "Msg"
+  description = ""
+  type = "com.atlassian.jira.toolkit:viewmessage"
+  contexts = [
+    jira.CustomFieldContext.instance.Msg__viewmessage__c_Default_Configuration_Scheme_for_Msg@uuuuussss,
+  ]
+  _alias = "Msg"
+}
+jira.Field Msg__message__c {
+  name = "Msg"
+  description = "*{color:#d04437}...Check [this link|http://example.com] before proceed{color}*"
+  type = "com.atlassian.jira.toolkit:message"
+  contexts = [
+    jira.CustomFieldContext.instance.Msg__message__c_Default_Configuration_Scheme_for_Msg@uuuuussss,
+  ]
+  _alias = "Msg"
+}

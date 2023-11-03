@@ -1,0 +1,35 @@
+jira.WorkflowScheme Jira_Service_Desk_IT_Support_Workflow_Scheme_generated_for_Project_SDAF@s {
+  name = "Jira Service Desk IT Support Workflow Scheme generated for Project SDAF"
+  description = "This Jira Service Desk IT Support Workflow Scheme was generated for Project SDAF"
+  defaultWorkflow = jira.Workflow.instance.jira
+  items = [
+    {
+      workflow = jira.Workflow.instance.SDAF__Jira_Service_Desk_default_workflow@fsssss
+      issueType = jira.IssueType.instance.Task
+    },
+    {
+      workflow = jira.Workflow.instance.SDAF__Jira_Service_Desk_default_workflow@fsssss
+      issueType = jira.IssueType.instance.Sub_task@b
+    },
+    {
+      workflow = jira.Workflow.instance.SDAF__Service_Request_Fulfilment_workflow_for_Jira_Service_Desk@fssssssss
+      issueType = jira.IssueType.instance.Service_Request@s
+    },
+    {
+      workflow = jira.Workflow.instance.SDAF__Service_Request_Fulfilment_with_Approvals_workflow_for_Jira_Service_Desk@fssssssssss
+      issueType = jira.IssueType.instance.Service_Request_with_Approvals@s
+    },
+    {
+      workflow = jira.Workflow.instance.SDAF__Incident_Management_workflow_for_Jira_Service_Desk@fsssssss
+      issueType = jira.IssueType.instance.Incident
+    },
+    {
+      workflow = jira.Workflow.instance.SDAF__Change_Management_workflow_for_Jira_Service_Desk@fsssssss
+      issueType = jira.IssueType.instance.Change
+    },
+    {
+      workflow = jira.Workflow.instance.SDAF__Problem_Management_workflow_for_Jira_Service_Desk@fsssssss
+      issueType = jira.IssueType.instance.Problem
+    },
+  ]
+}

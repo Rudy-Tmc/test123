@@ -1,0 +1,186 @@
+jira.DashboardGadget Time_in_status_s__unnamed_0@uumuuu {
+  moduleKey = "com.atlassian.plugins.atlassian-connect-plugin:io.bloompeak.status-time__st-dashboard-item"
+  color = "blue"
+  position = {
+    row = 2
+    column = 0
+  }
+  title = ""
+  properties = [
+    {
+      key = "report"
+      values = [
+        {
+          key = "id"
+          value = -1
+        },
+        {
+          key = "name"
+          value = ""
+        },
+        {
+          key = "owner"
+          value = ""
+        },
+        {
+          key = "isPrivate"
+          value = true
+        },
+        {
+          key = "params"
+          values = [
+            {
+              key = "mode"
+              value = "jql"
+            },
+            {
+              key = "jql"
+              value = "filter=10054"
+            },
+            {
+              key = "fields"
+              values = [
+                {
+                  key = "created"
+                  values = [
+                    {
+                      key = "type"
+                      value = "datetime"
+                    },
+                    {
+                      key = "start"
+                      value = "2021-11-01"
+                    },
+                    {
+                      key = "end"
+                      value = ""
+                    },
+                  ]
+                },
+                {
+                  key = "project"
+                  values = [
+                    {
+                      key = "type"
+                      value = "project"
+                    },
+                    {
+                      key = "values"
+                      value = [
+                        {
+                          label = "Alpha"
+                          value = "AL"
+                        },
+                        {
+                          label = "Beta"
+                          value = "BETA"
+                        },
+                      ]
+                    },
+                  ]
+                },
+                {
+                  key = "status"
+                  values = [
+                    {
+                      key = "type"
+                      value = "status"
+                    },
+                    {
+                      key = "values"
+                      value = [
+                        {
+                          label = "Done"
+                          value = "Done"
+                          color = "green"
+                        },
+                      ]
+                    },
+                  ]
+                },
+              ]
+            },
+            {
+              key = "options"
+              values = [
+                {
+                  key = "calendarId"
+                  value = 1873
+                },
+                {
+                  key = "columnIds"
+                  value = [
+                    "issuetype",
+                    "summary",
+                    "status",
+                    "created",
+                  ]
+                },
+                {
+                  key = "durationFormatArgs"
+                  value = [
+                    "y[y] M[M] w[w] d[d] h[h] m[m]",
+                  ]
+                },
+                {
+                  key = "durationFieldId"
+                  value = "status"
+                },
+                {
+                  key = "sortOrders"
+                  value = [
+                    {
+                      key = "issuekey"
+                      sortOrder = "DESC"
+                    },
+                  ]
+                },
+                {
+                  key = "reportTypeSelected"
+                  value = "list"
+                },
+                {
+                  key = "showStatusEntry"
+                  value = false
+                },
+                {
+                  key = "showStatusCount"
+                  value = false
+                },
+                {
+                  key = "showTotalTime"
+                  value = false
+                },
+                {
+                  key = "reduceFunc"
+                  value = "sum"
+                },
+                {
+                  key = "history"
+                  values = [
+                    {
+                      key = "start"
+                      value = ""
+                    },
+                    {
+                      key = "end"
+                      value = ""
+                    },
+                  ]
+                },
+                {
+                  key = "rowsPerPage"
+                  value = 50
+                },
+              ]
+            },
+          ]
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Time_in_status@s,
+  ]
+  _alias = ""
+}

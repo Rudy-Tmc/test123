@@ -1,0 +1,6 @@
+jira.IssueType Employee_offboarding@s {
+  description = "Submit an offboarding request for an employee leaving the company."
+  name = "Employee offboarding"
+  untranslatedName = "Employee offboarding"
+  hierarchyLevel = 0
+}

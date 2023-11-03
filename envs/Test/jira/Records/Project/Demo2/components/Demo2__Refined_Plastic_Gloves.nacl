@@ -1,0 +1,9 @@
+jira.ProjectComponent Demo2__Refined_Plastic_Gloves@uuss {
+  name = "Refined Plastic Gloves"
+  description = "Component: User-centric optimal strategy"
+  assigneeType = "PROJECT_LEAD"
+  _parent = [
+    jira.Project.instance.Demo2,
+  ]
+  _alias = "Demo2:Refined Plastic Gloves"
+}

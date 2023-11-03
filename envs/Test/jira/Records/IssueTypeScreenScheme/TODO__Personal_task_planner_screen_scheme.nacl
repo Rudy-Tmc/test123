@@ -1,0 +1,10 @@
+jira.IssueTypeScreenScheme TODO__Personal_task_planner_screen_scheme@fsssss {
+  name = "TODO: Personal task planner screen scheme"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.TODO__Personal_task_planner_screen_scheme@fsssss
+    },
+  ]
+}

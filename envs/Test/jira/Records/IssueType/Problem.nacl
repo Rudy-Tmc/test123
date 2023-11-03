@@ -1,0 +1,6 @@
+jira.IssueType Problem {
+  description = "Track underlying causes of incidents. Created by Jira Service Desk."
+  name = "Problem"
+  untranslatedName = "Problem"
+  hierarchyLevel = 0
+}

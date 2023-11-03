@@ -1,0 +1,35 @@
+jira.WorkflowScheme Jira_Service_Desk_IT_Support_Workflow_Scheme_generated_for_Project_FSD@s {
+  name = "Jira Service Desk IT Support Workflow Scheme generated for Project FSD"
+  description = "This Jira Service Desk IT Support Workflow Scheme was generated for Project FSD"
+  defaultWorkflow = jira.Workflow.instance.jira
+  items = [
+    {
+      workflow = jira.Workflow.instance.FSD__Jira_Service_Desk_default_workflow@fsssss
+      issueType = jira.IssueType.instance.Task
+    },
+    {
+      workflow = jira.Workflow.instance.FSD__Jira_Service_Desk_default_workflow@fsssss
+      issueType = jira.IssueType.instance.Sub_task@b
+    },
+    {
+      workflow = jira.Workflow.instance.FSD__Simple_ESM_workflow_for_Jira_Service_Desk@fsssssss
+      issueType = jira.IssueType.instance.Emailed_request@s
+    },
+    {
+      workflow = jira.Workflow.instance.FSD__Default_ESM_workflow_for_Jira_Service_Desk@fsssssss
+      issueType = jira.IssueType.instance.Report_a_maintenance_issue@s
+    },
+    {
+      workflow = jira.Workflow.instance.FSD__Simple_ESM_workflow_for_Jira_Service_Desk@fsssssss
+      issueType = jira.IssueType.instance.Request_a_move@s
+    },
+    {
+      workflow = jira.Workflow.instance.FSD__Default_ESM_workflow_for_Jira_Service_Desk@fsssssss
+      issueType = jira.IssueType.instance.Request_an_event@s
+    },
+    {
+      workflow = jira.Workflow.instance.FSD__Simple_ESM_workflow_for_Jira_Service_Desk@fsssssss
+      issueType = jira.IssueType.instance.Questions_for_facilities@s
+    },
+  ]
+}

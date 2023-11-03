@@ -1,0 +1,9 @@
+jira.ProjectComponent Next_gen_scrum_s__Bitbucket@uumuu {
+  description = "This is a Jira component"
+  assigneeType = "UNASSIGNED"
+  name = "Bitbucket"
+  _parent = [
+    jira.Project.instance.Next_gen_scrum@s,
+  ]
+  _alias = "Next gen scrum:Bitbucket"
+}

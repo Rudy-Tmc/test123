@@ -1,0 +1,9 @@
+jira.ProjectComponent Demo2__Ergonomic_Concrete_Tuna@uuss {
+  name = "Ergonomic Concrete Tuna"
+  description = "Component: Visionary dedicated array"
+  assigneeType = "PROJECT_LEAD"
+  _parent = [
+    jira.Project.instance.Demo2,
+  ]
+  _alias = "Demo2:Ergonomic Concrete Tuna"
+}

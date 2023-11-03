@@ -1,0 +1,7 @@
+jira.ScreenScheme DD__Jira_Service_Management_Screen_Scheme@fsssss {
+  name = "DD: Jira Service Management Screen Scheme"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.DD__Jira_Service_Management_Screen@fssss
+  }
+}

@@ -1,0 +1,8 @@
+jira.ScreenScheme IWPV__Project_Management_Screen_Scheme@fssss {
+  name = "IWPV: Project Management Screen Scheme"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.IWPV__Project_Management_Edit_View_Issue_Screen@fsssdss
+    create = jira.Screen.instance.IWPV__Project_Management_Create_Issue_Screen@fsssss
+  }
+}

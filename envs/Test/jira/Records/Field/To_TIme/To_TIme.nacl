@@ -1,0 +1,20 @@
+jira.Field To_time__select__c@suuuu {
+  name = "To time"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+  contexts = [
+    jira.CustomFieldContext.instance.To_time__select__c_suuuu_Default_Configuration_Scheme_for_To_time@uuuuumusssss,
+  ]
+  _alias = "To time"
+}
+jira.Field To_TIme__textfield__c@suuuu {
+  name = "To TIme"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.To_TIme__textfield__c_suuuu_Default_Configuration_Scheme_for_To_TIme@uuuuumusssss,
+  ]
+  _alias = "To TIme"
+}

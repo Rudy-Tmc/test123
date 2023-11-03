@@ -1,0 +1,10 @@
+jira.Field linked_issue___sprint_date__datepicker__c@ssbssuuuu {
+  name = "linked issue - sprint date"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:daterange"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+  contexts = [
+    jira.CustomFieldContext.instance.linked_issue___sprint_date__datepicker__c_ssbssuuuu_Default_Configuration_Scheme_for_linked_issue___sprint_date@uuuuuuuuumussssssbss,
+  ]
+  _alias = "linked issue - sprint date"
+}

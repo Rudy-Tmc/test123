@@ -1,0 +1,14 @@
+jira.Filter "2022_Q1_issues@s" {
+  name = "2022 Q1 issues"
+  description = "Filter managed by ScriptRunner:  issueFunction in issuesInEpics(\"Big room planning\" in (\"2022 Q1\"))"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  jql = " cf[${ jira.Field.instance.Epic_Link__gh_epic_link__c@suubbuu }] in (AL-35,AL-34)"
+  sharePermissions = [
+    {
+      type = "authenticated"
+    },
+  ]
+}

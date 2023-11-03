@@ -1,0 +1,10 @@
+jira.Field serial_number__tf___textfield__c@ssjkuuuu {
+  name = "serial number (tf)"
+  description = "text"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.serial_number__tf___textfield__c_ssjkuuuu_Default_Configuration_Scheme_for_serial_number__tf_@uuuuuuuumussssssjk,
+  ]
+  _alias = "serial number (tf)"
+}

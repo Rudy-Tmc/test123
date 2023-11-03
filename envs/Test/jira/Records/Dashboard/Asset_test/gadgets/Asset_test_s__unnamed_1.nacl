@@ -1,0 +1,13 @@
+jira.DashboardGadget Asset_test_s__unnamed_1@umuuu {
+  moduleKey = "com.atlassian.forge:ari:cloud:ecosystem::extension/ebff831e-2c4c-4220-a43f-39c14f866d4a/53cc1c1a-e7ec-44d8-90a9-80b9c028af40/static/assets-dashboard-gadget-hello-world-gadget"
+  color = "blue"
+  position = {
+    row = 0
+    column = 0
+  }
+  title = ""
+  _parent = [
+    jira.Dashboard.instance.Asset_test@s,
+  ]
+  _alias = ""
+}

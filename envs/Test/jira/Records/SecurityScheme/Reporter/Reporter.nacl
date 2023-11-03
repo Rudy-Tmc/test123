@@ -1,0 +1,8 @@
+jira.SecurityScheme Reporter {
+  name = "Reporter"
+  description = ""
+  levels = [
+    jira.SecurityLevel.instance.Reporter__Reporter_level@uus,
+  ]
+  defaultLevel = jira.SecurityLevel.instance.Reporter__Reporter_level@uus
+}

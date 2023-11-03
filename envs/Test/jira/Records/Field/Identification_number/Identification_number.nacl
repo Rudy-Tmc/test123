@@ -1,0 +1,10 @@
+jira.Field Identification_number__textfield__c@suuuu {
+  name = "Identification number"
+  description = "(Migrated on 3 Apr 2020 12:39 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Identification_number__textfield__c_suuuu_Default_Configuration_Scheme_for_Identification_number@uuuuumusssss,
+  ]
+  _alias = "Identification number"
+}

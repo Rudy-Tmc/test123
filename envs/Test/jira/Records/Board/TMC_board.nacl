@@ -1,0 +1,39 @@
+jira.Board TMC_board@s {
+  name = "TMC board"
+  type = "simple"
+  admins = {
+    users = [
+      {
+        id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+        displayName = "Rudy Holtkamp"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Tmc
+  }
+  filterId = jira.Filter.instance.missing_10057
+  columnConfig = {
+    columns = [
+      {
+        name = "Bezig"
+        statuses = [
+          jira.Status.instance.missing_10061,
+        ]
+      },
+      {
+        name = "Klaar"
+        statuses = [
+          jira.Status.instance.missing_10062,
+        ]
+      },
+      {
+        name = "Te doen"
+        statuses = [
+          jira.Status.instance.missing_10060,
+        ]
+      },
+    ]
+    constraintType = "none"
+  }
+}

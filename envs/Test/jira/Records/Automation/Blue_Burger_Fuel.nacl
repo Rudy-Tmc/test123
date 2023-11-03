@@ -1,0 +1,220 @@
+jira.Automation Blue_Burger_Fuel@us {
+  name = "Blue"
+  state = "ENABLED"
+  description = ""
+  authorAccountId = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    schemaVersion = 2
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "VALUE_ADDED"
+      fields = [
+        {
+          value = jira.Field.instance.Organizations__sd_customer_organizations__c@uubbuu.name
+          type = "fieldName"
+        },
+      ]
+      actions = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      schemaVersion = 1
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 10
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Client_team__select__c@suuuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Blue team"
+                    }
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.jql.condition"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "${ jira.Field.instance.Key.name } = {{issue}} and ${ jira.Field.instance.Organizations__sd_customer_organizations__c@uubbuu.name } in organizationDetail(\"Client team\", \"Blue team\")"
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 10
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Client_team__select__c@suuuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Red team"
+                    }
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.jql.condition"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "${ jira.Field.instance.Key.name } = {{issue}} and ${ jira.Field.instance.Organizations__sd_customer_organizations__c@uubbuu.name } in organizationDetail(\"Client team\", \"Red team\")"
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          schemaVersion = 1
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              schemaVersion = 10
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Client_team__select__c@suuuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Green team"
+                    }
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              schemaVersion = 1
+              type = "jira.jql.condition"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "${ jira.Field.instance.Key.name } = {{issue}} and ${ jira.Field.instance.Organizations__sd_customer_organizations__c@uubbuu.name } in organizationDetail(\"Client team\", \"Green team\")"
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Burger_Fuel@s
+    },
+  ]
+  labels = [
+  ]
+  tags = [
+    {
+      tagType = "IS_RULE_UPDATED"
+      tagValue = "true"
+    },
+  ]
+  ruleHome = {
+    
+    ruleBillingHome = {
+      locationARI = "ari:cloud:jira-servicedesk::site/a2ab9907-a2ed-48fe-9138-15c0301eaee1"
+    }
+    ruleLifecycleHome = {
+      locationARI = "ari:cloud:jira:a2ab9907-a2ed-48fe-9138-15c0301eaee1:project/10067"
+    }
+  }
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "Blue"
+}

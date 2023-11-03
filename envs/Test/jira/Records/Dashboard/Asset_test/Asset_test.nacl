@@ -1,0 +1,13 @@
+jira.Dashboard Asset_test@s {
+  description = ""
+  name = "Asset test"
+  owner = {
+    id = "557058:fbbb56de-c97c-4b68-8216-2e193b8dffdc"
+    displayName = "Rudy Holtkamp"
+  }
+  gadgets = [
+    jira.DashboardGadget.instance.Asset_test_s__unnamed_1@umuuu,
+    jira.DashboardGadget.instance.Asset_test_s__unnamed_0@umuuu,
+  ]
+  layout = "A"
+}
